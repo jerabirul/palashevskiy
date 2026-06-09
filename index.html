@@ -8,8 +8,8 @@
     <meta name="keywords" content="Палашёвский 11, клубный дом, Патриаршие пруды, элитная недвижимость, Sminex">
     
     <meta property="og:title" content="Палашёвский 11 — клубный дом на Патриарших">
-    <meta property="og:description" content="Исключительный дом в приватной части Патриарших прудов. Тверская / Пушкинская — 8 минут пешком.">
-    <meta property="og:image" content="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg">
+    <meta property="og:description" content="Исключительный дом в приватной части Патриарших прудов.">
+    <meta property="og:image" content="Полуптичка.jpeg">
     <meta property="og:type" content="website">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,14 +20,37 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #0A0A0A; color: #E5E5E5; line-height: 1.5; scroll-behavior: smooth; }
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-        
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #1A1A1A; }
-        ::-webkit-scrollbar-thumb { background: #C5A16E; border-radius: 4px; }
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0A0A0A;
+            color: #E5E5E5;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1A1A1A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A16E;
+            border-radius: 4px;
+        }
+
         .section {
             padding: 100px 0;
             border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -35,13 +58,26 @@
             transform: translateY(50px);
             transition: opacity 0.9s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.9s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
-        .section.visible { opacity: 1; transform: translateY(0); }
-        .section:last-child { border-bottom: none; }
-        
-        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 60px; align-items: center; }
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
-        
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            align-items: center;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
         .section-title {
             font-family: 'Cormorant Garamond', serif;
             font-size: 56px;
@@ -66,8 +102,7 @@
             margin-bottom: 16px;
             font-weight: 600;
         }
-        
-        /* HERO с тёмным фоном и изображением */
+
         .hero {
             position: relative;
             min-height: 100vh;
@@ -83,14 +118,14 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.35;
+            opacity: 0.4;
             z-index: 0;
         }
         .hero::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+            background: linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.3) 100%);
             z-index: 1;
             pointer-events: none;
         }
@@ -123,20 +158,7 @@
             margin-bottom: 40px;
             line-height: 1.6;
         }
-        .metro-info {
-            background: rgba(197, 161, 110, 0.12);
-            border: 1px solid rgba(197, 161, 110, 0.3);
-            border-radius: 40px;
-            padding: 10px 24px;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 30px;
-        }
-        .metro-info i { font-size: 20px; color: #C5A16E; }
-        .metro-info span { font-size: 15px; font-weight: 500; color: #F0EDE6; }
-        .metro-info strong { color: #C5A16E; }
-        
+
         .hero-stats {
             display: flex;
             flex-wrap: wrap;
@@ -159,7 +181,7 @@
             color: #C5A16E;
             margin-top: 6px;
         }
-        
+
         .info-grid {
             display: flex;
             flex-wrap: wrap;
@@ -203,7 +225,7 @@
             color: #C5A16E;
             font-size: 18px;
         }
-        
+
         .btn {
             display: inline-flex;
             align-items: center;
@@ -234,22 +256,34 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 25px -8px rgba(197,161,110,0.4);
         }
-        
+
         .feature-block {
             background: #111111;
-            padding: 32px;
+            padding: 28px;
             border-radius: 24px;
             border: 1px solid #222;
-            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            transition: all 0.4s ease;
+            text-align: center;
         }
         .feature-block:hover {
             transform: translateY(-8px);
             border-color: #C5A16E;
             background: #161616;
         }
-        .feature-icon { font-size: 40px; color: #C5A16E; margin-bottom: 24px; }
-        .feature-title { font-size: 22px; font-weight: 600; margin-bottom: 12px; color: #F0EDE6; }
-        
+        .feature-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-bottom: 20px;
+        }
+        .feature-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #F0EDE6;
+        }
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -257,19 +291,32 @@
         }
         .service-card {
             background: #111111;
-            padding: 32px;
             border-radius: 24px;
             border: 1px solid #222;
-            text-align: center;
             transition: all 0.4s ease;
+            overflow: hidden;
+            text-align: center;
         }
         .service-card:hover {
             transform: translateY(-5px);
             border-color: #C5A16E;
         }
-        .service-icon { font-size: 40px; color: #C5A16E; margin-bottom: 20px; }
-        .service-card h3 { font-size: 20px; margin-bottom: 10px; color: #F0EDE6; }
-        
+        .service-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .service-card h3 {
+            font-size: 20px;
+            margin: 16px 16px 8px;
+            color: #F0EDE6;
+        }
+        .service-card p {
+            color: #999;
+            margin: 0 16px 20px;
+            font-size: 14px;
+        }
+
         .table-wrapper {
             overflow-x: auto;
             background: #0F0F0F;
@@ -292,11 +339,25 @@
             font-size: 14px;
             letter-spacing: 1px;
         }
-        tr:hover td { background: rgba(197,161,110,0.05); }
-        .price-rub { font-weight: 700; color: #C5A16E; white-space: nowrap; }
-        .price-usd, .price-eur { font-size: 13px; color: #888; white-space: nowrap; }
-        
-        .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        tr:hover td {
+            background: rgba(197,161,110,0.05);
+        }
+        .price-rub {
+            font-weight: 700;
+            color: #C5A16E;
+            white-space: nowrap;
+        }
+        .price-usd, .price-eur {
+            font-size: 13px;
+            color: #888;
+            white-space: nowrap;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
         .gallery-item {
             aspect-ratio: 4 / 3;
             background-size: cover;
@@ -305,8 +366,10 @@
             cursor: pointer;
             transition: all 0.4s ease;
         }
-        .gallery-item:hover { transform: scale(1.02); }
-        
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
         .slider-container {
             position: relative;
             border-radius: 24px;
@@ -339,10 +402,22 @@
             transition: all 0.3s;
             z-index: 10;
         }
-        .slider-btn:hover { background: #C5A16E; transform: translateY(-50%) scale(1.05); }
-        .slider-prev { left: 20px; }
-        .slider-next { right: 20px; }
-        .slider-dots { display: flex; justify-content: center; gap: 12px; margin-top: 24px; }
+        .slider-btn:hover {
+            background: #C5A16E;
+            transform: translateY(-50%) scale(1.05);
+        }
+        .slider-prev {
+            left: 20px;
+        }
+        .slider-next {
+            right: 20px;
+        }
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 24px;
+        }
         .dot {
             width: 8px;
             height: 8px;
@@ -351,10 +426,19 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-        .dot.active { background: #C5A16E; width: 24px; border-radius: 4px; }
-        
-        #map { height: 400px; border-radius: 24px; overflow: hidden; border: 1px solid #222; }
-        
+        .dot.active {
+            background: #C5A16E;
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        #map {
+            height: 400px;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid #222;
+        }
+
         .contact-card {
             background: #0F0F0F;
             border: 1px solid #222;
@@ -376,7 +460,7 @@
             border-color: #C5A16E;
             background: #1F1F1F;
         }
-        
+
         .modal {
             display: none;
             position: fixed;
@@ -386,13 +470,19 @@
             justify-content: center;
             align-items: center;
         }
-        .modal.active { display: flex; }
+        .modal.active {
+            display: flex;
+        }
         .modal-content {
             max-width: 90%;
             max-height: 90%;
             position: relative;
         }
-        .modal-content img { width: 100%; height: auto; border-radius: 20px; }
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+        }
         .modal-close {
             position: absolute;
             top: -50px;
@@ -401,7 +491,7 @@
             color: #C5A16E;
             cursor: pointer;
         }
-        
+
         .toast {
             position: fixed;
             bottom: 30px;
@@ -415,8 +505,10 @@
             transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
             z-index: 1000;
         }
-        .toast.show { transform: translateX(0); }
-        
+        .toast.show {
+            transform: translateX(0);
+        }
+
         .floating-btn {
             position: fixed;
             bottom: 30px;
@@ -434,45 +526,69 @@
             transition: all 0.3s;
             z-index: 999;
         }
-        .floating-btn:hover { transform: scale(1.1); background: #D4B07C; }
-        
+        .floating-btn:hover {
+            transform: scale(1.1);
+            background: #D4B07C;
+        }
+
         .footer {
             background: #050505;
             padding: 60px 0 40px;
             border-top: 1px solid #1A1A1A;
         }
-        
+
         @media (max-width: 900px) {
-            .container { padding: 0 20px; }
-            .section { padding: 60px 0; }
-            .section-title { font-size: 40px; }
-            .hero h1 { font-size: 52px; }
-            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; gap: 32px; }
-            .services-grid { grid-template-columns: 1fr; gap: 20px; }
-            .hero-stats { gap: 24px; }
-            .stat-item .value { font-size: 22px; }
-            .info-grid { gap: 10px; }
-            .info-card { padding: 10px 14px; }
-            .gallery { grid-template-columns: 1fr; gap: 16px; }
-            .contact-card { padding: 32px 24px; }
+            .container {
+                padding: 0 20px;
+            }
+            .section {
+                padding: 60px 0;
+            }
+            .section-title {
+                font-size: 40px;
+            }
+            .hero h1 {
+                font-size: 52px;
+            }
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .hero-stats {
+                gap: 24px;
+            }
+            .stat-item .value {
+                font-size: 22px;
+            }
+            .info-grid {
+                gap: 10px;
+            }
+            .info-card {
+                padding: 10px 14px;
+            }
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .contact-card {
+                padding: 32px 24px;
+            }
         }
     </style>
 </head>
 <body>
 
 <div class="hero">
-    <img class="hero-bg-img" src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?w=1600&h=900&fit=crop" alt="Роскошный дом">
+    <img class="hero-bg-img" src="Полуптичка.jpeg" alt="Палашёвский 11">
     <div class="container">
         <div class="hero-content">
             <div class="hero-tag">Клубный дом делюкс-класса</div>
             <h1>Палашёвский 11</h1>
             <div class="hero-desc">Исключительный дом в приватной части культового района Патриарших прудов. Тишина, архитектура и совершенный сервис.</div>
-            
-            <div class="metro-info">
-                <i class="fas fa-subway"></i>
-                <span><strong>Тверская / Пушкинская</strong> — 8 минут пешком</span>
-                <i class="fas fa-walking"></i>
-            </div>
             
             <div class="hero-buttons">
                 <button class="btn btn-primary" id="btnPlans">Выбрать квартиру</button>
@@ -481,9 +597,18 @@
             </div>
             
             <div class="hero-stats">
-                <div class="stat-item"><div class="label">стоимость</div><div class="value">от 222 930 000 ₽</div></div>
-                <div class="stat-item"><div class="label">площади</div><div class="value">62–366 м²</div></div>
-                <div class="stat-item"><div class="label">резиденций</div><div class="value">52 квартиры</div></div>
+                <div class="stat-item">
+                    <div class="label">стоимость</div>
+                    <div class="value">от 222 930 000 ₽</div>
+                </div>
+                <div class="stat-item">
+                    <div class="label">площади</div>
+                    <div class="value">62–366 м²</div>
+                </div>
+                <div class="stat-item">
+                    <div class="label">резиденций</div>
+                    <div class="value">52 квартиры</div>
+                </div>
             </div>
             
             <div class="info-grid">
@@ -509,11 +634,12 @@
             <p style="color: #B0B0B0; line-height: 1.7;">На территории дома беспрецедентный для Патриарших двор-сад с прудом, крытой галереей и зонами отдыха. Clubhouse с патио, фитнесом Kid's Lab, Lounge — только для жителей. Всего 52 квартиры, включая 7 пентхаусов с видовыми террасами до 40 м².</p>
         </div>
         <div style="border-radius: 24px; overflow: hidden;">
-            <img src="IMG_1678.jpeg" alt="Фасады" style="width:100%; height:100%; object-fit:cover;">
+            <img src="Фронтальный вид.jpeg" alt="Фасады" style="width:100%; height:100%; object-fit:cover;">
         </div>
     </div>
 </div>
 
+<!-- Сервисы с фото -->
 <div class="container section">
     <div style="text-align: center; max-width: 700px; margin: 0 auto 48px;">
         <div class="section-badge">Эксклюзивные сервисы</div>
@@ -521,15 +647,40 @@
         <p class="section-sub">Только для жителей клубного дома</p>
     </div>
     <div class="services-grid">
-        <div class="service-card"><div class="service-icon"><i class="fas fa-tree"></i></div><h3>Свой двор-сад с прудом</h3><p style="color:#999;">Оранжерея, цветники, зоны отдыха</p></div>
-        <div class="service-card"><div class="service-icon"><i class="fas fa-crown"></i></div><h3>Clubhouse</h3><p style="color:#999;">Патио, Lounge, место для встреч</p></div>
-        <div class="service-card"><div class="service-icon"><i class="fas fa-dumbbell"></i></div><h3>Fit Lab</h3><p style="color:#999;">Современный фитнес-зал</p></div>
-        <div class="service-card"><div class="service-icon"><i class="fas fa-child"></i></div><h3>Kid's Lab</h3><p style="color:#999;">Игровая комната и площадка</p></div>
-        <div class="service-card"><div class="service-icon"><i class="fas fa-hand-sparkles"></i></div><h3>Perfect Silence</h3><p style="color:#999;">Технология тишины</p></div>
-        <div class="service-card"><div class="service-icon"><i class="fas fa-concierge-bell"></i></div><h3>Служба комфорта 24/7</h3><p style="color:#999;">Решим любой вопрос</p></div>
+        <div class="service-card">
+            <img class="service-image" src="Флорариум общий вид.jpeg" alt="Двор-сад с прудом">
+            <h3>Свой двор-сад с прудом</h3>
+            <p>Оранжерея, цветники, зоны отдыха</p>
+        </div>
+        <div class="service-card">
+            <img class="service-image" src="Патио.jpeg" alt="Clubhouse">
+            <h3>Clubhouse</h3>
+            <p>Патио, Lounge, место для встреч</p>
+        </div>
+        <div class="service-card">
+            <img class="service-image" src="Терраса (3).jpeg" alt="Fit Lab">
+            <h3>Fit Lab</h3>
+            <p>Современный фитнес-зал</p>
+        </div>
+        <div class="service-card">
+            <img class="service-image" src="Лобби (7).jpeg" alt="Kid's Lab">
+            <h3>Kid's Lab</h3>
+            <p>Игровая комната и площадка</p>
+        </div>
+        <div class="service-card">
+            <img class="service-image" src="Лобби (3).jpeg" alt="Perfect Silence">
+            <h3>Perfect Silence</h3>
+            <p>Технология тишины</p>
+        </div>
+        <div class="service-card">
+            <img class="service-image" src="Лобби (8).jpeg" alt="Служба комфорта">
+            <h3>Служба комфорта 24/7</h3>
+            <p>Решим любой вопрос</p>
+        </div>
     </div>
 </div>
 
+<!-- Архитектура с фото -->
 <div class="container section">
     <div style="text-align: center; max-width: 700px; margin: 0 auto 64px;">
         <div class="section-badge">Архитектура</div>
@@ -537,23 +688,43 @@
         <p class="section-sub">У дома три выразительных фасада, каждый со своим характером.</p>
     </div>
     <div class="grid-3">
-        <div class="feature-block"><div class="feature-icon"><i class="fas fa-building"></i></div><div class="feature-title">Консольные террасы</div><div>Выступ до 4 метров, панорамное остекление</div></div>
-        <div class="feature-block"><div class="feature-icon"><i class="fas fa-water"></i></div><div class="feature-title">Волнообразный фасад</div><div>Французские балконы, игра света и тени</div></div>
-        <div class="feature-block"><div class="feature-icon"><i class="fas fa-glass-cheers"></i></div><div class="feature-title">Стеклянный фасад</div><div>Первый в Москве — максимум света</div></div>
+        <div class="feature-block">
+            <img class="feature-img" src="Фасад_1_крупным планом.jpeg" alt="Консольные террасы">
+            <div class="feature-title">Консольные террасы</div>
+            <div>Выступ до 4 метров, панорамное остекление, приватные открытые пространства.</div>
+        </div>
+        <div class="feature-block">
+            <img class="feature-img" src="Вид из Сытинского переулка.jpeg" alt="Волнообразный фасад">
+            <div class="feature-title">Волнообразный фасад</div>
+            <div>Французские балконы, динамичный ритм, игра света и тени.</div>
+        </div>
+        <div class="feature-block">
+            <img class="feature-img" src="Фасад_3_крупным планом.jpeg" alt="Стеклянный фасад">
+            <div class="feature-title">Стеклянный фасад</div>
+            <div>Первый в Москве — изумрудно-малахитовые полуколонны, максимум света.</div>
+        </div>
     </div>
 </div>
 
+<!-- Двор-сад -->
 <div class="container section">
     <div class="grid-2">
         <div>
             <h2 class="section-title">Двор-сад с прудом и галереей</h2>
-            <p style="color: #B0B0B0; margin-bottom: 24px; line-height: 1.7;">На территории дома — беспрецедентный для Патриарших двор-сад с прудом, зелёными комнатами и крытой галереей.</p>
-            <ul style="list-style: none;"><li style="margin-bottom: 12px;">✓ Оранжерея и сезонные цветники</li><li style="margin-bottom: 12px;">✓ Детская площадка Kid's Lab</li><li style="margin-bottom: 12px;">✓ Зона воркаут и спокойные переулки</li></ul>
+            <p style="color: #B0B0B0; margin-bottom: 24px; line-height: 1.7;">На территории дома — беспрецедентный для Патриарших двор-сад с прудом, зелёными комнатами и крытой галереей. Каждая деталь продумана для отдыха и наслаждения тишиной.</p>
+            <ul style="list-style: none;">
+                <li style="margin-bottom: 12px;">✓ Оранжерея и сезонные цветники</li>
+                <li style="margin-bottom: 12px;">✓ Детская площадка Kid's Lab</li>
+                <li style="margin-bottom: 12px;">✓ Зона воркаут и спокойные переулки</li>
+            </ul>
         </div>
-        <div style="border-radius: 24px; overflow: hidden;"><img src="IMG_1672.jpeg" alt="Двор-сад" style="width:100%; object-fit:cover;"></div>
+        <div style="border-radius: 24px; overflow: hidden;">
+            <img src="Терраса (4).jpeg" alt="Двор-сад" style="width:100%; height:100%; object-fit:cover;">
+        </div>
     </div>
 </div>
 
+<!-- Планировки и цены -->
 <div class="container section" id="plans">
     <div style="text-align: center; margin-bottom: 48px;">
         <div class="section-badge">Резиденции</div>
@@ -562,53 +733,102 @@
     </div>
     <div class="table-wrapper">
         <table>
-            <thead><tr><th>Спален</th><th>Цена (₽)</th><th>Цена ($)</th><th>Цена (€)</th><th>Площадь от</th><th>Вариантов</th></td></thead>
+            <thead>
+                <tr>
+                    <th>Спален</th>
+                    <th>Цена (₽)</th>
+                    <th>Цена ($)</th>
+                    <th>Цена (€)</th>
+                    <th>Площадь от</th>
+                    <th>Вариантов</th>
+                </tr>
+            </thead>
             <tbody>
-                <tr><td>1 спальня</td><td class="price-rub">от 222 930 000 ₽</td><td class="price-usd">от $3 030 000</td><td class="price-eur">от €2 610 000</td><td>62 м²</td><td>14</td></tr>
-                <tr><td>2 спальни</td><td class="price-rub">от 369 370 000 ₽</td><td class="price-usd">от $4 330 000</td><td class="price-eur">от €3 730 000</td><td>94 м²</td><td>9</td></tr>
-                <tr><td>3 спальни</td><td class="price-rub">от 428 380 000 ₽</td><td class="price-usd">от $5 020 000</td><td class="price-eur">от €4 330 000</td><td>140 м²</td><td>15</td></tr>
-                <tr><td>4+ спален (пентхаусы)</td><td class="price-rub">от 812 830 000 ₽</td><td class="price-usd">от $9 530 000</td><td class="price-eur">от €8 210 000</td><td>241 м²</td><td>12</td></tr>
+                <tr>
+                    <td>1 спальня</td>
+                    <td class="price-rub">от 222 930 000 ₽</td>
+                    <td class="price-usd">от $3 030 000</td>
+                    <td class="price-eur">от €2 610 000</td>
+                    <td>62 м²</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td>2 спальни</td>
+                    <td class="price-rub">от 369 370 000 ₽</td>
+                    <td class="price-usd">от $4 330 000</td>
+                    <td class="price-eur">от €3 730 000</td>
+                    <td>94 м²</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td>3 спальни</td>
+                    <td class="price-rub">от 428 380 000 ₽</td>
+                    <td class="price-usd">от $5 020 000</td>
+                    <td class="price-eur">от €4 330 000</td>
+                    <td>140 м²</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>4+ спален (пентхаусы)</td>
+                    <td class="price-rub">от 812 830 000 ₽</td>
+                    <td class="price-usd">от $9 530 000</td>
+                    <td class="price-eur">от €8 210 000</td>
+                    <td>241 м²</td>
+                    <td>12</td>
+                </tr>
             </tbody>
         </table>
     </div>
-    <div style="text-align: center; margin-top: 40px;"><button class="btn btn-primary" id="btnCatalog">Получить полный каталог планировок</button></div>
+    <div style="text-align: center; margin-top: 40px;">
+        <button class="btn btn-primary" id="btnCatalog">Получить полный каталог планировок</button>
+    </div>
 </div>
 
+<!-- Приватность -->
 <div class="container section">
     <div class="grid-2">
         <div>
             <h2 class="section-title">Особая тишина и приватность</h2>
-            <p style="color: #B0B0B0; margin-bottom: 20px;">Дом расположен вдали от шумных Большой и Малой Бронной, в окружении тихих старомосковских улочек.</p>
+            <p style="color: #B0B0B0; margin-bottom: 20px;">Дом расположен вдали от шумных Большой и Малой Бронной, в окружении тихих старомосковских улочек. Окна выходят на Большой Палашёвский переулок и собственный двор-сад.</p>
             <p style="color: #B0B0B0;">В доме 52 квартиры, на территории нет коммерческих помещений. Технология Perfect Silence.</p>
         </div>
-        <div style="border-radius: 24px; overflow: hidden;"><img src="IMG_1673.jpeg" alt="Приватность" style="width:100%; object-fit:cover;"></div>
+        <div style="border-radius: 24px; overflow: hidden;">
+            <img src="Птичка_вечер.jpeg" alt="Приватность" style="width:100%; height:100%; object-fit:cover;">
+        </div>
     </div>
 </div>
 
+<!-- Детская зона -->
 <div class="container section">
     <div class="contact-card">
         <div class="grid-2">
             <div>
                 <div class="section-badge">Детство в красоте</div>
                 <h2 class="section-title">Всё для детей</h2>
-                <p style="color: #B0B0B0;">Площадка и игровая комната созданы по стандарту Kid's Lab.</p>
+                <p style="color: #B0B0B0;">Площадка и игровая комната созданы по стандарту Kid's Lab с учётом современных знаний в детской психологии и педагогике. В районе — мультилингвальные сады, топ-20 школ Москвы, творческие студии.</p>
             </div>
-            <div style="border-radius: 20px; overflow: hidden;"><img src="IMG_1674.jpeg" alt="Kid's Lab" style="width:100%; object-fit:cover;"></div>
+            <div style="border-radius: 20px; overflow: hidden;">
+                <img src="IMG_1694.jpeg" alt="Kid's Lab" style="width:100%; height:100%; object-fit:cover;">
+            </div>
         </div>
     </div>
 </div>
 
+<!-- Качество жизни и паркинг -->
 <div class="container section">
     <div class="grid-2">
-        <div style="border-radius: 24px; overflow: hidden;"><img src="IMG_1675.jpeg" alt="Паркинг" style="width:100%; object-fit:cover;"></div>
+        <div style="border-radius: 24px; overflow: hidden;">
+            <img src="Паркинг (3).jpeg" alt="Паркинг" style="width:100%; height:100%; object-fit:cover;">
+        </div>
         <div>
             <h2 class="section-title">Качество жизни без компромиссов</h2>
-            <p style="color: #B0B0B0;">Системы комфорта работают незаметно: очистка воды, климат-контроль. Служба комфорта 24/7.</p>
-            <p style="margin-top: 20px;"><span style="color:#C5A16E; font-weight:600;">Паркинг:</span> подземная охраняемая парковка на 88 мест.</p>
+            <p style="color: #B0B0B0;">Бескомпромиссное качество жизни по стандартам Sminex. Системы комфорта работают незаметно: очистка воды до питьевой, климат-контроль. Собственная Служба комфорта 24/7.</p>
+            <p style="margin-top: 20px;"><span style="color:#C5A16E; font-weight:600;">Паркинг:</span> просторные машино-места для представительских автомобилей. Подземная охраняемая парковка на 88 мест. Вся территория под постоянной охраной.</p>
         </div>
     </div>
 </div>
 
+<!-- Разрешение и ход строительства -->
 <div class="container section">
     <div class="grid-2">
         <div>
@@ -619,16 +839,20 @@
         <div>
             <h2 class="section-title">Ход строительства</h2>
             <div class="gallery" style="grid-template-columns: repeat(2,1fr); gap: 20px;">
-                <div class="gallery-item" style="background-image:url('IMG_1676.jpeg');"></div>
-                <div class="gallery-item" style="background-image:url('IMG_1677.jpeg');"></div>
+                <div class="gallery-item" style="background-image:url('Паркинг (5).jpeg');"></div>
+                <div class="gallery-item" style="background-image:url('Лобби (10).jpeg');"></div>
             </div>
             <button id="btnMorePhotos" style="background:none; border:none; color:#C5A16E; margin-top: 20px; cursor:pointer;">Смотреть все фото →</button>
         </div>
     </div>
 </div>
 
+<!-- Галерея слайдер -->
 <div class="container section">
-    <div style="text-align: center; margin-bottom: 48px;"><div class="section-badge">Визуализации</div><h2 class="section-title">Галерея проекта</h2></div>
+    <div style="text-align: center; margin-bottom: 48px;">
+        <div class="section-badge">Визуализации</div>
+        <h2 class="section-title">Галерея проекта</h2>
+    </div>
     <div class="slider-container" id="gallerySlider">
         <button class="slider-btn slider-prev" id="sliderPrev">❮</button>
         <div class="slider-track" id="sliderTrack"></div>
@@ -637,11 +861,16 @@
     <div class="slider-dots" id="sliderDots"></div>
 </div>
 
+<!-- Карта -->
 <div class="container section">
-    <div style="text-align: center; margin-bottom: 48px;"><div class="section-badge">Локация</div><h2 class="section-title">Расположение</h2></div>
+    <div style="text-align: center; margin-bottom: 48px;">
+        <div class="section-badge">Локация</div>
+        <h2 class="section-title">Расположение</h2>
+    </div>
     <div id="map"></div>
 </div>
 
+<!-- Контакты -->
 <div class="container section" id="contacts">
     <div class="contact-card">
         <div class="grid-2">
@@ -652,8 +881,12 @@
                 <p style="color: #C5A16E; margin-bottom: 12px;"><i class="fas fa-phone-alt"></i> +7 (960) 526-30-16</p>
                 <p style="color: #C5A16E;"><i class="fab fa-whatsapp"></i> +7 (960) 526-30-16 (WhatsApp, Telegram)</p>
                 <div style="margin-top: 32px; padding: 20px; background: #1A1A1A; border-radius: 20px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
-                    <img src="IMG_1678.jpeg" alt="Алексей Титов" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover;">
-                    <div><h3 style="color: #C5A16E; margin-bottom: 4px;">Ваш менеджер</h3><p style="font-weight: 600;">Алексей Титов</p><a href="https://wa.me/79605263016" style="color:#C5A16E;"><i class="fab fa-whatsapp"></i> +7 (960) 526-30-16</a></div>
+                    <img src="IMG_1694.jpeg" alt="Алексей Титов" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover;">
+                    <div>
+                        <h3 style="color: #C5A16E; margin-bottom: 4px;">Ваш менеджер</h3>
+                        <p style="font-weight: 600;">Алексей Титов</p>
+                        <a href="https://wa.me/79605263016" style="color:#C5A16E;"><i class="fab fa-whatsapp"></i> +7 (960) 526-30-16</a>
+                    </div>
                 </div>
             </div>
             <div>
@@ -672,9 +905,22 @@
 <div class="footer">
     <div class="container">
         <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px;">
-            <div><span style="font-family: 'Cormorant Garamond'; font-size: 28px; color: #C5A16E;">Палашёвский 11</span><p style="margin-top: 16px;">© 2026. Девелопер — Sminex.</p></div>
-            <div><p><a href="#" id="privacyLink" style="color: #777; text-decoration: none;">Политика конфиденциальности</a></p><p style="margin-top: 8px;"><a href="#" id="declarationLink" style="color: #777; text-decoration: none;">Проектная декларация</a></p></div>
-            <div><p>Подписывайтесь:</p><div style="display: flex; gap: 16px; margin-top: 8px;"><i class="fab fa-telegram" style="color: #C5A16E; font-size: 20px; cursor: pointer;"></i><i class="fab fa-youtube" style="color: #C5A16E; font-size: 20px; cursor: pointer;"></i><i class="fab fa-vk" style="color: #C5A16E; font-size: 20px; cursor: pointer;"></i></div></div>
+            <div>
+                <span style="font-family: 'Cormorant Garamond'; font-size: 28px; color: #C5A16E;">Палашёвский 11</span>
+                <p style="margin-top: 16px;">© 2026. Девелопер — Sminex.</p>
+            </div>
+            <div>
+                <p><a href="#" id="privacyLink" style="color: #777; text-decoration: none;">Политика конфиденциальности</a></p>
+                <p style="margin-top: 8px;"><a href="#" id="declarationLink" style="color: #777; text-decoration: none;">Проектная декларация</a></p>
+            </div>
+            <div>
+                <p>Подписывайтесь:</p>
+                <div style="display: flex; gap: 16px; margin-top: 8px;">
+                    <i class="fab fa-telegram" style="color: #C5A16E; font-size: 20px; cursor: pointer;"></i>
+                    <i class="fab fa-youtube" style="color: #C5A16E; font-size: 20px; cursor: pointer;"></i>
+                    <i class="fab fa-vk" style="color: #C5A16E; font-size: 20px; cursor: pointer;"></i>
+                </div>
+            </div>
         </div>
         <div style="margin-top: 48px; font-size: 12px; color: #555; text-align: center;">Информация о проекте носит ознакомительный характер. Актуальные цены уточняйте в отделе продаж.</div>
     </div>
@@ -694,7 +940,9 @@
     // Анимация секций
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
     }, { threshold: 0.1 });
     sections.forEach(section => observer.observe(section));
     
@@ -752,7 +1000,21 @@
     });
     
     // Слайдер
-    const galleryImages = ['IMG_1672.jpeg', 'IMG_1673.jpeg', 'IMG_1674.jpeg', 'IMG_1675.jpeg', 'IMG_1676.jpeg', 'IMG_1677.jpeg', 'IMG_1678.jpeg'];
+    const galleryImages = [
+        'Фронтальный вид.jpeg',
+        'Фасад_1_крупным планом.jpeg',
+        'Фасад_3_крупным планом.jpeg',
+        'Гранитный и стеклянный фасады.jpeg',
+        'Терраса (4).jpeg',
+        'Птичка_вечер.jpeg',
+        'Полуптичка.jpeg',
+        'Патио.jpeg',
+        'Паркинг (3).jpeg',
+        'Лобби (10).jpeg',
+        'Лобби (8).jpeg',
+        'Лобби (7).jpeg',
+        'Вид из Сытинского переулка.jpeg'
+    ];
     let currentSlide = 0;
     const track = document.getElementById('sliderTrack');
     
@@ -834,5 +1096,6 @@
     renderSlider();
     initMap();
 </script>
+
 </body>
 </html>
