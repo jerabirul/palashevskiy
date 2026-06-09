@@ -455,22 +455,10 @@
 
 <div class="container">
     <div class="stats-grid">
-        <div>
-            <div class="stat-number">52</div>
-            <div>квартиры</div>
-        </div>
-        <div>
-            <div class="stat-number">2 км</div>
-            <div>до Кремля</div>
-        </div>
-        <div>
-            <div class="stat-number">до 40 м²</div>
-            <div>террасы</div>
-        </div>
-        <div>
-            <div class="stat-number">88</div>
-            <div>машиномест</div>
-        </div>
+        <div><div class="stat-number">52</div><div>квартиры</div></div>
+        <div><div class="stat-number">2 км</div><div>до Кремля</div></div>
+        <div><div class="stat-number">до 40 м²</div><div>террасы</div></div>
+        <div><div class="stat-number">88</div><div>машиномест</div></div>
     </div>
 
     <div class="two-columns">
@@ -481,9 +469,7 @@
             <div style="margin-top: 20px;"><i class="fas fa-microphone-slash gold"></i> Акустические окна класса RAL</div>
             <div style="margin-top: 10px;"><i class="fas fa-tree gold"></i> Ландшафтный двор с оранжереей</div>
         </div>
-        <div>
-            <img class="image-rounded" src="Вид из Сытинского переулка.jpeg" alt="Вид из переулка">
-        </div>
+        <div><img class="image-rounded" src="Вид из Сытинского переулка.jpeg" alt="Вид из переулка"></div>
     </div>
 
     <div class="two-columns" style="flex-direction: row-reverse;">
@@ -492,9 +478,7 @@
             <h2 class="section-title">Гранит и structural glass</h2>
             <p>Три уникальных фасада: консольные террасы, волнообразный балкон и первый в Москве полностью стеклянный фасад.</p>
         </div>
-        <div>
-            <img class="image-rounded" src="Гранитный и стеклянный фасады.jpeg" alt="Фасады">
-        </div>
+        <div><img class="image-rounded" src="Гранитный и стеклянный фасады.jpeg" alt="Фасады"></div>
     </div>
 
     <div style="text-align: center; margin: 40px 0 20px;">
@@ -521,9 +505,7 @@
     </div>
 
     <div class="two-columns">
-        <div>
-            <img class="image-rounded" src="Паркинг (3).jpeg" alt="Паркинг">
-        </div>
+        <div><img class="image-rounded" src="Паркинг (3).jpeg" alt="Паркинг"></div>
         <div>
             <div class="section-subtitle">Подземный паркинг</div>
             <h2 class="section-title">88 машиномест</h2>
@@ -572,16 +554,8 @@
     </div>
 
     <div id="contacts" class="contacts-grid">
-        <div>
-            <h3><i class="fas fa-store gold"></i> Отдел продаж</h3>
-            <p>Новорязанская ул., 23, стр.2</p>
-            <p>Ежедневно 10:00–21:00</p>
-        </div>
-        <div>
-            <h3><i class="fas fa-chandelier gold"></i> Шоурум</h3>
-            <p>Кадашевская наб., 6/1/2с1</p>
-            <p>Предзапись через менеджера</p>
-        </div>
+        <div><h3><i class="fas fa-store gold"></i> Отдел продаж</h3><p>Новорязанская ул., 23, стр.2</p><p>Ежедневно 10:00–21:00</p></div>
+        <div><h3><i class="fas fa-chandelier gold"></i> Шоурум</h3><p>Кадашевская наб., 6/1/2с1</p><p>Предзапись через менеджера</p></div>
     </div>
 </div>
 
@@ -637,13 +611,19 @@
         e.preventDefault();
         const name = document.getElementById('userName').value;
         const phone = document.getElementById('userPhone').value;
+        const comment = document.getElementById('userComment').value;
         
         if (!name || !phone) {
             alert('Пожалуйста, заполните имя и телефон');
             return;
         }
         
-        alert(`Спасибо, ${name}!\nВаша заявка принята. Менеджер свяжется с вами в ближайшее время.`);
+        const subject = encodeURIComponent('Заявка с сайта Палашёвский 11');
+        const body = encodeURIComponent(`Имя: ${name}\nТелефон: ${phone}\nКомментарий: ${comment}\n\nТип заявки: ${currentModalType === 'presentation' ? 'Получить презентацию' : 'Заявка менеджеру'}`);
+        
+        window.location.href = `mailto:titov.alex.work@yandex.ru?subject=${subject}&body=${body}`;
+        
+        alert(`Спасибо, ${name}! Заявка отправлена. Я свяжусь с вами в ближайшее время.`);
         closeModal();
     });
 
@@ -656,18 +636,9 @@
 
     const swiper = new Swiper('.swiper-gallery', {
         loop: true,
-        autoplay: {
-            delay: 4000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+        autoplay: { delay: 4000, disableOnInteraction: false },
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
     });
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
