@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Палашёвский 11 — клубный дом на Патриарших</title>
-    <meta name="description" content="Клубный дом делюкс-класса на Патриарших прудах. 52 резиденции, двор-сад с прудом, Clubhouse. От 222 930 000 ₽">
+    <title>Палашёвский 11 — клубный дом на Патриарших прудах</title>
+    <meta name="description" content="Клубный дом делюкс-класса на Патриарших прудах. 52 резиденции, двор-сад с прудом, Clubhouse с фитнесом и лаунджем. От 222 930 000 ₽">
+    <meta name="keywords" content="Палашёвский 11, клубный дом, Патриаршие пруды, элитная недвижимость, Sminex">
     
+    <!-- Подключаем шрифты Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6 для иконок -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     
     <style>
+        /* ---------- ОБНУЛЕНИЕ И БАЗОВЫЕ СТИЛИ ---------- */
         * {
             margin: 0;
             padding: 0;
@@ -28,954 +31,826 @@
             scroll-behavior: smooth;
         }
 
+        /* Контейнер для мобильной версии — фиксированная ширина и отступы */
         .container {
-            max-width: 1280px;
+            max-width: 600px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
         }
 
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1A1A1A;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #C5A16E;
-            border-radius: 3px;
+        /* Стили для всех секций */
+        section {
+            padding: 50px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .section {
-            padding: 80px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 60px;
-            align-items: center;
-        }
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 52px;
-            font-weight: 500;
-            line-height: 1.15;
-            margin-bottom: 20px;
-            color: #F0EDE6;
-        }
-        .section-sub {
-            font-size: 16px;
-            color: #A0A0A0;
-            max-width: 700px;
-            margin-bottom: 48px;
-        }
-        .section-badge {
-            display: inline-block;
-            font-size: 12px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #C5A16E;
-            margin-bottom: 16px;
-            font-weight: 600;
-        }
-
-        /* Hero блок */
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, #0A0A0A 0%, #141414 100%);
-            overflow: hidden;
-        }
-        .hero-bg-img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.4;
-            z-index: 0;
-        }
-        .hero::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
-            z-index: 1;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 700px;
-            padding: 100px 0;
-        }
-        .hero-tag {
-            font-size: 14px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: #C5A16E;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-        .hero h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 80px;
-            font-weight: 600;
-            line-height: 1.05;
-            margin-bottom: 24px;
-            color: #F0EDE6;
-        }
-        .hero-desc {
-            font-size: 18px;
-            color: rgba(255,255,255,0.8);
-            max-width: 550px;
-            margin-bottom: 40px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-bottom: 30px;
-        }
-
-        .hero-stats {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin: 30px 0 40px;
-        }
-        .stat-item {
-            border-left: 2px solid #C5A16E;
-            padding-left: 18px;
-        }
-        .stat-item .label {
-            font-size: 12px;
-            color: rgba(255,255,255,0.6);
-            text-transform: uppercase;
-        }
-        .stat-item .value {
-            font-size: 28px;
+        /* Заголовки */
+        h1 {
+            font-size: 42px;
             font-weight: 700;
-            color: #C5A16E;
-            margin-top: 6px;
-        }
-
-        .info-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 40px 0 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 40px;
-        }
-        .info-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 16px;
-            padding: 12px 18px;
-            text-align: center;
-            flex: 1 1 auto;
-        }
-        .info-card .label {
-            font-size: 11px;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.5);
-        }
-        .info-card .value {
-            font-size: 15px;
-            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 15px;
             color: #F0EDE6;
-            margin-top: 6px;
+            font-family: 'Cormorant Garamond', serif;
         }
-        .info-card.highlight {
-            background: rgba(197,161,110,0.12);
-            border-color: #C5A16E;
-        }
-        .info-card.highlight .value {
-            color: #C5A16E;
-        }
-
-        /* Кнопки */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: #C5A16E;
-            color: #0A0A0A;
-            padding: 14px 32px;
-            font-weight: 600;
-            font-size: 14px;
-            border: none;
-            border-radius: 40px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        .btn-outline {
-            background: transparent;
-            border: 1.5px solid #C5A16E;
-            color: #C5A16E;
-        }
-        .btn-outline:hover {
-            background: #C5A16E;
-            color: #0A0A0A;
-        }
-        .btn-primary:hover {
-            background: #D4B07C;
-            transform: translateY(-2px);
-        }
-
-        /* Карточки преимуществ */
-        .feature-block {
-            background: #111111;
-            padding: 24px;
-            border-radius: 24px;
-            border: 1px solid #222;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-        .feature-block:hover {
-            border-color: #C5A16E;
-            transform: translateY(-5px);
-        }
-        .feature-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 16px;
+        
+        h2 {
+            font-size: 28px;
+            font-weight: 500;
             margin-bottom: 20px;
+            color: #F0EDE6;
+            font-family: 'Cormorant Garamond', serif;
         }
-        .feature-title {
+        
+        h3 {
             font-size: 20px;
             font-weight: 600;
             margin-bottom: 10px;
             color: #F0EDE6;
         }
 
-        /* Сервисы */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-        .service-card {
-            background: #111111;
-            border-radius: 24px;
-            border: 1px solid #222;
-            overflow: hidden;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-        .service-card:hover {
-            border-color: #C5A16E;
-            transform: translateY(-5px);
-        }
-        .service-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        .service-card h3 {
-            font-size: 18px;
-            margin: 16px 16px 8px;
-            color: #F0EDE6;
-        }
-        .service-card p {
-            color: #999;
-            margin: 0 16px 20px;
-            font-size: 13px;
+        /* Бейдж для маленьких подписей */
+        .badge {
+            display: inline-block;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #C5A16E;
+            margin-bottom: 12px;
+            font-weight: 600;
         }
 
-        /* Таблица планировок */
-        .table-wrapper {
-            overflow-x: auto;
-            background: #0F0F0F;
+        /* Кнопки */
+        .btn {
+            display: inline-block;
+            background: #C5A16E;
+            color: #0A0A0A;
+            padding: 14px 28px;
+            font-weight: 600;
+            font-size: 14px;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background: #D4B07C;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #C5A16E;
+            color: #C5A16E;
+        }
+        
+        .btn-outline:hover {
+            background: #C5A16E;
+            color: #0A0A0A;
+            transform: translateY(-2px);
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+            justify-content: center;
+        }
+
+        /* Изображения */
+        img {
+            width: 100%;
+            border-radius: 20px;
+            display: block;
+            margin: 16px 0;
+        }
+
+        /* Сетки */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        /* Карточки с информацией */
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 12px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .info-card i {
+            margin-right: 8px;
+            color: #C5A16E;
+        }
+
+        /* Статистика в хедере */
+        .stats-row {
+            display: flex;
+            gap: 24px;
+            margin: 20px 0;
+            justify-content: center;
+        }
+        
+        .stat {
+            border-left: 2px solid #C5A16E;
+            padding-left: 12px;
+        }
+        
+        .stat .label {
+            font-size: 11px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .stat .value {
+            font-size: 20px;
+            font-weight: 700;
+            color: #C5A16E;
+            margin-top: 4px;
+        }
+
+        /* Блок преимуществ (архитектура, сервисы) */
+        .feature-card {
+            background: #111111;
+            padding: 20px;
             border-radius: 20px;
             border: 1px solid #222;
+            transition: all 0.3s ease;
+            margin-bottom: 16px;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 700px;
+        
+        .feature-card:hover {
+            border-color: #C5A16E;
+            transform: translateY(-3px);
         }
-        th, td {
-            text-align: left;
-            padding: 16px 20px;
+        
+        .feature-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #F0EDE6;
+        }
+        
+        .feature-desc {
+            font-size: 14px;
+            color: #999;
+        }
+
+        /* Таблица цен */
+        .price-table {
+            background: #111111;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #222;
+        }
+        
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 14px 16px;
             border-bottom: 1px solid #222;
         }
-        th {
-            font-weight: 600;
+        
+        .price-row:last-child {
+            border-bottom: none;
+        }
+        
+        .price-row-header {
+            background: #1A1A1A;
             color: #C5A16E;
+            font-weight: 600;
             font-size: 13px;
             letter-spacing: 1px;
         }
-        tr:hover td {
-            background: rgba(197,161,110,0.05);
+        
+        .price-rooms {
+            font-weight: 500;
         }
-        .price-rub {
-            font-weight: 700;
+        
+        .price-value {
             color: #C5A16E;
-            white-space: nowrap;
+            font-weight: 600;
+        }
+        
+        .price-area {
+            color: #888;
+            font-size: 13px;
         }
 
-        /* Карта */
-        #map {
-            height: 380px;
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid #222;
-            margin-bottom: 24px;
-        }
-
-        /* Блок менеджера */
+        /* Карточка менеджера */
         .manager-card {
             background: linear-gradient(135deg, #111111 0%, #0A0A0A 100%);
-            border-radius: 40px;
-            padding: 48px;
+            border-radius: 28px;
+            padding: 30px 20px;
+            text-align: center;
             border: 1px solid #2A2A2A;
+            margin: 20px 0;
         }
-        .manager-wrapper {
+        
+        .manager-avatar {
+            width: 100px;
+            height: 100px;
+            background: #C5A16E;
+            border-radius: 50%;
+            margin: 0 auto 16px;
             display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
             align-items: center;
             justify-content: center;
+            font-size: 48px;
+            color: #0A0A0A;
         }
-        .manager-photo {
-            flex-shrink: 0;
-        }
-        .manager-photo img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #C5A16E;
-            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.5);
-        }
-        .manager-info {
-            flex: 1;
-            text-align: center;
-        }
+        
         .manager-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 36px;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 5px;
             color: #F0EDE6;
-            margin-bottom: 8px;
         }
+        
         .manager-position {
             color: #C5A16E;
             font-weight: 500;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
+            font-size: 14px;
         }
+        
         .manager-desc {
-            color: #B0B0B0;
-            max-width: 450px;
-            margin: 0 auto 20px;
+            color: #999;
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.6;
         }
+        
         .manager-contacts {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
             justify-content: center;
-            margin-bottom: 24px;
+            gap: 16px;
+            margin-bottom: 20px;
         }
-        .manager-contacts a, .manager-contacts span {
+        
+        .manager-contacts a {
             color: #C5A16E;
             text-decoration: none;
-            font-weight: 500;
+            font-size: 13px;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
-        .manager-contacts span {
-            color: #888;
-        }
-        .manager-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            justify-content: center;
+        
+        .manager-contacts a:hover {
+            text-decoration: underline;
         }
 
-        /* Форма */
-        .contact-card {
-            background: #0F0F0F;
+        /* Форма обратной связи */
+        .form-card {
+            background: #111111;
+            border-radius: 28px;
+            padding: 30px 20px;
             border: 1px solid #222;
-            border-radius: 32px;
-            padding: 48px;
         }
+        
         input, textarea {
             width: 100%;
-            padding: 14px 18px;
+            padding: 14px 16px;
             background: #1A1A1A;
-            border: 1px solid #2A2A2A;
-            border-radius: 16px;
+            border: 1px solid #333;
+            border-radius: 14px;
             color: #F0EDE6;
             font-size: 14px;
+            margin-bottom: 14px;
+            font-family: 'Inter', sans-serif;
         }
+        
         input:focus, textarea:focus {
             outline: none;
             border-color: #C5A16E;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 80px;
         }
 
         /* Модальные окна */
         .modal {
             display: none;
             position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.95);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
             z-index: 1000;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
         }
+        
         .modal.active {
             display: flex;
         }
+        
         .modal-content {
-            max-width: 500px;
+            background: #1A1A1A;
+            padding: 30px 24px;
+            border-radius: 28px;
             width: 90%;
-            background: #0F0F0F;
-            border-radius: 32px;
-            padding: 32px;
+            max-width: 360px;
             position: relative;
+            border: 1px solid #333;
         }
+        
         .modal-close {
             position: absolute;
             top: 16px;
             right: 20px;
-            font-size: 28px;
-            color: #C5A16E;
+            font-size: 24px;
             cursor: pointer;
+            color: #C5A16E;
+        }
+        
+        .modal-close:hover {
+            color: #D4B07C;
+        }
+        
+        .modal h3 {
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         /* Уведомления */
         .toast {
             position: fixed;
             bottom: 30px;
-            right: 30px;
+            left: 50%;
+            transform: translateX(-50%);
             background: #C5A16E;
             color: #0A0A0A;
             padding: 12px 24px;
-            border-radius: 50px;
+            border-radius: 40px;
             font-weight: 600;
-            transform: translateX(500px);
-            transition: transform 0.4s ease;
-            z-index: 1001;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1100;
+            white-space: nowrap;
         }
+        
         .toast.show {
-            transform: translateX(0);
+            opacity: 1;
         }
 
         /* Футер */
         .footer {
             background: #050505;
-            padding: 50px 0 30px;
+            padding: 30px 0 40px;
+            text-align: center;
             border-top: 1px solid #1A1A1A;
         }
-
-        /* Адаптив */
-        @media (max-width: 900px) {
+        
+        .footer p {
+            color: #666;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+        
+        hr {
+            border-color: #222;
+            margin: 20px 0;
+        }
+        
+        /* Список с иконками */
+        .feature-list {
+            list-style: none;
+            margin: 16px 0;
+        }
+        
+        .feature-list li {
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+            color: #bbb;
+            font-size: 14px;
+        }
+        
+        .feature-list li:before {
+            content: "✓";
+            color: #C5A16E;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        /* Адаптив для очень маленьких экранов */
+        @media (max-width: 480px) {
             .container {
-                padding: 0 20px;
+                padding: 0 16px;
             }
-            .section {
-                padding: 50px 0;
+            section {
+                padding: 40px 0;
             }
-            .section-title {
+            h1 {
                 font-size: 36px;
             }
-            .hero h1 {
-                font-size: 48px;
+            h2 {
+                font-size: 24px;
             }
-            .grid-2, .grid-3, .services-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
+            .btn-group {
+                flex-direction: column;
             }
-            .hero-stats {
-                gap: 24px;
+            .btn-group .btn {
+                width: 100%;
             }
-            .stat-item .value {
-                font-size: 22px;
+            .stats-row {
+                gap: 16px;
             }
-            .manager-card {
-                padding: 32px 20px;
-            }
-            .manager-name {
-                font-size: 28px;
-            }
-            .contact-card {
-                padding: 32px 20px;
+            .stat .value {
+                font-size: 18px;
             }
         }
     </style>
 </head>
 <body>
 
-<!-- Hero блок с фоновым изображением Полуптичка.jpeg -->
-<div class="hero">
-    <img class="hero-bg-img" src="Полуптичка.jpeg" alt="Палашёвский 11">
-    <div class="container">
-        <div class="hero-content">
-            <div class="hero-tag">Клубный дом делюкс-класса</div>
-            <h1>Палашёвский 11</h1>
-            <div class="hero-desc">Исключительный дом в приватной части культового района Патриарших прудов. Тишина, архитектура и совершенный сервис.</div>
-            
-            <div class="hero-buttons">
-                <button class="btn btn-primary" id="btnPlans">Выбрать квартиру</button>
-                <button class="btn btn-outline" id="btnPresentation">Получить презентацию</button>
-                <button class="btn btn-outline" id="btnRequest">Оставить заявку</button>
+<div class="container">
+    <!-- ==================== HERO БЛОК ==================== -->
+    <div style="padding: 40px 0 20px; text-align: center;">
+        <div class="badge">КЛУБНЫЙ ДОМ ДЕЛЮКС-КЛАССА</div>
+        <h1>Палашёвский 11</h1>
+        <div style="font-size: 28px; color: #C5A16E; font-weight: 700; margin: 15px 0;">
+            от 222 930 000 ₽
+        </div>
+        
+        <div class="stats-row">
+            <div class="stat">
+                <div class="label">ПЛОЩАДЬ</div>
+                <div class="value">от 62 м²</div>
             </div>
-            
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <div class="label">стоимость</div>
-                    <div class="value">от 222 930 000 ₽</div>
-                </div>
-                <div class="stat-item">
-                    <div class="label">площади</div>
-                    <div class="value">62–366 м²</div>
-                </div>
-                <div class="stat-item">
-                    <div class="label">резиденций</div>
-                    <div class="value">52 квартиры</div>
-                </div>
+            <div class="stat">
+                <div class="label">ДО КРЕМЛЯ</div>
+                <div class="value">2 км</div>
             </div>
-            
-            <div class="info-grid">
-                <div class="info-card"><div class="label">до Кремля</div><div class="value">2 км</div></div>
-                <div class="info-card"><div class="label">террасы</div><div class="value">до 40 м²</div></div>
-                <div class="info-card"><div class="label">паркинг</div><div class="value">88 мест</div></div>
-                <div class="info-card"><div class="label">отделка</div><div class="value">white box</div></div>
-                <div class="info-card"><div class="label">класс</div><div class="value">элит / делюкс</div></div>
-                <div class="info-card"><div class="label">срок сдачи</div><div class="value">1 кв. 2030</div></div>
-                <div class="info-card highlight"><div class="label">цена ($)</div><div class="value">от $3 030 000</div></div>
-                <div class="info-card highlight"><div class="label">цена (€)</div><div class="value">от €2 610 000</div></div>
+            <div class="stat">
+                <div class="label">СРОК СДАЧИ</div>
+                <div class="value">1 кв. 2030</div>
             </div>
         </div>
+        
+        <div class="btn-group">
+            <button class="btn" id="openPresentationModal">
+                <i class="fas fa-file-pdf"></i> Получить презентацию
+            </button>
+            <button class="btn btn-outline" id="openRequestModal">
+                <i class="fas fa-pen-alt"></i> Оставить заявку
+            </button>
+        </div>
     </div>
-</div>
 
-<!-- О доме -->
-<div class="container section" id="about">
-    <div class="grid-2">
-        <div>
-            <div class="section-badge">Клубный дом</div>
-            <h2 class="section-title">Завораживающе красивый дом в приватной части Патриарших</h2>
-            <p style="color: #B0B0B0; margin: 24px 0; line-height: 1.7;">«Палашёвский 11» расположен в центре событий и при этом в тишине, вдали от шумных улиц. Эффектная архитектура с тремя разными характерами: первый фасад — с консольными террасами, второй — волнообразный, третий — полностью стеклянный.</p>
-            <p style="color: #B0B0B0; line-height: 1.7;">На территории дома беспрецедентный для Патриарших двор-сад с прудом, крытой галереей и зонами отдыха. Clubhouse с патио, фитнесом, Lounge — только для жителей. Всего 52 квартиры, включая пентхаусы с видовыми террасами до 40 м².</p>
-        </div>
-        <div style="border-radius: 24px; overflow: hidden;">
-            <img src="Вид спереди.jpeg" alt="Вид на комплекс спереди" style="width:100%; height:100%; object-fit:cover;">
-        </div>
-    </div>
-</div>
+    <!-- ==================== ВИД НА КОМПЛЕКС ==================== -->
+    <section>
+        <img src="IMG_1716.png" alt="Вид на комплекс Палашёвский 11" style="width:100%; border-radius: 20px;">
+        <p style="margin-top: 16px; color: #bbb; line-height: 1.6;">
+            На территории дома беспрецедентный для Патриарших двор-сад с прудом, крытой галереей и зонами отдыха. 
+            Clubhouse с патио, фитнесом, Lounge — только для жителей. Всего 52 квартиры, включая пентхаусы 
+            с видовыми террасами до 40 м².
+        </p>
+    </section>
 
-<!-- Архитектура - три фасада -->
-<div class="container section">
-    <div style="text-align: center; max-width: 700px; margin: 0 auto 64px;">
-        <div class="section-badge">Архитектура</div>
-        <h2 class="section-title">Три уникальных фасада</h2>
-        <p class="section-sub">Каждый фасад имеет свой неповторимый характер</p>
-    </div>
-    <div class="grid-3">
-        <div class="feature-block">
-            <img class="feature-img" src="Фасад_1_крупный план.jpeg" alt="Консольные террасы">
+    <!-- ==================== АРХИТЕКТУРА ==================== -->
+    <section>
+        <div class="badge">АРХИТЕКТУРА</div>
+        <h2>Три уникальных фасада</h2>
+        <p style="color: #888; margin-bottom: 20px;">Каждый фасад имеет свой неповторимый характер</p>
+        
+        <img src="IMG_1715.png" alt="Консольные террасы">
+        
+        <div class="feature-card">
             <div class="feature-title">Консольные террасы</div>
-            <div>Выступ до 4 метров, панорамное остекление</div>
+            <div class="feature-desc">Выступ до 4 метров, панорамное остекление, приватные открытые пространства</div>
         </div>
-        <div class="feature-block">
-            <img class="feature-img" src="Вид из Сытинского переулка.jpeg" alt="Вид из Сытинского переулка">
-            <div class="feature-title">Вид из Сытинского переулка</div>
-            <div>Динамичный ритм, игра света и тени</div>
-        </div>
-        <div class="feature-block">
-            <img class="feature-img" src="Фасад_3_крупный план.jpeg" alt="Стеклянный фасад">
+    </section>
+
+    <!-- ==================== СТЕКЛЯННЫЙ ФАСАД ==================== -->
+    <section>
+        <img src="IMG_1714.png" alt="Стеклянный фасад">
+        
+        <div class="feature-card">
             <div class="feature-title">Стеклянный фасад</div>
-            <div>Изумрудно-малахитовые полуколонны</div>
+            <div class="feature-desc">Изумрудно-малахитовые полуколонны — первый в Москве полностью стеклянный фасад</div>
         </div>
-    </div>
-</div>
+    </section>
 
-<!-- Гранитный и стеклянный фасады -->
-<div class="container section">
-    <div class="grid-2">
-        <div style="border-radius: 24px; overflow: hidden;">
-            <img src="Гранитный и стеклянный фасады.jpeg" alt="Гранитный и стеклянный фасады" style="width:100%; height:100%; object-fit:cover;">
-        </div>
-        <div>
-            <h2 class="section-title">Гранит и стекло</h2>
-            <p style="color: #B0B0B0; line-height: 1.7;">В отделке фасадов использован натуральный гранит и инновационные стеклянные конструкции. Это первый в Москве дом с полностью стеклянным фасадом, украшенным изумрудно-малахитовыми полуколоннами.</p>
-        </div>
-    </div>
-</div>
+    <!-- ==================== ДВОР-САД С ПРУДОМ ==================== -->
+    <section>
+        <h2>Двор-сад с прудом и оранжереей</h2>
+        <p style="color: #bbb; margin-bottom: 16px; line-height: 1.6;">
+            На территории дома — беспрецедентный для Патриарших двор-сад с прудом, зелёными комнатами 
+            и крытой галереей. Каждая деталь продумана для отдыха и наслаждения тишиной.
+        </p>
+        
+        <ul class="feature-list">
+            <li>Оранжерея и сезонные цветники</li>
+            <li>Детская площадка Kid's Lab</li>
+            <li>Зона воркаут и спокойные переулки</li>
+        </ul>
+        
+        <img src="IMG_1713.png" alt="Флорариум и двор-сад">
+    </section>
 
-<!-- Двор-сад с прудом и флорариум -->
-<div class="container section">
-    <div class="grid-2">
-        <div>
-            <h2 class="section-title">Двор-сад с прудом и оранжереей</h2>
-            <p style="color: #B0B0B0; margin-bottom: 24px; line-height: 1.7;">На территории дома — беспрецедентный для Патриарших двор-сад с прудом, зелёными комнатами и крытой галереей. Каждая деталь продумана для отдыха и наслаждения тишиной.</p>
-            <ul style="list-style: none;">
-                <li style="margin-bottom: 12px;">✓ Оранжерея и сезонные цветники</li>
-                <li style="margin-bottom: 12px;">✓ Детская площадка Kid's Lab</li>
-                <li style="margin-bottom: 12px;">✓ Зона воркаут и спокойные переулки</li>
-            </ul>
+    <!-- ==================== ИНФРАСТРУКТУРА И СЕРВИСЫ ==================== -->
+    <section>
+        <h2>Инфраструктура и сервисы</h2>
+        <div class="grid-2">
+            <div class="info-card"><i class="fas fa-dumbbell"></i> Fit Lab — фитнес-зал</div>
+            <div class="info-card"><i class="fas fa-child"></i> Kid's Lab — детская комната</div>
+            <div class="info-card"><i class="fas fa-couch"></i> Lounge — лаунж-зона</div>
+            <div class="info-card"><i class="fas fa-car"></i> Паркинг на 88 машин</div>
+            <div class="info-card"><i class="fas fa-tree"></i> Двор-сад с прудом</div>
+            <div class="info-card"><i class="fas fa-concierge-bell"></i> Служба комфорта 24/7</div>
+            <div class="info-card"><i class="fas fa-water"></i> Технология тишины Perfect Silence</div>
+            <div class="info-card"><i class="fas fa-shield-alt"></i> Круглосуточная охрана</div>
         </div>
-        <div style="border-radius: 24px; overflow: hidden;">
-            <img src="Общий вид флорариума.jpeg" alt="Флорариум и двор-сад" style="width:100%; height:100%; object-fit:cover;">
-        </div>
-    </div>
-</div>
+    </section>
 
-<!-- Сервисы и инфраструктура -->
-<div class="container section">
-    <div style="text-align: center; max-width: 700px; margin: 0 auto 48px;">
-        <div class="section-badge">Инфраструктура</div>
-        <h2 class="section-title">Всё для комфортной жизни</h2>
-        <p class="section-sub">Только для жителей клубного дома</p>
-    </div>
-    <div class="services-grid">
-        <div class="service-card">
-            <img class="service-image" src="Патио.jpeg" alt="Патио">
-            <h3>Clubhouse с патио</h3>
-            <p>Lounge, место для встреч и отдыха</p>
-        </div>
-        <div class="service-card">
-            <img class="service-image" src="Терраса (3).jpeg" alt="Терраса">
-            <h3>Fit Lab</h3>
-            <p>Современный фитнес-зал</p>
-        </div>
-        <div class="service-card">
-            <img class="service-image" src="IMG_1694.jpeg" alt="Kid's Lab">
-            <h3>Kid's Lab</h3>
-            <p>Игровая комната и площадка для детей</p>
-        </div>
-        <div class="service-card">
-            <img class="service-image" src="Терраса (4).jpeg" alt="Терраса с видом">
-            <h3>Приватные террасы</h3>
-            <p>До 40 м² личного пространства</p>
-        </div>
-        <div class="service-card">
-            <img class="service-image" src="Лобби (7).jpeg" alt="Лобби">
-            <h3>Элегантное лобби</h3>
-            <p>Встреча гостей в стильной атмосфере</p>
-        </div>
-        <div class="service-card">
-            <img class="service-image" src="Паркинг (3).jpeg" alt="Паркинг">
-            <h3>Подземный паркинг</h3>
-            <p>На 88 машино-мест</p>
-        </div>
-    </div>
-</div>
-
-<!-- Интерьеры лобби -->
-<div class="container section">
-    <div class="grid-3">
-        <div class="feature-block">
-            <img class="feature-img" src="Лобби (3).jpeg" alt="Лобби интерьер">
-            <div class="feature-title">Лобби</div>
-            <div>Дорогая отделка, премиальные материалы</div>
-        </div>
-        <div class="feature-block">
-            <img class="feature-img" src="Лобби (8).jpeg" alt="Лобби деталь">
-            <div class="feature-title">Детали интерьера</div>
-            <div>Каждая деталь продумана до мелочей</div>
-        </div>
-        <div class="feature-block">
-            <img class="feature-img" src="Лобби (10).jpeg" alt="Зона ресепшн">
-            <div class="feature-title">Зона ресепшн</div>
-            <div>Служба комфорта 24/7</div>
-        </div>
-    </div>
-</div>
-
-<!-- Птичка вечер - вид с высоты -->
-<div class="container section">
-    <div class="grid-2">
-        <div>
-            <h2 class="section-title">Вид на Патриаршие</h2>
-            <p style="color: #B0B0B0; line-height: 1.7;">Из окон открываются живописные виды на тихие переулки Патриарших прудов. Вечерний город предстаёт во всей красе — уютное освещение, старинная архитектура и атмосфера старой Москвы.</p>
-        </div>
-        <div style="border-radius: 24px; overflow: hidden;">
-            <img src="Птичка_вечер.jpeg" alt="Вечерний вид на Патриаршие" style="width:100%; height:100%; object-fit:cover;">
-        </div>
-    </div>
-</div>
-
-<!-- Планировки и цены -->
-<div class="container section" id="plans">
-    <div style="text-align: center; margin-bottom: 48px;">
-        <div class="section-badge">Резиденции</div>
-        <h2 class="section-title">Планировки и цены</h2>
-        <p class="section-sub">Потолки до 7,4 м, террасы до 40 м²</p>
-    </div>
-    <div class="table-wrapper">
-        <table>
-            <thead>
-                <tr>
-                    <th>Спален</th>
-                    <th>Цена (₽)</th>
-                    <th>Цена ($)</th>
-                    <th>Цена (€)</th>
-                    <th>Площадь от</th>
-                    <th>Вариантов</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>1 спальня</td><td class="price-rub">от 222 930 000 ₽</td><td>от $3 030 000</td><td>от €2 610 000</td><td>62 м²</td><td>14</td></tr>
-                <tr><td>2 спальни</td><td class="price-rub">от 369 370 000 ₽</td><td>от $4 330 000</td><td>от €3 730 000</td><td>94 м²</td><td>9</td></tr>
-                <tr><td>3 спальни</td><td class="price-rub">от 428 380 000 ₽</td><td>от $5 020 000</td><td>от €4 330 000</td><td>140 м²</td><td>15</td></tr>
-                <tr><td>4+ спален</td><td class="price-rub">от 812 830 000 ₽</td><td>от $9 530 000</td><td>от €8 210 000</td><td>241 м²</td><td>12</td></tr>
-            </tbody>
-        </table>
-    </div>
-    <div style="text-align: center; margin-top: 40px;">
-        <button class="btn btn-primary" id="btnCatalog">Получить каталог планировок</button>
-    </div>
-</div>
-
-<!-- Паркинг -->
-<div class="container section">
-    <div class="grid-2">
-        <div style="border-radius: 24px; overflow: hidden;">
-            <img src="Паркинг (5).jpeg" alt="Подземный паркинг" style="width:100%; height:100%; object-fit:cover;">
-        </div>
-        <div>
-            <h2 class="section-title">Подземный паркинг</h2>
-            <p style="color: #B0B0B0;">Для жителей предусмотрен просторный подземный паркинг на 88 машино-мест. Лифт из паркинга ведёт прямо в лобби дома.</p>
-        </div>
-    </div>
-</div>
-
-<!-- Карта -->
-<div class="container section">
-    <div style="text-align: center; margin-bottom: 48px;">
-        <div class="section-badge">Расположение</div>
-        <h2 class="section-title">Сердце Патриарших</h2>
-        <p class="section-sub">Большой Палашёвский переулок, 11</p>
-    </div>
-    <div id="map" style="height: 380px; border-radius: 24px;"></div>
-    <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 24px;">
-        <div class="info-card">🚇 Пушкинская — 8 мин</div>
-        <div class="info-card">🎭 Большой театр — 12 мин</div>
-        <div class="info-card">🏛️ Кремль — 2 км</div>
-        <div class="info-card">🌳 Патриаршие пруды — 5 мин</div>
-    </div>
-</div>
-
-<!-- БЛОК ПЕРСОНАЛЬНОГО МЕНЕДЖЕРА -->
-<div class="container section" id="manager">
-    <div class="manager-card">
-        <div class="manager-wrapper">
-            <div class="manager-photo">
-                <img src="менеджер.jpg" alt="Анна Ковалёва — персональный менеджер" onerror="this.src='https://via.placeholder.com/160x160?text=Photo'">
+    <!-- ==================== ПЛАНИРОВКИ И ЦЕНЫ ==================== -->
+    <section>
+        <h2>Планировки и цены</h2>
+        <div class="price-table">
+            <div class="price-row price-row-header">
+                <span>Спален</span>
+                <span>Цена</span>
+                <span>Площадь</span>
             </div>
-            <div class="manager-info">
-                <div class="section-badge" style="margin-bottom: 8px;">Ваш эксперт</div>
-                <div class="manager-name">Анна Ковалёва</div>
-                <div class="manager-position">Персональный менеджер | Senior Real Estate Advisor</div>
-                <div class="manager-desc">Более 9 лет в элитной недвижимости Москвы. Помогу подобрать идеальную резиденцию, проведу приватный показ и организую сделку «под ключ».</div>
-                <div class="manager-contacts">
-                    <a href="tel:+74951234567"><i class="fas fa-phone-alt"></i> +7 (495) 123-45-67</a>
-                    <a href="mailto:a.kovaleva@sminex.ru"><i class="fas fa-envelope"></i> a.kovaleva@sminex.ru</a>
-                    <span><i class="fab fa-whatsapp"></i> +7 (916) 123-45-67</span>
-                </div>
-                <div class="manager-buttons">
-                    <button class="btn btn-primary" id="btnCallManager">Записаться на презентацию</button>
-                    <button class="btn btn-outline" id="btnRequestManager">Оставить заявку менеджеру</button>
-                </div>
+            <div class="price-row">
+                <span class="price-rooms">1 спальня</span>
+                <span class="price-value">от 222 930 000 ₽</span>
+                <span class="price-area">от 62 м²</span>
+            </div>
+            <div class="price-row">
+                <span class="price-rooms">2 спальни</span>
+                <span class="price-value">от 369 370 000 ₽</span>
+                <span class="price-area">от 94 м²</span>
+            </div>
+            <div class="price-row">
+                <span class="price-rooms">3 спальни</span>
+                <span class="price-value">от 428 380 000 ₽</span>
+                <span class="price-area">от 140 м²</span>
+            </div>
+            <div class="price-row">
+                <span class="price-rooms">4+ спален (пентхаусы)</span>
+                <span class="price-value">от 812 830 000 ₽</span>
+                <span class="price-area">от 241 м²</span>
             </div>
         </div>
-    </div>
-</div>
+        
+        <button class="btn btn-block" id="openCatalogModal" style="margin-top: 20px;">
+            <i class="fas fa-download"></i> Получить полный каталог планировок
+        </button>
+    </section>
 
-<!-- Форма обратной связи -->
-<div class="container section">
-    <div class="contact-card">
-        <div style="text-align: center; max-width: 500px; margin: 0 auto;">
-            <div class="section-badge">Консультация</div>
-            <h2 class="section-title">Остались вопросы?</h2>
-            <p style="color: #A0A0A0; margin-bottom: 32px;">Заполните форму, и персональный менеджер свяжется с вами</p>
-            <form id="leadForm">
-                <input type="text" id="name" placeholder="Ваше имя" required style="margin-bottom: 16px;">
-                <input type="tel" id="phone" placeholder="Номер телефона" required style="margin-bottom: 16px;">
-                <input type="email" id="email" placeholder="E-mail" style="margin-bottom: 16px;">
-                <textarea rows="3" id="message" placeholder="Комментарий" style="margin-bottom: 24px;"></textarea>
-                <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Отправить заявку</button>
+    <!-- ==================== ОСОБЕННОСТИ ==================== -->
+    <section>
+        <h2>Преимущества жизни в Палашёвском 11</h2>
+        <div class="feature-card">
+            <div class="feature-title">Приватность</div>
+            <div class="feature-desc">Дом расположен вдали от шумных улиц, всего 52 квартиры, нет коммерческих помещений</div>
+        </div>
+        <div class="feature-card">
+            <div class="feature-title">Панорамные виды</div>
+            <div class="feature-desc">Окна на 3 стороны света, террасы до 40 м², виды на Патриаршие пруды</div>
+        </div>
+        <div class="feature-card">
+            <div class="feature-title">Служба комфорта</div>
+            <div class="feature-desc">Консьерж 24/7, клининг, доставка, решение любых бытовых вопросов</div>
+        </div>
+    </section>
+
+    <!-- ==================== ПЕРСОНАЛЬНЫЙ МЕНЕДЖЕР ==================== -->
+    <section>
+        <div class="manager-card">
+            <div class="manager-avatar">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="manager-name">Анна Ковалёва</div>
+            <div class="manager-position">Персональный менеджер | Senior Real Estate Advisor</div>
+            <div class="manager-desc">
+                Более 9 лет в элитной недвижимости Москвы. Помогу подобрать идеальную резиденцию, 
+                проведу приватный показ и организую сделку «под ключ».
+            </div>
+            <div class="manager-contacts">
+                <a href="tel:+74951234567"><i class="fas fa-phone-alt"></i> +7 (495) 123-45-67</a>
+                <a href="mailto:a.kovaleva@sminex.ru"><i class="fas fa-envelope"></i> a.kovaleva@sminex.ru</a>
+                <a href="https://wa.me/79161234567" style="color:#C5A16E;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+            <button class="btn btn-outline btn-block" id="managerRequestBtn">
+                <i class="fas fa-paper-plane"></i> Оставить заявку менеджеру
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== ФОРМА ОБРАТНОЙ СВЯЗИ ==================== -->
+    <section>
+        <div class="form-card">
+            <h2 style="text-align: center;">Остались вопросы?</h2>
+            <p style="text-align: center; color: #888; margin-bottom: 24px;">
+                Заполните форму, и персональный менеджер свяжется с вами
+            </p>
+            
+            <form id="contactForm">
+                <input type="text" id="contactName" placeholder="Ваше имя" required>
+                <input type="tel" id="contactPhone" placeholder="Номер телефона" required>
+                <input type="email" id="contactEmail" placeholder="E-mail (необязательно)">
+                <textarea id="contactMessage" rows="3" placeholder="Комментарий или удобное время для звонка"></textarea>
+                <button type="submit" class="btn btn-block">
+                    <i class="fas fa-send"></i> Отправить заявку
+                </button>
             </form>
-            <p style="font-size: 11px; color: #666; margin-top: 20px;">Нажимая на кнопку, вы соглашаетесь с политикой обработки данных</p>
+            
+            <p style="font-size: 11px; color: #555; text-align: center; margin-top: 20px;">
+                Нажимая на кнопку, вы соглашаетесь с политикой обработки персональных данных
+            </p>
         </div>
-    </div>
+    </section>
 </div>
 
-<!-- Футер -->
+<!-- ==================== ФУТЕР ==================== -->
 <div class="footer">
     <div class="container">
-        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 30px;">
-            <div>
-                <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 28px; color: #C5A16E;">Палашёвский 11</h3>
-                <p style="color: #666; font-size: 13px; margin-top: 8px;">© 2026 Sminex. Все права защищены.</p>
-            </div>
-            <div style="text-align: right;">
-                <p style="color: #888; font-size: 13px;">Большой Палашёвский переулок, 11</p>
-                <p style="color: #888; font-size: 13px;">Отдел продаж: +7 (495) 500-33-22</p>
-            </div>
-        </div>
+        <p>© 2026 Sminex. Все права защищены.</p>
+        <p>Большой Палашёвский переулок, 11, Москва</p>
+        <p>Отдел продаж: +7 (495) 500-33-22</p>
+        <p style="margin-top: 16px;">Девелопер — Sminex. Перфекционисты Fine Development.</p>
     </div>
 </div>
 
-<!-- Модальное окно для презентации -->
+<!-- ==================== МОДАЛЬНОЕ ОКНО: ПРЕЗЕНТАЦИЯ ==================== -->
 <div id="modalPresentation" class="modal">
     <div class="modal-content">
-        <span class="modal-close" id="closeModalPresentation">&times;</span>
-        <div style="text-align: center;">
-            <i class="fas fa-file-pdf" style="font-size: 48px; color: #C5A16E; margin-bottom: 20px;"></i>
-            <h3 style="font-size: 24px; margin-bottom: 12px;">Получить презентацию ЖК</h3>
-            <p style="color: #B0B0B0; margin-bottom: 24px;">Введите e-mail, и мы отправим PDF-презентацию с планировками и ценами</p>
-            <input type="email" id="pdfEmail" placeholder="Ваш e-mail" style="width: 100%; margin-bottom: 16px;">
-            <button class="btn btn-primary" id="sendPdfBtn" style="width: 100%;">Отправить</button>
-        </div>
+        <span class="modal-close" id="closePresentationModal">&times;</span>
+        <i class="fas fa-file-pdf" style="font-size: 48px; color: #C5A16E; text-align: center; display: block; margin-bottom: 16px;"></i>
+        <h3>Получить презентацию ЖК</h3>
+        <p style="color: #999; font-size: 13px; text-align: center; margin-bottom: 20px;">
+            Введите e-mail, и мы отправим PDF-презентацию с планировками и ценами
+        </p>
+        <input type="email" id="pdfEmail" placeholder="Ваш e-mail" style="width: 100%;">
+        <button class="btn btn-block" id="sendPdfBtn" style="margin-top: 16px;">
+            <i class="fas fa-paper-plane"></i> Отправить
+        </button>
     </div>
 </div>
 
-<!-- Модальное окно для заявки менеджеру -->
+<!-- ==================== МОДАЛЬНОЕ ОКНО: ЗАЯВКА МЕНЕДЖЕРУ ==================== -->
 <div id="modalRequest" class="modal">
     <div class="modal-content">
-        <span class="modal-close" id="closeModalRequest">&times;</span>
-        <div style="text-align: center;">
-            <h3 style="font-size: 24px; margin-bottom: 12px;">Оставить заявку менеджеру</h3>
-            <p style="color: #B0B0B0; margin-bottom: 24px;">Анна свяжется с вами в ближайшее время</p>
-            <input type="text" id="requestName" placeholder="Ваше имя" style="width: 100%; margin-bottom: 16px;">
-            <input type="tel" id="requestPhone" placeholder="Номер телефона" style="width: 100%; margin-bottom: 24px;">
-            <button class="btn btn-primary" id="submitRequestBtn" style="width: 100%;">Отправить заявку</button>
-        </div>
+        <span class="modal-close" id="closeRequestModal">&times;</span>
+        <i class="fas fa-user-tie" style="font-size: 48px; color: #C5A16E; text-align: center; display: block; margin-bottom: 16px;"></i>
+        <h3>Оставить заявку менеджеру</h3>
+        <p style="color: #999; font-size: 13px; text-align: center; margin-bottom: 20px;">
+            Анна свяжется с вами в ближайшее время
+        </p>
+        <input type="text" id="requestName" placeholder="Ваше имя" style="width: 100%; margin-bottom: 12px;">
+        <input type="tel" id="requestPhone" placeholder="Номер телефона" style="width: 100%;">
+        <button class="btn btn-block" id="submitRequestBtn" style="margin-top: 16px;">
+            <i class="fas fa-send"></i> Отправить заявку
+        </button>
     </div>
 </div>
 
-<!-- Уведомление -->
+<!-- ==================== УВЕДОМЛЕНИЕ ==================== -->
 <div id="toastMsg" class="toast"></div>
 
 <script>
-    // Инициализация карты
-    var map = L.map('map').setView([55.7623, 37.6025], 16);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>',
-        subdomains: 'abcd',
-        maxZoom: 19
-    }).addTo(map);
-    var marker = L.marker([55.7623, 37.6025]).addTo(map);
-    marker.bindPopup("<b>Палашёвский 11</b><br>Большой Палашёвский пер., 11").openPopup();
-
-    // Анимация появления секций
-    const sections = document.querySelectorAll('.section');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.1 });
-    sections.forEach(section => observer.observe(section));
-
-    // Уведомления
+    // Функция показа уведомления
     function showToast(message, isError = false) {
         const toast = document.getElementById('toastMsg');
         toast.textContent = message;
         toast.style.background = isError ? '#B83B3B' : '#C5A16E';
         toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 3500);
+        setTimeout(function() {
+            toast.classList.remove('show');
+        }, 3000);
     }
 
-    // Форма обратной связи
-    document.getElementById('leadForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        if (!name || !phone) {
-            showToast('Пожалуйста, заполните имя и телефон', true);
+    // Получаем элементы модальных окон
+    const modalPresentation = document.getElementById('modalPresentation');
+    const modalRequest = document.getElementById('modalRequest');
+    
+    // Кнопки для открытия модалки презентации
+    const openPresentationBtns = [
+        document.getElementById('openPresentationModal'),
+        document.getElementById('openCatalogModal')
+    ];
+    
+    openPresentationBtns.forEach(function(btn) {
+        if (btn) {
+            btn.onclick = function() {
+                modalPresentation.classList.add('active');
+            };
+        }
+    });
+    
+    // Кнопки для открытия модалки заявки
+    const openRequestBtns = [
+        document.getElementById('openRequestModal'),
+        document.getElementById('managerRequestBtn')
+    ];
+    
+    openRequestBtns.forEach(function(btn) {
+        if (btn) {
+            btn.onclick = function() {
+                modalRequest.classList.add('active');
+            };
+        }
+    });
+    
+    // Закрытие модалок по крестику
+    document.getElementById('closePresentationModal').onclick = function() {
+        modalPresentation.classList.remove('active');
+    };
+    
+    document.getElementById('closeRequestModal').onclick = function() {
+        modalRequest.classList.remove('active');
+    };
+    
+    // Закрытие модалки при клике на фон
+    window.onclick = function(event) {
+        if (event.target === modalPresentation) {
+            modalPresentation.classList.remove('active');
+        }
+        if (event.target === modalRequest) {
+            modalRequest.classList.remove('active');
+        }
+    };
+    
+    // Отправка презентации на email
+    document.getElementById('sendPdfBtn').onclick = function() {
+        const email = document.getElementById('pdfEmail').value.trim();
+        if (email === '') {
+            showToast('Пожалуйста, укажите e-mail', true);
             return;
         }
-        showToast('Спасибо! Менеджер свяжется с вами');
-        this.reset();
-    });
-
-    // Кнопки навигации
-    document.getElementById('btnPlans').addEventListener('click', () => {
-        document.getElementById('plans').scrollIntoView({ behavior: 'smooth' });
-    });
-    document.getElementById('btnPresentation').addEventListener('click', () => {
-        document.getElementById('modalPresentation').classList.add('active');
-    });
-    document.getElementById('btnRequest').addEventListener('click', () => {
-        document.getElementById('modalRequest').classList.add('active');
-    });
-    document.getElementById('btnCatalog').addEventListener('click', () => {
-        document.getElementById('modalPresentation').classList.add('active');
-    });
-    document.getElementById('btnCallManager').addEventListener('click', () => {
-        document.getElementById('modalRequest').classList.add('active');
-    });
-    document.getElementById('btnRequestManager').addEventListener('click', () => {
-        document.getElementById('modalRequest').classList.add('active');
-    });
-
-    // Отправка презентации
-    document.getElementById('sendPdfBtn').addEventListener('click', function() {
-        const email = document.getElementById('pdfEmail').value.trim();
-        if (!email) {
-            showToast('Укажите e-mail для отправки презентации', true);
+        if (!email.includes('@') || !email.includes('.')) {
+            showToast('Введите корректный e-mail', true);
             return;
         }
         showToast('Презентация отправлена на ' + email);
-        document.getElementById('modalPresentation').classList.remove('active');
+        modalPresentation.classList.remove('active');
         document.getElementById('pdfEmail').value = '';
-    });
-
-    // Отправка заявки менеджеру
-    document.getElementById('submitRequestBtn').addEventListener('click', function() {
+    };
+    
+    // Отправка заявки из модального окна
+    document.getElementById('submitRequestBtn').onclick = function() {
         const name = document.getElementById('requestName').value.trim();
         const phone = document.getElementById('requestPhone').value.trim();
-        if (!name || !phone) {
-            showToast('Заполните имя и телефон', true);
+        if (name === '' || phone === '') {
+            showToast('Пожалуйста, заполните имя и телефон', true);
             return;
         }
-        showToast('Заявка отправлена менеджеру Анне');
-        document.getElementById('modalRequest').classList.remove('active');
+        showToast('Заявка отправлена менеджеру Анне. Ожидайте звонка.');
+        modalRequest.classList.remove('active');
         document.getElementById('requestName').value = '';
         document.getElementById('requestPhone').value = '';
-    });
-
-    // Закрытие модальных окон
-    document.getElementById('closeModalPresentation').addEventListener('click', () => {
-        document.getElementById('modalPresentation').classList.remove('active');
-    });
-    document.getElementById('closeModalRequest').addEventListener('click', () => {
-        document.getElementById('modalRequest').classList.remove('active');
-    });
-    window.addEventListener('click', (e) => {
-        if (e.target.classList.contains('modal')) {
-            e.target.classList.remove('active');
-        }
-    });
-
-    console.log('Лендинг Палашёвский 11 загружен');
+    };
+    
+    // Обработка основной формы обратной связи
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.onsubmit = function(event) {
+            event.preventDefault();
+            const name = document.getElementById('contactName').value.trim();
+            const phone = document.getElementById('contactPhone').value.trim();
+            if (name === '' || phone === '') {
+                showToast('Пожалуйста, заполните имя и телефон', true);
+                return;
+            }
+            showToast('Спасибо! Менеджер свяжется с вами в ближайшее время.');
+            contactForm.reset();
+        };
+    }
+    
+    // Лог в консоль для проверки
+    console.log('Лендинг Палашёвский 11 успешно загружен');
+    console.log('Используемые изображения: IMG_1713.png, IMG_1714.png, IMG_1715.png, IMG_1716.png');
 </script>
 </body>
 </html>
