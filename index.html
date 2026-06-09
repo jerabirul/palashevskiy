@@ -1,14 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Палашёвский 11 | Клубный дом делюкс-класса</title>
-    <!-- Шрифты: элегантный геометрический гротеск -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 (иконки для инфографики) -->
+    <title>Палашёвский 11 | Клубный дом Делюкс-класса</title>
+    <!-- Google Fonts + Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Swiper JS (для премиальной галереи) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
         * {
             margin: 0;
@@ -18,31 +18,77 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0a0a0a;
-            color: #e5e5e5;
-            line-height: 1.4;
+            background-color: #050505;
+            color: #ededed;
+            line-height: 1.45;
+            overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        /* Лаконичный, дорогой минимализм — максимум воздуха */
+        /* Контейнер — максимум воздуха как в whitewill */
         .container {
-            max-width: 1280px;
+            max-width: 1440px;
             margin: 0 auto;
-            padding: 0 32px;
+            padding: 0 48px;
         }
 
-        section {
-            padding: 100px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        /* Типографика и золотые акценты */
+        .gold {
+            color: #dbb86b;
         }
-        section:last-child {
-            border-bottom: none;
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #dbb86b;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+        .section-title {
+            font-size: 3rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 28px;
+            line-height: 1.2;
+        }
+        .section-sub {
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            max-width: 700px;
+        }
+        .btn-primary, .btn-outline {
+            display: inline-block;
+            padding: 16px 44px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.35s ease;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+        .btn-primary {
+            background: #dbb86b;
+            color: #0a0a0a;
+            border: none;
+        }
+        .btn-primary:hover {
+            background: #f0cf8b;
+            transform: translateY(-3px);
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.6);
+        }
+        .btn-outline {
+            border: 1.5px solid #dbb86b;
+            color: #dbb86b;
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: rgba(219,184,107,0.1);
+            transform: translateY(-3px);
         }
 
-        /* HERO — огромное фото на весь экран, как на whitewill */
+        /* Hero Section — полноэкранное фото */
         .hero {
             height: 100vh;
-            width: 100%;
             position: relative;
             display: flex;
             align-items: center;
@@ -55,451 +101,414 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 110%;
             object-fit: cover;
-            filter: brightness(0.65);
+            filter: brightness(0.5) contrast(1.05);
             z-index: 0;
+            transition: transform 0.2s ease-out;
         }
         .hero-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(ellipse at 30% 40%, rgba(0,0,0,0.2), rgba(0,0,0,0.65));
+            background: radial-gradient(ellipse at 30% 40%, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
             z-index: 1;
         }
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 850px;
-            padding: 20px;
+            max-width: 900px;
+            padding: 0 20px;
+            animation: fadeUp 1s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(45px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .hero-label {
-            font-size: 0.8rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 6px;
             color: #dbb86b;
-            margin-bottom: 20px;
         }
         .hero h1 {
-            font-size: clamp(2.8rem, 8vw, 5.6rem);
+            font-size: clamp(3rem, 9vw, 6rem);
             font-weight: 500;
-            letter-spacing: -0.02em;
-            margin-bottom: 20px;
-            line-height: 1.1;
-        }
-        .hero-address {
-            font-size: 1rem;
-            color: #ccc;
-            margin-bottom: 32px;
-        }
-        .btn-primary {
-            display: inline-block;
-            background: #dbb86b;
-            color: #0a0a0a;
-            padding: 14px 40px;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 40px;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-        }
-        .btn-primary:hover {
-            background: #eecd97;
-            transform: translateY(-3px);
-            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.4);
+            margin: 24px 0 16px;
         }
 
-        /* Инфографика — ровно как в примере: цифры + иконки */
-        .infographics-grid {
+        /* инфографика с цифрами — блоки */
+        .stats-row {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 40px;
-            margin: 40px 0 20px;
+            background: #0c0c0c;
+            border-radius: 60px;
+            padding: 56px 48px;
+            margin: 60px 0 40px;
+            border: 1px solid #202020;
         }
-        .info-card {
+        .stat-item {
             text-align: center;
-            padding: 20px 10px;
-            border-radius: 24px;
-            background: rgba(255,255,255,0.02);
-            backdrop-filter: blur(2px);
-            transition: all 0.2s;
         }
-        .info-card i {
-            font-size: 2.2rem;
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 700;
             color: #dbb86b;
-            margin-bottom: 18px;
-        }
-        .info-number {
-            font-size: 2.4rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: #fff;
-            line-height: 1.2;
-        }
-        .info-label {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #b9b9b9;
-            margin-top: 8px;
-        }
-        .finish-badge {
-            background: #1c1c1c;
-            border-radius: 100px;
-            display: inline-block;
-            padding: 10px 28px;
-            font-size: 0.85rem;
-            color: #dbb86b;
-            border: 0.5px solid rgba(219,184,107,0.3);
+            margin-bottom: 8px;
         }
 
-        /* Двухколоночный блок с минимумом текста, как в whitewill */
+        /* Двухколоночные секции */
         .two-cols {
             display: flex;
-            gap: 60px;
-            flex-wrap: wrap;
+            gap: 70px;
             align-items: center;
+            flex-wrap: wrap;
+            margin: 60px 0;
         }
         .two-cols > div {
             flex: 1;
         }
-        .section-title {
-            font-size: 2rem;
-            font-weight: 500;
-            letter-spacing: -0.01em;
-            margin-bottom: 24px;
-            color: #fff;
-        }
-        .desc-text {
-            color: #bfbfbf;
-            line-height: 1.5;
-            font-size: 1rem;
-            margin-bottom: 28px;
-        }
-        .feature-icon-text {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-top: 24px;
-        }
-        .feature-icon-text i {
-            font-size: 1.3rem;
-            color: #dbb86b;
-        }
-
-        .img-soft {
-            border-radius: 28px;
+        .img-prestige {
+            border-radius: 32px;
             width: 100%;
-            transition: transform 0.4s ease;
+            transition: transform 0.5s;
+            box-shadow: 0 25px 35px -15px rgba(0,0,0,0.5);
         }
-        .img-soft:hover {
-            transform: scale(1.01);
+        .img-prestige:hover {
+            transform: scale(1.02);
         }
 
-        /* Контакты с двумя адресами — строго по примеру */
-        .contacts-dual {
+        /* Галерея Swiper */
+        .swiper-gallery {
+            width: 100%;
+            height: 580px;
+            border-radius: 36px;
+            overflow: hidden;
+            margin: 40px 0;
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Планировки (таблица как в примере) */
+        .flats-table {
+            background: #0e0e0e;
+            border-radius: 36px;
+            padding: 32px;
+            margin-top: 40px;
+        }
+        .flat-row {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr 1fr 1fr;
+            padding: 20px 16px;
+            border-bottom: 1px solid #242424;
+            gap: 16px;
+        }
+        .flat-header {
+            color: #dbb86b;
+            font-weight: 600;
+            border-bottom: 1px solid #3a3a3a;
+        }
+
+        /* Менеджер карточка */
+        .manager-card {
+            background: linear-gradient(125deg, #111111, #080808);
+            border-radius: 48px;
+            padding: 56px;
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 48px;
-            background: #111111;
-            border-radius: 32px;
-            padding: 48px 48px;
-            margin-top: 20px;
-            border: 1px solid #222;
+            gap: 60px;
+            border: 1px solid #2a2a2a;
+            margin: 60px 0;
         }
-        .contact-block h4 {
+        .manager-avatar {
+            width: 180px;
+            height: 180px;
+            background: #1f1a10;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #dbb86b;
+        }
+        .manager-avatar i {
+            font-size: 4.5rem;
             color: #dbb86b;
-            font-weight: 500;
-            margin-bottom: 16px;
-            font-size: 1rem;
-            letter-spacing: 1px;
-        }
-        .contact-block p {
-            margin-bottom: 6px;
-            font-size: 0.95rem;
-        }
-        .phone-gold {
-            font-size: 1.7rem;
-            font-weight: 500;
-            color: #fff;
-            letter-spacing: -0.3px;
         }
 
-        /* footer */
-        .footer-note {
-            padding: 32px 0;
+        /* Accordion (частые вопросы) */
+        .accordion-item {
+            background: #0f0f0f;
+            border-radius: 24px;
+            margin-bottom: 16px;
+            padding: 6px 24px;
+        }
+        .accordion-question {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 0;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .accordion-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            color: #b0b0b0;
+            padding-bottom: 0;
+        }
+        .accordion-item.active .accordion-answer {
+            max-height: 200px;
+            padding-bottom: 24px;
+        }
+
+        /* Карта и контакты */
+        .map-placeholder {
+            background: #141414;
+            border-radius: 32px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border: 1px solid #2c2c2c;
+        }
+        .contacts-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin: 60px 0;
+        }
+        footer {
+            padding: 48px 0;
             text-align: center;
-            font-size: 0.75rem;
-            color: #6b6b6b;
-            border-top: 1px solid #1e1e1e;
+            border-top: 1px solid #1a1a1a;
         }
 
         @media (max-width: 900px) {
-            .infographics-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 24px;
-            }
-            .container {
-                padding: 0 20px;
-            }
-            section {
-                padding: 60px 0;
-            }
-            .two-cols {
-                gap: 32px;
-            }
-            .contacts-dual {
-                flex-direction: column;
-                gap: 32px;
-                padding: 32px;
-            }
+            .container { padding: 0 24px; }
+            .stats-row { grid-template-columns: repeat(2,1fr); gap: 24px; padding: 40px 24px; }
+            .section-title { font-size: 2.2rem; }
+            .flat-row { grid-template-columns: 1fr; gap: 8px; }
+            .swiper-gallery { height: 380px; }
         }
-
-        @media (max-width: 550px) {
-            .infographics-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-        }
-
-        /* легкая анимация появления */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-        .fade-up.appear {
-            opacity: 1;
-            transform: translateY(0);
+        @media (max-width: 600px) {
+            .stats-row { grid-template-columns: 1fr; }
+            .manager-card { padding: 32px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HERO: главное фото на весь экран (файл из вашего GitHub) -->
+    <!-- HERO — огромное качественное фото -->
     <div class="hero">
-        <img class="hero-bg" src="Фронтальный вид.jpeg" alt="Палашёвский 11 фасад">
+        <img class="hero-bg" src="https://raw.githubusercontent.com/jerabirul/palashevskiy/main/%D0%A4%D1%80%D0%BE%D0%BD%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B8%CC%86%20%D0%B2%D0%B8%D0%B4.jpeg" alt="Палашёвский 11 фасад">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <div class="hero-label">Клубный дом делюкс-класса</div>
+            <div class="hero-label">КЛУБНЫЙ ДОМ ДЕЛЮКС-КЛАССА</div>
             <h1>Палашёвский 11</h1>
-            <div class="hero-address">Большой Палашёвский переулок, 11 | Москва</div>
-            <a href="#contacts" class="btn-primary">Узнать стоимость</a>
+            <p style="margin-bottom: 32px;">Большой Палашёвский переулок, 11 | Патриаршие пруды</p>
+            <a href="#contacts" class="btn-primary">Получить консультацию</a>
+            <a href="#gallery" class="btn-outline" style="margin-left: 16px;">Смотреть резиденции</a>
         </div>
     </div>
 
     <div class="container">
-        <!-- ИНФОГРАФИКА — цифры блоками (как в whitewill) -->
-        <section class="fade-up">
-            <div class="infographics-grid">
-                <div class="info-card">
-                    <i class="fas fa-building"></i>
-                    <div class="info-number">52</div>
-                    <div class="info-label">квартиры</div>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div class="info-number">2 км</div>
-                    <div class="info-label">до Кремля</div>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-umbrella"></i>
-                    <div class="info-number">до 40 м²</div>
-                    <div class="info-label">террасы</div>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-parking"></i>
-                    <div class="info-number">88</div>
-                    <div class="info-label">машиномест</div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 20px;">
-                <span class="finish-badge"><i class="fas fa-calendar-alt" style="margin-right: 8px;"></i> Сдача — I кв. 2030</span>
-                <span class="finish-badge" style="margin-left: 12px;"><i class="fas fa-gem"></i> Отделка white box</span>
-            </div>
-        </section>
+        <!-- ИНФОГРАФИКА (цифры, как в whitewill) -->
+        <div class="stats-row">
+            <div class="stat-item"><div class="stat-number">52</div><div>квартиры</div><div style="height: 2px; width: 40px; background: #dbb86b; margin: 8px auto;"></div></div>
+            <div class="stat-item"><div class="stat-number">2 км</div><div>до Кремля</div><div style="height: 2px; width: 40px; background: #dbb86b; margin: 8px auto;"></div></div>
+            <div class="stat-item"><div class="stat-number">до 40 м²</div><div>террасы</div><div style="height: 2px; width: 40px; background: #dbb86b; margin: 8px auto;"></div></div>
+            <div class="stat-item"><div class="stat-number">88</div><div>машиномест</div><div style="height: 2px; width: 40px; background: #dbb86b; margin: 8px auto;"></div></div>
+        </div>
 
-        <!-- О ПРОЕКТЕ: минимум текста, акцент на приватность -->
-        <section class="fade-up">
+        <!-- ТИШИНА В ЦЕНТРЕ -->
+        <section style="padding: 40px 0;">
             <div class="two-cols">
                 <div>
-                    <div class="section-title">Тишина в центре</div>
-                    <div class="desc-text">
-                        Клубный дом в приватной части Патриарших прудов. Всего 52 резиденции, закрытый двор-сад и полная изоляция от шумных магистралей.
-                    </div>
-                    <div class="feature-icon-text">
-                        <i class="fas fa-microphone-slash"></i>
-                        <span>Технология тишины Perfect Silence</span>
-                    </div>
-                    <div class="feature-icon-text">
-                        <i class="fas fa-tree"></i>
-                        <span>Приватный двор с оранжереей</span>
-                    </div>
+                    <span class="section-label">Исключительная приватность</span>
+                    <h2 class="section-title">Тишина в центре столицы</h2>
+                    <p style="color: #bcbcbc; font-size: 1.05rem; line-height: 1.5;">Клубный дом в тихой части Патриарших прудов. Технология Perfect Silence, закрытый двор-сад и полная изоляция от внешнего шума. 52 резиденции для тех, кто ценит покой.</p>
+                    <div style="margin-top: 32px;"><i class="fas fa-microphone-slash gold"></i> <span style="margin-left: 12px;">Акустические оккласс RAL</span></div>
+                    <div style="margin-top: 16px;"><i class="fas fa-tree gold"></i> <span style="margin-left: 12px;">Ландшафтный двор с оранжереей</span></div>
                 </div>
-                <div>
-                    <img class="img-soft" src="Вид из Сытинского переулка.jpeg" alt="Вид из Сытинского переулка">
-                </div>
+                <div><img class="img-prestige" src="https://raw.githubusercontent.com/jerabirul/palashevskiy/main/%D0%92%D0%B8%D0%B4%20%D0%B8%D0%B7%20%D0%A1%D1%8B%D1%82%D0%B8%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%B5%D1%80%D0%B5%D1%83%D0%BB%D0%BA%D0%B0.jpeg" alt="Вид из переулка"></div>
             </div>
         </section>
 
-        <!-- АРХИТЕКТУРА И ФАСАДЫ — крупное фото + короткий блок -->
-        <section class="fade-up">
+        <!-- АРХИТЕКТУРА ГРАНИТ И СТЕКЛО -->
+        <section style="padding: 40px 0;">
             <div class="two-cols" style="flex-direction: row-reverse;">
                 <div>
-                    <div class="section-title">Гранит и стекло</div>
-                    <div class="desc-text">
-                        Три фасада с разным характером: консольные террасы, волнообразный французский балкон и первый в Москве полностью стеклянный фасад с изумрудными колоннами.
-                    </div>
-                    <div class="feature-icon-text">
-                        <i class="fas fa-cube"></i>
-                        <span>Натуральный гранит</span>
-                    </div>
+                    <span class="section-label">Вневременная эстетика</span>
+                    <h2 class="section-title">Гранит и structural glass</h2>
+                    <p style="color: #bcbcbc;">Три уникальных фасада: консольные террасы с выносом до 4 м, волнообразный французский балкон и первый в Москве полностью стеклянный фасад с изумрудными колоннами из натурального камня.</p>
                 </div>
-                <div>
-                    <img class="img-soft" src="Гранитный и стеклянный фасады.jpeg" alt="Фасады из гранита и стекла">
-                </div>
+                <div><img class="img-prestige" src="https://raw.githubusercontent.com/jerabirul/palashevskiy/main/%D0%93%D1%80%D0%B0%D0%BD%D0%B8%D1%82%D0%BD%D1%8B%D0%B8%CC%86%20%D0%B8%20%D1%81%D1%82%D0%B5%D0%BA%D0%BB%D1%8F%D0%BD%D0%BD%D1%8B%D0%B8%CC%86%20%D1%84%D0%B0%D1%81%D0%B0%D0%B4%D1%8B.jpeg" alt="Фасады"></div>
             </div>
         </section>
 
-        <!-- КЛУБНЫЕ ПРОСТРАНСТВА (минималистичная галерея в 2 ряда) -->
-        <section class="fade-up">
+        <!-- СЛАЙДЕР ГАЛЕРЕЯ (только качественные файлы) -->
+        <section id="gallery">
             <div style="text-align: center; margin-bottom: 48px;">
-                <div class="section-title" style="margin-bottom: 12px;">Инфраструктура для жизни</div>
-                <div style="width: 60px; height: 2px; background: #dbb86b; margin: 0 auto;"></div>
+                <span class="section-label">Клубные интерьеры</span>
+                <h2 class="section-title">Пространства для жизни</h2>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(2,1fr); gap: 24px;">
-                <img class="img-soft" src="Лобби (10).jpeg" alt="Лобби">
-                <img class="img-soft" src="Флорариум общий вид.jpeg" alt="Флорариум">
-                <img class="img-soft" src="Патио.jpeg" alt="Патио">
-                <img class="img-soft" src="Терраса (4).jpeg" alt="Терраса">
-            </div>
-            <div style="margin-top: 32px; text-align: center; font-size: 0.9rem; color: #aaa;">
-                Clubhouse: лаунж, фитнес Fit Lab, детская Kid’s Lab
+            <div class="swiper-gallery swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="https://raw.githubusercontent.com/jerabirul/palashevskiy/main/%D0%9B%D0%BE%D0%B1%D0%B1%D0%B8%20(10).jpeg" alt="Лобби"></div>
+                    <div class="swiper-slide"><img src="https://raw.githubusercontent.com/jerabirul/palashevskiy/main/%D0%A4%D0%BB%D0%BE%D1%80%D0%B0%D1%80%D0%B8%D1%83%D0%BC%20%D0%BE%D0%B1%D1%89%D0%B8%D0%B8%CC%86%20%D0%B2%D0%B8%D0%B4.jpeg" alt="Флорариум"></div>
+                    <div class="swiper-slide"><img src="https://raw.githubusercontent.com/jerabirul/palashevskiy/main/%D0%9F%D0%B0%D1%82%D0%B8%D0%BE.jpeg" alt="Патио"></div>
+                    <div class="swiper-slide"><img src="https://raw.githubusercontent.com/jerabirul/palashevskiy/main/%D0%A2%D0%B5%D1%80%D1%80%D0%B0%D1%81%D0%B0%20(4).jpeg" alt="Терраса"></div>
+                    <div class="swiper-slide"><img src="https://raw.githubusercontent.com/jerabirul/palashevskiy/main/%D0%9B%D0%BE%D0%B1%D0%B1%D0%B8%20(7).jpeg" alt="Лобби деталь"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
         </section>
 
-        <!-- ПАРКИНГ И СТРОИТЕЛЬСТВО (коротко и со стилем) -->
-        <section class="fade-up">
+        <!-- ПЛАНИРОВКИ (как в примере whitewill) -->
+        <section>
+            <div class="section-label">Ваши апартаменты</div>
+            <h2 class="section-title">Планировки и площади</h2>
+            <div class="flats-table">
+                <div class="flat-row flat-header">
+                    <div>Спальни</div><div>Площадь</div><div>Цена от</div><div>Терраса</div>
+                </div>
+                <div class="flat-row"><div>1 спальня</div><div>62 м²</div><div>222 930 000 ₽</div><div>6 м²</div></div>
+                <div class="flat-row"><div>2 спальни</div><div>94 м²</div><div>369 370 000 ₽</div><div>12 м²</div></div>
+                <div class="flat-row"><div>3 спальни</div><div>140 м²</div><div>428 380 000 ₽</div><div>22 м²</div></div>
+                <div class="flat-row"><div>Пентхаус</div><div>241 м²</div><div>812 830 000 ₽</div><div>до 40 м²</div></div>
+            </div>
+        </section>
+
+        <!-- ПАРКИНГ ПРЕМИУМ -->
+        <section>
             <div class="two-cols">
+                <div><img class="img-prestige" src="https://raw.githubusercontent.com/jerabirul/palashevskiy/main/%D0%9F%D0%B0%D1%80%D0%BA%D0%B8%D0%BD%D0%B3%20(5).jpeg" alt="Паркинг"></div>
                 <div>
-                    <img class="img-soft" src="Паркинг (5).jpeg" alt="Подземный паркинг">
-                </div>
-                <div>
-                    <div class="section-title">Подземный паркинг</div>
-                    <div class="desc-text">
-                        88 машиномест, отделка премиум-класса, видеонаблюдение и контроль доступа. Зарядные станции для электромобилей.
-                    </div>
-                    <div class="feature-icon-text">
-                        <i class="fas fa-charging-station"></i>
-                        <span>Готовность монолита — 92%</span>
-                    </div>
+                    <span class="section-label">Подземный паркинг</span>
+                    <h2 class="section-title">88 машиномест</h2>
+                    <p style="color:#bcbcbc;">Закрытый паркинг с финишной отделкой, видеонаблюдение, зарядные станции для электромобилей. Кладовые помещения входят в инфраструктуру.</p>
+                    <div style="margin-top: 28px;"><i class="fas fa-charging-station gold"></i> <span style="margin-left: 12px;">Готовность монолита 92%</span></div>
                 </div>
             </div>
         </section>
 
-        <!-- ТЕХНОЛОГИИ ТИШИНЫ (с иконками, дорогой минимализм) -->
-        <section class="fade-up">
-            <div style="background: #0f0f0f; border-radius: 32px; padding: 48px 32px; text-align: center; border: 1px solid #222;">
-                <i class="fas fa-ear-listen" style="font-size: 2.5rem; color: #dbb86b; margin-bottom: 20px; display: inline-block;"></i>
-                <h3 style="font-size: 1.6rem; font-weight: 500; margin-bottom: 12px;">Perfect Silence</h3>
-                <p style="max-width: 600px; margin: 0 auto; color: #bcbcbc;">Комплексная технология шумоизоляции: усиленные перекрытия, акустические окна и бесшумные инженерные системы. Полная тишина в центре столицы.</p>
+        <!-- ТЕХНОЛОГИИ (Perfect Silence блок) -->
+        <section>
+            <div style="background: radial-gradient(circle at 30% 20%, #151515, #030303); border-radius: 48px; padding: 70px 40px; text-align: center;">
+                <i class="fas fa-ear-listen" style="font-size: 3rem; color: #dbb86b; margin-bottom: 24px;"></i>
+                <h3 style="font-size: 2rem; margin-bottom: 16px;">Perfect Silence</h3>
+                <p style="max-width: 700px; margin: 0 auto; color: #b5b5b5;">Многослойные перекрытия, акустические стеклопакеты, бесшумные лифты и инженерные системы. Внутри — абсолютная тишина, даже в час пик.</p>
             </div>
         </section>
 
-        <!-- БЛОК РАЗРЕШЕНИЯ / ДОКУМЕНТ (лаконично) -->
-        <section class="fade-up">
-            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
-                <div>
-                    <i class="fas fa-file-certificate" style="font-size: 2rem; color: #dbb86b;"></i>
-                    <h3 style="margin-top: 12px; font-size: 1.3rem;">Разрешение на строительство</h3>
-                    <p style="color: #aaa;">№ RU 77102000-023-568, Комитет по архитектуре</p>
-                </div>
-                <div>
-                    <i class="fas fa-ruler-combined" style="font-size: 2rem; color: #dbb86b;"></i>
-                    <h3 style="margin-top: 12px; font-size: 1.3rem;">Документация в шоуруме</h3>
-                    <p style="color: #aaa;">Оригиналы доступны в отделе продаж</p>
-                </div>
-                <div>
-                    <i class="fas fa-hard-hat" style="font-size: 2rem; color: #dbb86b;"></i>
-                    <h3 style="margin-top: 12px; font-size: 1.3rem;">Ход строительства</h3>
-                    <p style="color: #aaa;">Фотоотчёт по запросу у менеджера</p>
+        <!-- МЕНЕДЖЕР + ФОРМА ЗАЯВКИ -->
+        <section>
+            <div class="manager-card">
+                <div class="manager-avatar"><i class="fas fa-user-tie"></i></div>
+                <div style="flex: 2;">
+                    <h2 style="font-size: 2rem;">Титов Алексей</h2>
+                    <p class="gold" style="margin-bottom: 20px;">Персональный менеджер клубного дома</p>
+                    <p style="margin-bottom: 28px;">Индивидуальные презентации, закрытые показы в шоуруме на Кадашёвской, эксклюзивные условия. Прямой контакт 24/7.</p>
+                    <a href="tel:+79605263016" class="btn-primary"><i class="fas fa-phone-alt"></i> +7 (960) 526-30-16</a>
+                    <button id="openModalBtn" class="btn-outline" style="margin-left: 20px;">Оставить заявку</button>
                 </div>
             </div>
         </section>
 
-        <!-- КОНТАКТЫ — ДВА АДРЕСА + ТЕЛЕФОН (как в примере whitewill) -->
-        <section id="contacts" class="fade-up">
-            <div class="contacts-dual">
-                <div class="contact-block">
-                    <h4><i class="fas fa-map-pin"></i> Отдел продаж</h4>
-                    <p>Новорязанская улица, 23, стр.2</p>
-                    <p>Ежедневно 10:00 – 21:00</p>
-                </div>
-                <div class="contact-block">
-                    <h4><i class="fas fa-building"></i> Шоурум</h4>
-                    <p>Кадашевская набережная, 6/1/2с1</p>
-                    <p>Предзапись через менеджера</p>
-                </div>
-                <div class="contact-block">
-                    <h4><i class="fas fa-phone-alt"></i> Титов Алексей</h4>
-                    <p class="phone-gold">+7 (960) 526-30-16</p>
-                    <p><i class="fab fa-whatsapp"></i> WhatsApp · Telegram</p>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 48px;">
-                <a href="tel:+79605263016" class="btn-primary">Связаться с менеджером</a>
+        <!-- ДОКУМЕНТЫ И РАЗРЕШЕНИЕ -->
+        <section>
+            <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center;">
+                <div style="background: #0c0c0c; padding: 32px; border-radius: 32px; width: 260px; text-align: center;"><i class="fas fa-file-contract" style="font-size: 2.8rem; color:#dbb86b;"></i><h4 style="margin-top: 16px;">Разрешение № RU 77102000-023-568</h4><p style="font-size: 0.85rem;">Комитет по архитектуре</p></div>
+                <div style="background: #0c0c0c; padding: 32px; border-radius: 32px; width: 260px; text-align: center;"><i class="fas fa-building" style="font-size: 2.8rem; color:#dbb86b;"></i><h4 style="margin-top: 16px;">Документация в шоуруме</h4><p style="font-size: 0.85rem;">Оригиналы доступны</p></div>
+                <div style="background: #0c0c0c; padding: 32px; border-radius: 32px; width: 260px; text-align: center;"><i class="fas fa-chart-line" style="font-size: 2.8rem; color:#dbb86b;"></i><h4 style="margin-top: 16px;">Ход строительства</h4><p style="font-size: 0.85rem;">Фотоотчёт по запросу</p></div>
             </div>
         </section>
 
-        <!-- ПОСЛЕДНИЙ БЛОК: ПАНОРАМА (полуптичка или вечерний вид, чтобы завершить) -->
-        <section class="fade-up" style="padding-bottom: 60px;">
-            <img class="img-soft" src="Птичка_вечер.jpeg" alt="Вид на клубный дом вечером" style="max-height: 500px; object-fit: cover; width: 100%;">
-            <div style="text-align: center; margin-top: 24px;">
-                <p style="color: #aaa; font-size: 0.85rem;">Sminex — перфекционисты Fine Development</p>
+        <!-- ЧАСТЫЕ ВОПРОСЫ (Аккордеон) -->
+        <section>
+            <div class="section-label">FAQ</div>
+            <h2 class="section-title">Частые вопросы</h2>
+            <div class="accordion">
+                <div class="accordion-item"><div class="accordion-question">Кто застройщик? <i class="fas fa-chevron-down"></i></div><div class="accordion-answer">Sminex — компания с портфелем элитных проектов, включая «Лаврушинский», «Реномэ».</div></div>
+                <div class="accordion-item"><div class="accordion-question">Когда сдача дома? <i class="fas fa-chevron-down"></i></div><div class="accordion-answer">I квартал 2030 года. Монолитные работы завершены на 92%.</div></div>
+                <div class="accordion-item"><div class="accordion-question">Какая отделка в квартирах? <i class="fas fa-chevron-down"></i></div><div class="accordion-answer">white box (чистовая отделка без финишных покрытий), возможность индивидуального дизайн-проекта.</div></div>
+                <div class="accordion-item"><div class="accordion-question">Есть ли террасы? <i class="fas fa-chevron-down"></i></div><div class="accordion-answer">Да, в большинстве квартир предусмотрены террасы до 40 м².</div></div>
+            </div>
+        </section>
+
+        <!-- КАРТА И КОНТАКТЫ (как в whitewill) -->
+        <section id="contacts">
+            <div class="map-placeholder">
+                <i class="fas fa-map-marker-alt" style="font-size: 3rem; color: #dbb86b; margin-bottom: 20px;"></i>
+                <p style="font-size: 1.2rem;">Большой Палашёвский переулок, 11</p>
+                <p style="color: #888;">8 минут пешком до метро Пушкинская / Тверская</p>
+            </div>
+            <div class="contacts-grid">
+                <div><h3><i class="fas fa-store gold"></i> Отдел продаж</h3><p>Новорязанская ул., 23, стр.2</p><p>Ежедневно 10:00–21:00</p></div>
+                <div><h3><i class="fas fa-chandelier gold"></i> Шоурум</h3><p>Кадашевская наб., 6/1/2с1</p><p>Предзапись через менеджера</p></div>
+                <div><h3><i class="fas fa-headset gold"></i> Титов Алексей</h3><p class="gold" style="font-size: 1.8rem;">+7 (960) 526-30-16</p><p><i class="fab fa-whatsapp"></i> WhatsApp / Telegram</p></div>
             </div>
         </section>
     </div>
 
-    <footer class="footer-note">
+    <footer>
         <div class="container">
-            <p>© 2026 Клубный дом «Палашёвский 11» · Делюкс-класс · Информация не является публичной офертой</p>
-            <p style="margin-top: 8px;">Разрешение на строительство имеется · Все фото — из репозитория проекта</p>
+            <p>© 2026 Клубный дом «Палашёвский 11» · Делюкс-класс · Sminex — Fine Development</p>
+            <p style="margin-top: 12px; font-size: 0.7rem;">Информация не является публичной офертой. Разрешение на строительство имеется.</p>
         </div>
     </footer>
 
-    <script>
-        // анимация при скролле fade-up
-        const fadeElements = document.querySelectorAll('.fade-up');
-        function checkFade() {
-            fadeElements.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 100) {
-                    el.classList.add('appear');
-                }
-            });
-        }
-        window.addEventListener('scroll', checkFade);
-        window.addEventListener('resize', checkFade);
-        checkFade();
+    <!-- Модальное окно -->
+    <div id="callbackModal" style="display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; z-index: 1000;">
+        <div style="background: #111; max-width: 500px; width: 90%; padding: 40px; border-radius: 32px; text-align: center;">
+            <span id="closeModal" style="float:right; font-size:28px; cursor:pointer;">&times;</span>
+            <h3 style="margin-bottom: 20px;">Заказать звонок</h3>
+            <form id="callbackForm">
+                <input type="text" placeholder="Ваше имя" style="width:100%; padding:14px; margin:8px 0; background:#222; border:none; color:white; border-radius: 20px;">
+                <input type="tel" placeholder="+7 (___) ___-__-__" style="width:100%; padding:14px; margin:8px 0; background:#222; border:none; color:white; border-radius: 20px;">
+                <button type="submit" class="btn-primary" style="width:100%; margin-top: 16px;">Отправить</button>
+            </form>
+        </div>
+    </div>
 
-        // плавный скролл по якорям
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href === "#" || href === "") return;
-                const target = document.querySelector(href);
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Инициализация слайдера
+        const swiper = new Swiper('.swiper-gallery', {
+            loop: true, autoplay: { delay: 4000 }, pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        });
+
+        // Параллакс для hero
+        const heroBg = document.querySelector('.hero-bg');
+        window.addEventListener('mousemove', (e) => {
+            let x = (window.innerWidth / 2 - e.pageX) / 80;
+            let y = (window.innerHeight / 2 - e.pageY) / 80;
+            if(heroBg) heroBg.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
+        });
+
+        // Аккордеон
+        document.querySelectorAll('.accordion-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const parent = q.closest('.accordion-item');
+                parent.classList.toggle('active');
             });
         });
+
+        // Модалка
+        const modal = document.getElementById('callbackModal');
+        const openBtn = document.getElementById('openModalBtn');
+        const closeModal = document.getElementById('closeModal');
+        openBtn?.addEventListener('click', () => modal.style.display = 'flex');
+        closeModal?.addEventListener('click', () => modal.style.display = 'none');
+        window.onclick = (e) => { if(e.target === modal) modal.style.display = 'none'; };
     </script>
 </body>
 </html>
