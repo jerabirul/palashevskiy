@@ -117,6 +117,7 @@
             margin-top: 24px;
             justify-content: flex-start;
         }
+
         .btn-messenger {
             display: inline-flex;
             align-items: center;
@@ -131,13 +132,16 @@
             color: #fff;
             border: 1px solid #333;
         }
+
         .btn-messenger i {
             font-size: 1.2rem;
         }
+
         .btn-messenger:hover {
             transform: translateY(-2px);
             border-color: #dbb86b;
         }
+
         .btn-wa:hover { background: #25D36620; border-color: #25D366; }
         .btn-tg:hover { background: #0088cc20; border-color: #0088cc; }
         .btn-email:hover { background: #dbb86b20; border-color: #dbb86b; }
@@ -576,7 +580,7 @@
 
     <!-- ==================== HERO ==================== -->
     <div class="hero">
-        <img class="hero-bg" src="Фронтальный вид.jpeg" alt="Палашёвский 11 фасад">
+        <img class="hero-bg" id="heroImage" src="Фронтальный вид.jpeg" alt="Палашёвский 11 фасад" onerror="this.onerror=null; this.src='Фронтальный вид.jpeg';">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-label">КЛУБНЫЙ ДОМ ДЕЛЮКС-КЛАССА</div>
@@ -627,7 +631,7 @@
                     </div>
                 </div>
                 <div>
-                    <img class="img-prestige" src="Вид из Сытинского переулка.jpeg" alt="Вид из Сытинского переулка">
+                    <img class="img-prestige" src="Вид из Сытинского переулка.jpeg" alt="Вид из Сытинского переулка" onerror="this.style.display='none'">
                 </div>
             </div>
         </section>
@@ -641,7 +645,7 @@
                     <p style="color: #bcbcbc;">Три уникальных фасада: консольные террасы с выносом до 4 м, волнообразный французский балкон и первый в Москве полностью стеклянный фасад с изумрудными колоннами из натурального камня.</p>
                 </div>
                 <div>
-                    <img class="img-prestige" src="Гранитный и стеклянный фасады.jpeg" alt="Фасады из гранита и стекла">
+                    <img class="img-prestige" src="Гранитный и стеклянный фасады.jpeg" alt="Фасады из гранита и стекла" onerror="this.style.display='none'">
                 </div>
             </div>
         </section>
@@ -654,12 +658,12 @@
             </div>
             <div class="swiper-gallery swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="Лобби (10).jpeg" alt="Лобби"></div>
-                    <div class="swiper-slide"><img src="Флорариум общий вид.jpeg" alt="Флорариум"></div>
-                    <div class="swiper-slide"><img src="Патио.jpeg" alt="Патио"></div>
-                    <div class="swiper-slide"><img src="Терраса (4).jpeg" alt="Терраса"></div>
-                    <div class="swiper-slide"><img src="Лобби (7).jpeg" alt="Лобби деталь"></div>
-                    <div class="swiper-slide"><img src="Лобби (8).jpeg" alt="Зона ресепшн"></div>
+                    <div class="swiper-slide"><img src="Лобби (10).jpeg" alt="Лобби" onerror="this.src='https://placehold.co/800x600/222/888?text=Лобби'"></div>
+                    <div class="swiper-slide"><img src="Флорариум общий вид.jpeg" alt="Флорариум" onerror="this.src='https://placehold.co/800x600/222/888?text=Флорариум'"></div>
+                    <div class="swiper-slide"><img src="Патио.jpeg" alt="Патио" onerror="this.src='https://placehold.co/800x600/222/888?text=Патио'"></div>
+                    <div class="swiper-slide"><img src="Терраса (4).jpeg" alt="Терраса" onerror="this.src='https://placehold.co/800x600/222/888?text=Терраса'"></div>
+                    <div class="swiper-slide"><img src="Лобби (7).jpeg" alt="Лобби деталь" onerror="this.src='https://placehold.co/800x600/222/888?text=Лобби'"></div>
+                    <div class="swiper-slide"><img src="Лобби (8).jpeg" alt="Зона ресепшн" onerror="this.src='https://placehold.co/800x600/222/888?text=Лобби'"></div>
                 </div>
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-next"></div>
@@ -709,7 +713,7 @@
         <section>
             <div class="two-cols">
                 <div>
-                    <img class="img-prestige" src="Паркинг (5).jpeg" alt="Подземный паркинг">
+                    <img class="img-prestige" src="Паркинг (5).jpeg" alt="Подземный паркинг" onerror="this.style.display='none'">
                 </div>
                 <div>
                     <span class="section-label">Подземный паркинг</span>
@@ -735,7 +739,7 @@
         <section id="manager">
             <div class="manager-card">
                 <div class="manager-photo">
-                    <img src="1316400497.jpeg" alt="Титов Алексей">
+                    <img src="1316400497.jpeg" alt="Титов Алексей" onerror="this.src='https://placehold.co/200x200/222/888?text=АТ'">
                 </div>
                 <div class="manager-info">
                     <div class="manager-name">Титов Алексей</div>
