@@ -580,7 +580,7 @@
 
     <!-- ==================== HERO ==================== -->
     <div class="hero">
-        <img class="hero-bg" id="heroImage" src="Фронтальный вид.jpeg" alt="Палашёвский 11 фасад" style="display: none;">
+        <img class="hero-bg" src="Вид спереди.jpeg" alt="Палашёвский 11 фасад">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-label">КЛУБНЫЙ ДОМ ДЕЛЮКС-КЛАССА</div>
@@ -631,7 +631,7 @@
                     </div>
                 </div>
                 <div>
-                    <img class="img-prestige" src="Вид из Сытинского переулка.jpeg" alt="Вид из Сытинского переулка" onerror="this.style.display='none'">
+                    <img class="img-prestige" src="Вид из Сытинского переулка.jpeg" alt="Вид из Сытинского переулка">
                 </div>
             </div>
         </section>
@@ -645,7 +645,7 @@
                     <p style="color: #bcbcbc;">Три уникальных фасада: консольные террасы с выносом до 4 м, волнообразный французский балкон и первый в Москве полностью стеклянный фасад с изумрудными колоннами из натурального камня.</p>
                 </div>
                 <div>
-                    <img class="img-prestige" src="Гранитный и стеклянный фасады.jpeg" alt="Фасады из гранита и стекла" onerror="this.style.display='none'">
+                    <img class="img-prestige" src="Гранитный и стеклянный фасады.jpeg" alt="Фасады из гранита и стекла">
                 </div>
             </div>
         </section>
@@ -658,12 +658,12 @@
             </div>
             <div class="swiper-gallery swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="Лобби (10).jpeg" alt="Лобби" onerror="this.src='https://placehold.co/800x600/222/888?text=Лобби'"></div>
-                    <div class="swiper-slide"><img src="Флорариум общий вид.jpeg" alt="Флорариум" onerror="this.src='https://placehold.co/800x600/222/888?text=Флорариум'"></div>
-                    <div class="swiper-slide"><img src="Патио.jpeg" alt="Патио" onerror="this.src='https://placehold.co/800x600/222/888?text=Патио'"></div>
-                    <div class="swiper-slide"><img src="Терраса (4).jpeg" alt="Терраса" onerror="this.src='https://placehold.co/800x600/222/888?text=Терраса'"></div>
-                    <div class="swiper-slide"><img src="Лобби (7).jpeg" alt="Лобби деталь" onerror="this.src='https://placehold.co/800x600/222/888?text=Лобби'"></div>
-                    <div class="swiper-slide"><img src="Лобби (8).jpeg" alt="Зона ресепшн" onerror="this.src='https://placehold.co/800x600/222/888?text=Лобби'"></div>
+                    <div class="swiper-slide"><img src="Вестибюль (10).jpeg" alt="Вестибюль"></div>
+                    <div class="swiper-slide"><img src="Общий вид флорариума.jpeg" alt="Флорариум"></div>
+                    <div class="swiper-slide"><img src="Патио.jpeg" alt="Патио"></div>
+                    <div class="swiper-slide"><img src="Терраса (4).jpeg" alt="Терраса"></div>
+                    <div class="swiper-slide"><img src="Вестибюль (7).jpeg" alt="Вестибюль деталь"></div>
+                    <div class="swiper-slide"><img src="Вестибюль (8).jpeg" alt="Зона ресепшн"></div>
                 </div>
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-next"></div>
@@ -713,7 +713,7 @@
         <section>
             <div class="two-cols">
                 <div>
-                    <img class="img-prestige" src="Паркинг (5).jpeg" alt="Подземный паркинг" onerror="this.style.display='none'">
+                    <img class="img-prestige" src="Паркинг (5).jpeg" alt="Подземный паркинг">
                 </div>
                 <div>
                     <span class="section-label">Подземный паркинг</span>
@@ -739,7 +739,7 @@
         <section id="manager">
             <div class="manager-card">
                 <div class="manager-photo">
-                    <img src="1316400497.jpeg" alt="Титов Алексей" onerror="this.src='https://placehold.co/200x200/222/888?text=АТ'">
+                    <img src="1316400497.jpeg" alt="Титов Алексей">
                 </div>
                 <div class="manager-info">
                     <div class="manager-name">Титов Алексей</div>
@@ -895,7 +895,7 @@
     <!-- ==================== СКРИПТЫ ==================== -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // 1. Инициализация слайдера
+        // Инициализация слайдера
         const swiper = new Swiper('.swiper-gallery', {
             loop: true,
             autoplay: { delay: 4000, disableOnInteraction: false },
@@ -904,55 +904,17 @@
             effect: 'slide'
         });
 
-        // 2. Загрузка главного фото с fallback-вариантами (чиним слетевшее фото)
-        const heroContainer = document.querySelector('.hero');
-        const possibleNames = [
-            'Фронтальный вид.jpeg',
-            'Фронтальный вид.jpeg',
-            'Фронтальный вид.jpg',
-            'frontal-view.jpeg',
-            'frontal.jpg'
-        ];
-        
-        function tryLoadImage(index) {
-            if (index >= possibleNames.length) {
-                // Если ни одно не загрузилось, ставим фоновый цвет
-                heroContainer.style.backgroundColor = '#1a1a2e';
-                return;
-            }
-            const img = new Image();
-            img.onload = function() {
-                // Удаляем старый фон, если есть
-                const oldBg = document.querySelector('.hero-bg');
-                if (oldBg) oldBg.remove();
-                // Создаём новый
-                const newBg = document.createElement('img');
-                newBg.src = possibleNames[index];
-                newBg.className = 'hero-bg';
-                newBg.alt = 'Палашёвский 11 фасад';
-                newBg.style.objectFit = 'cover';
-                newBg.style.width = '100%';
-                newBg.style.height = '110%';
-                heroContainer.insertBefore(newBg, heroContainer.firstChild);
-            };
-            img.onerror = function() {
-                tryLoadImage(index + 1);
-            };
-            img.src = possibleNames[index];
-        }
-        tryLoadImage(0);
-
-        // 3. Параллакс для hero (мышь)
-        window.addEventListener('mousemove', (e) => {
-            const heroBgElem = document.querySelector('.hero-bg');
-            if (heroBgElem) {
+        // Параллакс для hero (мышь)
+        const heroBg = document.querySelector('.hero-bg');
+        if (heroBg) {
+            window.addEventListener('mousemove', (e) => {
                 let x = (window.innerWidth / 2 - e.pageX) / 80;
                 let y = (window.innerHeight / 2 - e.pageY) / 80;
-                heroBgElem.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
-            }
-        });
+                heroBg.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
+            });
+        }
 
-        // 4. Аккордеон для FAQ
+        // Аккордеон для FAQ
         document.querySelectorAll('.accordion-question').forEach(question => {
             question.addEventListener('click', () => {
                 const parent = question.closest('.accordion-item');
@@ -960,7 +922,7 @@
             });
         });
 
-        // 5. Модальное окно
+        // Модальное окно
         const modal = document.getElementById('callbackModal');
         const openBtn = document.getElementById('openModalBtn');
         const closeBtn = document.querySelector('.close-modal');
@@ -981,7 +943,7 @@
             }
         };
 
-        // 6. Плавный скролл по якорям
+        // Плавный скролл по якорям
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
@@ -994,12 +956,12 @@
             });
         });
 
-        // 7. Политика конфиденциальности — пока заглушка
+        // Политика конфиденциальности — пока заглушка, потом подставишь файл
         const privacyLink = document.getElementById('privacyPolicyLink');
         if (privacyLink) {
             privacyLink.onclick = (e) => {
                 e.preventDefault();
-                alert('Файл "Политика конфиденциальности" будет добавлен позже.\n\nПодготовьте документ (privacy.html или PDF) и замените ссылку в коде.');
+                alert('Файл "Политика конфиденциальности" будет добавлен позже.\n\nПодготовьте документ и замените ссылку в коде (файл privacy.html или PDF).');
             };
         }
     </script>
