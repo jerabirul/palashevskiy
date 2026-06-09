@@ -1,26 +1,33 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Палашёвский 11 | Титов Алексей | Клубный дом Делюкс-класса</title>
+    
     <!-- Подключаем шрифты Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Подключаем иконки Font Awesome -->
+    
+    <!-- Подключаем иконки Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <!-- Подключаем библиотеку Swiper для слайдера -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
     <style>
         /* ------------------------------------------------------------- */
-        /* ГЛОБАЛЬНЫЕ СТИЛИ И СБРОСЫ */
+        /* ГЛОБАЛЬНЫЕ СБРОСЫ И БАЗОВЫЕ СТИЛИ */
         /* ------------------------------------------------------------- */
-        * {
+        * 
+        {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
+        body 
+        {
             font-family: 'Inter', sans-serif;
             background-color: #050505;
             color: #ededed;
@@ -30,25 +37,28 @@
         }
 
         /* ------------------------------------------------------------- */
-        /* КОНТЕЙНЕР ДЛЯ КОНТЕНТА */
+        /* КОНТЕЙНЕР ДЛЯ ОГРАНИЧЕНИЯ ШИРИНЫ */
         /* ------------------------------------------------------------- */
-        .container {
+        .container 
+        {
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
         /* ------------------------------------------------------------- */
-        /* ЗОЛОТЫЕ АКЦЕНТЫ */
+        /* ЗОЛОТОЙ ЦВЕТ ДЛЯ АКЦЕНТОВ */
         /* ------------------------------------------------------------- */
-        .gold {
+        .gold 
+        {
             color: #dbb86b;
         }
 
         /* ------------------------------------------------------------- */
         /* ЗАГОЛОВКИ СЕКЦИЙ */
         /* ------------------------------------------------------------- */
-        .section-title {
+        .section-title 
+        {
             font-size: 2.5rem;
             font-weight: 500;
             letter-spacing: -0.02em;
@@ -59,7 +69,8 @@
         /* ------------------------------------------------------------- */
         /* ПОДЗАГОЛОВКИ СЕКЦИЙ */
         /* ------------------------------------------------------------- */
-        .section-subtitle {
+        .section-subtitle 
+        {
             font-size: 0.75rem;
             letter-spacing: 5px;
             text-transform: uppercase;
@@ -71,7 +82,8 @@
         /* ------------------------------------------------------------- */
         /* ОСНОВНЫЕ КНОПКИ */
         /* ------------------------------------------------------------- */
-        .btn-primary {
+        .btn-primary 
+        {
             display: inline-block;
             background: #dbb86b;
             color: #0a0a0a;
@@ -85,7 +97,8 @@
             font-size: 0.9rem;
         }
 
-        .btn-primary:hover {
+        .btn-primary:hover 
+        {
             background: #f0cf8b;
             transform: translateY(-2px);
             box-shadow: 0 15px 25px -10px rgba(0,0,0,0.5);
@@ -94,7 +107,8 @@
         /* ------------------------------------------------------------- */
         /* ОБВОДНЫЕ КНОПКИ */
         /* ------------------------------------------------------------- */
-        .btn-outline {
+        .btn-outline 
+        {
             display: inline-block;
             background: transparent;
             border: 1.5px solid #dbb86b;
@@ -108,7 +122,8 @@
             font-size: 0.9rem;
         }
 
-        .btn-outline:hover {
+        .btn-outline:hover 
+        {
             background: rgba(219,184,107,0.1);
             transform: translateY(-2px);
         }
@@ -116,14 +131,16 @@
         /* ------------------------------------------------------------- */
         /* КНОПКИ МЕССЕНДЖЕРОВ */
         /* ------------------------------------------------------------- */
-        .messenger-buttons {
+        .messenger-buttons 
+        {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
             margin-top: 24px;
         }
 
-        .btn-messenger {
+        .btn-messenger 
+        {
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -134,28 +151,45 @@
             transition: all 0.3s ease;
             font-size: 0.85rem;
             background: #1a1a1a;
-            color: #fff;
-            border: 1px solid #333;
+            color: #ffffff;
+            border: 1px solid #333333;
         }
 
-        .btn-messenger i {
+        .btn-messenger i 
+        {
             font-size: 1.1rem;
         }
 
-        .btn-messenger:hover {
+        .btn-messenger:hover 
+        {
             transform: translateY(-2px);
             border-color: #dbb86b;
         }
 
-        /* Специфичные цвета при наведении */
-        .btn-wa:hover { background: #25D36620; border-color: #25D366; }
-        .btn-tg:hover { background: #0088cc20; border-color: #0088cc; }
-        .btn-email:hover { background: #dbb86b20; border-color: #dbb86b; }
+        /* Специфичные цвета для мессенджеров при наведении */
+        .btn-wa:hover 
+        {
+            background: #25D36620;
+            border-color: #25D366;
+        }
+
+        .btn-tg:hover 
+        {
+            background: #0088cc20;
+            border-color: #0088cc;
+        }
+
+        .btn-email:hover 
+        {
+            background: #dbb86b20;
+            border-color: #dbb86b;
+        }
 
         /* ------------------------------------------------------------- */
         /* HERO-БЛОК (ПЕРВЫЙ ЭКРАН) */
         /* ------------------------------------------------------------- */
-        .hero {
+        .hero 
+        {
             height: 100vh;
             width: 100%;
             position: relative;
@@ -166,7 +200,8 @@
             overflow: hidden;
         }
 
-        .hero-bg {
+        .hero-bg 
+        {
             position: absolute;
             top: 0;
             left: 0;
@@ -177,7 +212,8 @@
             z-index: 0;
         }
 
-        .hero-overlay {
+        .hero-overlay 
+        {
             position: absolute;
             top: 0;
             left: 0;
@@ -187,7 +223,8 @@
             z-index: 1;
         }
 
-        .hero-content {
+        .hero-content 
+        {
             position: relative;
             z-index: 2;
             max-width: 800px;
@@ -195,40 +232,47 @@
             animation: fadeUp 0.8s ease-out;
         }
 
-        @keyframes fadeUp {
-            from {
+        @keyframes fadeUp 
+        {
+            from 
+            {
                 opacity: 0;
                 transform: translateY(40px);
             }
-            to {
+            to 
+            {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        .hero-label {
+        .hero-label 
+        {
             font-size: 0.8rem;
             letter-spacing: 6px;
             color: #dbb86b;
             margin-bottom: 16px;
         }
 
-        .hero h1 {
+        .hero h1 
+        {
             font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: 500;
             margin-bottom: 20px;
         }
 
-        .hero-address {
+        .hero-address 
+        {
             font-size: 1rem;
-            color: #ccc;
+            color: #cccccc;
             margin-bottom: 32px;
         }
 
         /* ------------------------------------------------------------- */
         /* БЛОК ИНФОГРАФИКИ (ЦИФРЫ) */
         /* ------------------------------------------------------------- */
-        .stats-grid {
+        .stats-grid 
+        {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
@@ -239,20 +283,23 @@
             border: 1px solid #202020;
         }
 
-        .stat-item {
+        .stat-item 
+        {
             text-align: center;
         }
 
-        .stat-number {
+        .stat-number 
+        {
             font-size: 2.5rem;
             font-weight: 700;
             color: #dbb86b;
             margin-bottom: 8px;
         }
 
-        .stat-label {
+        .stat-label 
+        {
             font-size: 0.9rem;
-            color: #aaa;
+            color: #aaaaaa;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -260,7 +307,8 @@
         /* ------------------------------------------------------------- */
         /* ДВУХКОЛОНОЧНЫЕ БЛОКИ */
         /* ------------------------------------------------------------- */
-        .two-columns {
+        .two-columns 
+        {
             display: flex;
             gap: 60px;
             align-items: center;
@@ -268,28 +316,32 @@
             margin: 60px 0;
         }
 
-        .two-columns > div {
+        .two-columns > div 
+        {
             flex: 1;
         }
 
         /* ------------------------------------------------------------- */
         /* СТИЛИ ДЛЯ КАРТИНОК */
         /* ------------------------------------------------------------- */
-        .image-rounded {
+        .image-rounded 
+        {
             border-radius: 28px;
             width: 100%;
             transition: transform 0.4s ease;
             box-shadow: 0 20px 30px -12px rgba(0,0,0,0.4);
         }
 
-        .image-rounded:hover {
+        .image-rounded:hover 
+        {
             transform: scale(1.02);
         }
 
         /* ------------------------------------------------------------- */
         /* СЛАЙДЕР (SWIPER) */
         /* ------------------------------------------------------------- */
-        .swiper-gallery {
+        .swiper-gallery 
+        {
             width: 100%;
             height: 500px;
             border-radius: 28px;
@@ -297,7 +349,8 @@
             margin: 40px 0;
         }
 
-        .swiper-slide img {
+        .swiper-slide img 
+        {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -306,7 +359,8 @@
         /* ------------------------------------------------------------- */
         /* КАРТОЧКА МЕНЕДЖЕРА */
         /* ------------------------------------------------------------- */
-        .manager-card {
+        .manager-card 
+        {
             background: linear-gradient(125deg, #111111, #080808);
             border-radius: 48px;
             padding: 48px;
@@ -318,7 +372,8 @@
             margin: 60px 0;
         }
 
-        .manager-photo {
+        .manager-photo 
+        {
             width: 160px;
             height: 160px;
             border-radius: 50%;
@@ -328,17 +383,20 @@
             flex-shrink: 0;
         }
 
-        .manager-photo img {
+        .manager-photo img 
+        {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .manager-info {
+        .manager-info 
+        {
             flex: 2;
         }
 
-        .manager-name {
+        .manager-name 
+        {
             font-size: 1.8rem;
             font-weight: 600;
             margin-bottom: 8px;
@@ -347,7 +405,8 @@
         /* ------------------------------------------------------------- */
         /* БЛОК ДОКУМЕНТОВ */
         /* ------------------------------------------------------------- */
-        .docs-grid {
+        .docs-grid 
+        {
             display: flex;
             flex-wrap: wrap;
             gap: 30px;
@@ -355,39 +414,45 @@
             margin: 60px 0;
         }
 
-        .doc-card {
+        .doc-card 
+        {
             background: #0c0c0c;
             padding: 28px 24px;
             border-radius: 28px;
             width: 260px;
             text-align: center;
-            border: 1px solid #222;
+            border: 1px solid #222222;
             transition: all 0.3s ease;
         }
 
-        .doc-card:hover {
+        .doc-card:hover 
+        {
             transform: translateY(-5px);
             border-color: #dbb86b40;
         }
 
-        .doc-card i {
+        .doc-card i 
+        {
             font-size: 2.5rem;
             color: #dbb86b;
             margin-bottom: 16px;
             display: inline-block;
         }
 
-        .doc-card h4 {
+        .doc-card h4 
+        {
             font-size: 1.1rem;
             margin-bottom: 8px;
         }
 
-        .doc-card p {
+        .doc-card p 
+        {
             font-size: 0.8rem;
-            color: #aaa;
+            color: #aaaaaa;
         }
 
-        .doc-link {
+        .doc-link 
+        {
             display: inline-block;
             margin-top: 12px;
             color: #dbb86b;
@@ -395,14 +460,16 @@
             font-size: 0.8rem;
         }
 
-        .doc-link:hover {
+        .doc-link:hover 
+        {
             text-decoration: underline;
         }
 
         /* ------------------------------------------------------------- */
         /* БЛОК КОНТАКТОВ */
         /* ------------------------------------------------------------- */
-        .contacts-grid {
+        .contacts-grid 
+        {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
@@ -414,34 +481,39 @@
             border: 1px solid #202020;
         }
 
-        .contact-item h3 {
+        .contact-item h3 
+        {
             font-size: 1.1rem;
             margin-bottom: 16px;
         }
 
-        .contact-item p {
+        .contact-item p 
+        {
             margin-bottom: 6px;
             font-size: 0.9rem;
-            color: #ccc;
+            color: #cccccc;
         }
 
-        .contact-phone {
+        .contact-phone 
+        {
             font-size: 1.5rem;
             color: #dbb86b;
             font-weight: 500;
         }
 
         /* ------------------------------------------------------------- */
-        /* ПОДВАЛ САЙТА */
+        /* ПОДВАЛ САЙТА (ФУТЕР) */
         /* ------------------------------------------------------------- */
-        footer {
+        footer 
+        {
             padding: 48px 0 32px;
             text-align: center;
             border-top: 1px solid #1a1a1a;
             margin-top: 40px;
         }
 
-        .footer-links {
+        .footer-links 
+        {
             display: flex;
             justify-content: center;
             gap: 32px;
@@ -449,59 +521,81 @@
             margin-top: 24px;
         }
 
-        .footer-links a {
-            color: #888;
+        .footer-links a 
+        {
+            color: #888888;
             text-decoration: none;
             font-size: 0.75rem;
             transition: color 0.2s;
         }
 
-        .footer-links a:hover {
+        .footer-links a:hover 
+        {
             color: #dbb86b;
         }
 
         /* ------------------------------------------------------------- */
         /* АДАПТИВНАЯ ВЁРСТКА ДЛЯ ТЕЛЕФОНОВ И ПЛАНШЕТОВ */
         /* ------------------------------------------------------------- */
-        @media (max-width: 900px) {
-            .stats-grid {
+        @media (max-width: 900px) 
+        {
+            .stats-grid 
+            {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 24px;
                 padding: 36px 24px;
             }
-            .section-title {
+            
+            .section-title 
+            {
                 font-size: 2rem;
             }
-            .two-columns {
+            
+            .two-columns 
+            {
                 gap: 30px;
             }
-            .swiper-gallery {
+            
+            .swiper-gallery 
+            {
                 height: 380px;
             }
-            .manager-card {
+            
+            .manager-card 
+            {
                 flex-direction: column;
                 text-align: center;
                 padding: 32px;
             }
-            .messenger-buttons {
+            
+            .messenger-buttons 
+            {
                 justify-content: center;
             }
-            .contacts-grid {
+            
+            .contacts-grid 
+            {
                 flex-direction: column;
                 text-align: center;
                 gap: 32px;
             }
         }
 
-        @media (max-width: 600px) {
-            .stats-grid {
+        @media (max-width: 600px) 
+        {
+            .stats-grid 
+            {
                 grid-template-columns: 1fr;
             }
-            .btn-primary, .btn-outline {
+            
+            .btn-primary, .btn-outline 
+            {
                 padding: 12px 24px;
                 font-size: 0.85rem;
             }
-            .doc-card {
+            
+            .doc-card 
+            {
                 width: 100%;
                 max-width: 280px;
             }
@@ -511,8 +605,8 @@
 <body>
 
     <!-- ============================================================= -->
-    <!-- HERO БЛОК — ПЕРВЫЙ ЭКРАН -->
-    <!-- ФАЙЛ: Фасад_1_крупным планом.jpeg (ГЛАВНОЕ ФОТО) -->
+    <!-- HERO БЛОК — ПЕРВЫЙ ЭКРАН С ГЛАВНЫМ ФОТО -->
+    <!-- ФАЙЛ: Фасад_1_крупным планом.jpeg -->
     <!-- ============================================================= -->
     <div class="hero">
         <img class="hero-bg" src="Фасад_1_крупным планом.jpeg" alt="Палашёвский 11 фасад">
@@ -590,13 +684,24 @@
             <div class="section-subtitle">Клубные интерьеры</div>
             <h2 class="section-title">Пространства для жизни</h2>
         </div>
+        
         <div class="swiper-gallery swiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="Лобби (10).jpeg" alt="Лобби"></div>
-                <div class="swiper-slide"><img src="Общий вид флорариума.jpeg" alt="Флорариум"></div>
-                <div class="swiper-slide"><img src="Патио.jpeg" alt="Патио"></div>
-                <div class="swiper-slide"><img src="Терраса (4).jpeg" alt="Терраса"></div>
-                <div class="swiper-slide"><img src="Лобби (7).jpeg" alt="Лобби деталь"></div>
+                <div class="swiper-slide">
+                    <img src="Лобби (10).jpeg" alt="Лобби">
+                </div>
+                <div class="swiper-slide">
+                    <img src="Общий вид флорариума.jpeg" alt="Флорариум">
+                </div>
+                <div class="swiper-slide">
+                    <img src="Патио.jpeg" alt="Патио">
+                </div>
+                <div class="swiper-slide">
+                    <img src="Терраса (4).jpeg" alt="Терраса">
+                </div>
+                <div class="swiper-slide">
+                    <img src="Лобби (7).jpeg" alt="Лобби деталь">
+                </div>
             </div>
             <div class="swiper-pagination"></div>
             <div class="swiper-button-next"></div>
@@ -642,7 +747,9 @@
                 <div class="manager-name">Титов Алексей</div>
                 <div class="gold" style="margin-bottom: 16px;">Персональный менеджер клубного дома</div>
                 <p style="margin-bottom: 20px;">Индивидуальные презентации, закрытые показы в шоуруме на Кадашёвской набережной, эксклюзивные условия. Прямой контакт 24/7. Отвечаю в WhatsApp, Telegram.</p>
-                <a href="tel:+79605263016" class="btn-primary" style="margin-right: 12px;"><i class="fas fa-phone-alt"></i> +7 (960) 526-30-16</a>
+                <a href="tel:+79605263016" class="btn-primary" style="margin-right: 12px;">
+                    <i class="fas fa-phone-alt"></i> +7 (960) 526-30-16
+                </a>
                 <div class="messenger-buttons">
                     <a href="https://wa.me/79605263016" target="_blank" class="btn-messenger btn-wa" rel="noopener noreferrer">
                         <i class="fab fa-whatsapp"></i> WhatsApp
@@ -735,17 +842,21 @@
         // -------------------------------------------------------------
         // ИНИЦИАЛИЗАЦИЯ СЛАЙДЕРА
         // -------------------------------------------------------------
-        const swiper = new Swiper('.swiper-gallery', {
+        const swiper = new Swiper('.swiper-gallery', 
+        {
             loop: true,
-            autoplay: {
+            autoplay: 
+            {
                 delay: 4000,
                 disableOnInteraction: false
             },
-            pagination: {
+            pagination: 
+            {
                 el: '.swiper-pagination',
                 clickable: true
             },
-            navigation: {
+            navigation: 
+            {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev'
             },
@@ -755,14 +866,18 @@
         // -------------------------------------------------------------
         // ПЛАВНЫЙ СКРОЛЛ ПО ЯКОРНЫМ ССЫЛКАМ
         // -------------------------------------------------------------
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => 
+        {
+            anchor.addEventListener('click', function(e) 
+            {
                 const href = this.getAttribute('href');
                 if (href === "#" || href === "") return;
                 const target = document.querySelector(href);
-                if (target) {
+                if (target) 
+                {
                     e.preventDefault();
-                    target.scrollIntoView({
+                    target.scrollIntoView(
+                    {
                         behavior: 'smooth',
                         block: 'start'
                     });
@@ -771,11 +886,13 @@
         });
 
         // -------------------------------------------------------------
-        // ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ (ЗАГЛУШКА)
+        // ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ (ЗАГЛУШКА, ПОТОМ ЗАМЕНИШЬ)
         // -------------------------------------------------------------
         const privacyLink = document.getElementById('privacyLink');
-        if (privacyLink) {
-            privacyLink.addEventListener('click', (e) => {
+        if (privacyLink) 
+        {
+            privacyLink.addEventListener('click', (e) => 
+            {
                 e.preventDefault();
                 alert('Файл "Политика конфиденциальности" будет добавлен позже.\n\nПодготовьте документ и замените ссылку в коде.');
             });
@@ -783,3 +900,4 @@
     </script>
 </body>
 </html>
+```
