@@ -580,7 +580,7 @@
 
     <!-- ==================== HERO ==================== -->
     <div class="hero">
-        <img class="hero-bg" id="heroImage" src="Фронтальный вид.jpeg" alt="Палашёвский 11 фасад" onerror="this.onerror=null; this.src='Фронтальный вид.jpeg';">
+        <img class="hero-bg" id="heroImage" src="Фронтальный вид.jpeg" alt="Палашёвский 11 фасад" style="display: none;">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-label">КЛУБНЫЙ ДОМ ДЕЛЮКС-КЛАССА</div>
@@ -895,7 +895,7 @@
     <!-- ==================== СКРИПТЫ ==================== -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // Инициализация слайдера
+        // 1. Инициализация слайдера
         const swiper = new Swiper('.swiper-gallery', {
             loop: true,
             autoplay: { delay: 4000, disableOnInteraction: false },
@@ -904,17 +904,55 @@
             effect: 'slide'
         });
 
-        // Параллакс для hero (мышь)
-        const heroBg = document.querySelector('.hero-bg');
-        if (heroBg) {
-            window.addEventListener('mousemove', (e) => {
+        // 2. Загрузка главного фото с fallback-вариантами (чиним слетевшее фото)
+        const heroContainer = document.querySelector('.hero');
+        const possibleNames = [
+            'Фронтальный вид.jpeg',
+            'Фронтальный вид.jpeg',
+            'Фронтальный вид.jpg',
+            'frontal-view.jpeg',
+            'frontal.jpg'
+        ];
+        
+        function tryLoadImage(index) {
+            if (index >= possibleNames.length) {
+                // Если ни одно не загрузилось, ставим фоновый цвет
+                heroContainer.style.backgroundColor = '#1a1a2e';
+                return;
+            }
+            const img = new Image();
+            img.onload = function() {
+                // Удаляем старый фон, если есть
+                const oldBg = document.querySelector('.hero-bg');
+                if (oldBg) oldBg.remove();
+                // Создаём новый
+                const newBg = document.createElement('img');
+                newBg.src = possibleNames[index];
+                newBg.className = 'hero-bg';
+                newBg.alt = 'Палашёвский 11 фасад';
+                newBg.style.objectFit = 'cover';
+                newBg.style.width = '100%';
+                newBg.style.height = '110%';
+                heroContainer.insertBefore(newBg, heroContainer.firstChild);
+            };
+            img.onerror = function() {
+                tryLoadImage(index + 1);
+            };
+            img.src = possibleNames[index];
+        }
+        tryLoadImage(0);
+
+        // 3. Параллакс для hero (мышь)
+        window.addEventListener('mousemove', (e) => {
+            const heroBgElem = document.querySelector('.hero-bg');
+            if (heroBgElem) {
                 let x = (window.innerWidth / 2 - e.pageX) / 80;
                 let y = (window.innerHeight / 2 - e.pageY) / 80;
-                heroBg.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
-            });
-        }
+                heroBgElem.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
+            }
+        });
 
-        // Аккордеон для FAQ
+        // 4. Аккордеон для FAQ
         document.querySelectorAll('.accordion-question').forEach(question => {
             question.addEventListener('click', () => {
                 const parent = question.closest('.accordion-item');
@@ -922,7 +960,7 @@
             });
         });
 
-        // Модальное окно
+        // 5. Модальное окно
         const modal = document.getElementById('callbackModal');
         const openBtn = document.getElementById('openModalBtn');
         const closeBtn = document.querySelector('.close-modal');
@@ -943,7 +981,7 @@
             }
         };
 
-        // Плавный скролл по якорям
+        // 6. Плавный скролл по якорям
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
@@ -956,12 +994,12 @@
             });
         });
 
-        // Политика конфиденциальности — пока заглушка, потом подставишь файл
+        // 7. Политика конфиденциальности — пока заглушка
         const privacyLink = document.getElementById('privacyPolicyLink');
         if (privacyLink) {
             privacyLink.onclick = (e) => {
                 e.preventDefault();
-                alert('Файл "Политика конфиденциальности" будет добавлен позже.\n\nПодготовьте документ и замените ссылку в коде (файл privacy.html или PDF).');
+                alert('Файл "Политика конфиденциальности" будет добавлен позже.\n\nПодготовьте документ (privacy.html или PDF) и замените ссылку в коде.');
             };
         }
     </script>
