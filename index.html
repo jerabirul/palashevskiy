@@ -1,33 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Палашёвский 11 | Титов Алексей | Клубный дом Делюкс-класса</title>
-    
-    <!-- Подключаем шрифты Google Fonts -->
+    <title>Палашёвский 11 | Титов Алексей</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Подключаем иконки Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <!-- Подключаем библиотеку Swiper для слайдера -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
-        /* ------------------------------------------------------------- */
-        /* ГЛОБАЛЬНЫЕ СБРОСЫ И БАЗОВЫЕ СТИЛИ */
-        /* ------------------------------------------------------------- */
-        * 
-        {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body 
-        {
+        body {
             font-family: 'Inter', sans-serif;
             background-color: #050505;
             color: #ededed;
@@ -36,162 +23,48 @@
             scroll-behavior: smooth;
         }
 
-        /* ------------------------------------------------------------- */
-        /* КОНТЕЙНЕР ДЛЯ ОГРАНИЧЕНИЯ ШИРИНЫ */
-        /* ------------------------------------------------------------- */
-        .container 
-        {
+        .container {
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* ------------------------------------------------------------- */
-        /* ЗОЛОТОЙ ЦВЕТ ДЛЯ АКЦЕНТОВ */
-        /* ------------------------------------------------------------- */
-        .gold 
-        {
+        .gold {
             color: #dbb86b;
         }
 
-        /* ------------------------------------------------------------- */
-        /* ЗАГОЛОВКИ СЕКЦИЙ */
-        /* ------------------------------------------------------------- */
-        .section-title 
-        {
+        .section-title {
             font-size: 2.5rem;
             font-weight: 500;
-            letter-spacing: -0.02em;
             margin-bottom: 24px;
-            line-height: 1.2;
         }
 
-        /* ------------------------------------------------------------- */
-        /* ПОДЗАГОЛОВКИ СЕКЦИЙ */
-        /* ------------------------------------------------------------- */
-        .section-subtitle 
-        {
+        .section-subtitle {
             font-size: 0.75rem;
             letter-spacing: 5px;
-            text-transform: uppercase;
             color: #dbb86b;
             margin-bottom: 16px;
             display: inline-block;
         }
 
-        /* ------------------------------------------------------------- */
-        /* ОСНОВНЫЕ КНОПКИ */
-        /* ------------------------------------------------------------- */
-        .btn-primary 
-        {
-            display: inline-block;
+        .btn-primary {
             background: #dbb86b;
             color: #0a0a0a;
             padding: 14px 36px;
             border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 0.9rem;
+            display: inline-block;
+            transition: 0.3s;
         }
 
-        .btn-primary:hover 
-        {
+        .btn-primary:hover {
             background: #f0cf8b;
             transform: translateY(-2px);
-            box-shadow: 0 15px 25px -10px rgba(0,0,0,0.5);
         }
 
-        /* ------------------------------------------------------------- */
-        /* ОБВОДНЫЕ КНОПКИ */
-        /* ------------------------------------------------------------- */
-        .btn-outline 
-        {
-            display: inline-block;
-            background: transparent;
-            border: 1.5px solid #dbb86b;
-            color: #dbb86b;
-            padding: 12px 32px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            font-size: 0.9rem;
-        }
-
-        .btn-outline:hover 
-        {
-            background: rgba(219,184,107,0.1);
-            transform: translateY(-2px);
-        }
-
-        /* ------------------------------------------------------------- */
-        /* КНОПКИ МЕССЕНДЖЕРОВ */
-        /* ------------------------------------------------------------- */
-        .messenger-buttons 
-        {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 24px;
-        }
-
-        .btn-messenger 
-        {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 24px;
-            border-radius: 50px;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 0.85rem;
-            background: #1a1a1a;
-            color: #ffffff;
-            border: 1px solid #333333;
-        }
-
-        .btn-messenger i 
-        {
-            font-size: 1.1rem;
-        }
-
-        .btn-messenger:hover 
-        {
-            transform: translateY(-2px);
-            border-color: #dbb86b;
-        }
-
-        /* Специфичные цвета для мессенджеров при наведении */
-        .btn-wa:hover 
-        {
-            background: #25D36620;
-            border-color: #25D366;
-        }
-
-        .btn-tg:hover 
-        {
-            background: #0088cc20;
-            border-color: #0088cc;
-        }
-
-        .btn-email:hover 
-        {
-            background: #dbb86b20;
-            border-color: #dbb86b;
-        }
-
-        /* ------------------------------------------------------------- */
-        /* HERO-БЛОК (ПЕРВЫЙ ЭКРАН) */
-        /* ------------------------------------------------------------- */
-        .hero 
-        {
+        .hero {
             height: 100vh;
-            width: 100%;
             position: relative;
             display: flex;
             align-items: center;
@@ -200,115 +73,67 @@
             overflow: hidden;
         }
 
-        .hero-bg 
-        {
+        .hero-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.5) contrast(1.05);
+            filter: brightness(0.5);
             z-index: 0;
         }
 
-        .hero-overlay 
-        {
+        .hero-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             background: radial-gradient(ellipse at 30% 40%, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
             z-index: 1;
         }
 
-        .hero-content 
-        {
+        .hero-content {
             position: relative;
             z-index: 2;
             max-width: 800px;
             padding: 0 20px;
-            animation: fadeUp 0.8s ease-out;
+            animation: fadeUp 0.8s;
         }
 
-        @keyframes fadeUp 
-        {
-            from 
-            {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to 
-            {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .hero-label 
-        {
+        .hero-label {
             font-size: 0.8rem;
             letter-spacing: 6px;
             color: #dbb86b;
             margin-bottom: 16px;
         }
 
-        .hero h1 
-        {
+        .hero h1 {
             font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 500;
             margin-bottom: 20px;
         }
 
-        .hero-address 
-        {
-            font-size: 1rem;
-            color: #cccccc;
-            margin-bottom: 32px;
-        }
-
-        /* ------------------------------------------------------------- */
-        /* БЛОК ИНФОГРАФИКИ (ЦИФРЫ) */
-        /* ------------------------------------------------------------- */
-        .stats-grid 
-        {
+        .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
             background: #0c0c0c;
             border-radius: 48px;
-            padding: 48px 40px;
+            padding: 48px;
             margin: 60px 0;
-            border: 1px solid #202020;
         }
 
-        .stat-item 
-        {
-            text-align: center;
-        }
-
-        .stat-number 
-        {
+        .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
             color: #dbb86b;
-            margin-bottom: 8px;
         }
 
-        .stat-label 
-        {
-            font-size: 0.9rem;
-            color: #aaaaaa;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* ------------------------------------------------------------- */
-        /* ДВУХКОЛОНОЧНЫЕ БЛОКИ */
-        /* ------------------------------------------------------------- */
-        .two-columns 
-        {
+        .two-columns {
             display: flex;
             gap: 60px;
             align-items: center;
@@ -316,32 +141,21 @@
             margin: 60px 0;
         }
 
-        .two-columns > div 
-        {
+        .two-columns > div {
             flex: 1;
         }
 
-        /* ------------------------------------------------------------- */
-        /* СТИЛИ ДЛЯ КАРТИНОК */
-        /* ------------------------------------------------------------- */
-        .image-rounded 
-        {
+        .image-rounded {
             border-radius: 28px;
             width: 100%;
-            transition: transform 0.4s ease;
-            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.4);
+            transition: 0.3s;
         }
 
-        .image-rounded:hover 
-        {
+        .image-rounded:hover {
             transform: scale(1.02);
         }
 
-        /* ------------------------------------------------------------- */
-        /* СЛАЙДЕР (SWIPER) */
-        /* ------------------------------------------------------------- */
-        .swiper-gallery 
-        {
+        .swiper-gallery {
             width: 100%;
             height: 500px;
             border-radius: 28px;
@@ -349,127 +163,51 @@
             margin: 40px 0;
         }
 
-        .swiper-slide img 
-        {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* ------------------------------------------------------------- */
-        /* КАРТОЧКА МЕНЕДЖЕРА */
-        /* ------------------------------------------------------------- */
-        .manager-card 
-        {
-            background: linear-gradient(125deg, #111111, #080808);
+        .manager-card {
+            background: #111;
             border-radius: 48px;
             padding: 48px;
             display: flex;
             flex-wrap: wrap;
             gap: 48px;
             align-items: center;
-            border: 1px solid #2a2a2a;
             margin: 60px 0;
         }
 
-        .manager-photo 
-        {
+        .manager-photo {
             width: 160px;
             height: 160px;
             border-radius: 50%;
             overflow: hidden;
             border: 3px solid #dbb86b;
-            box-shadow: 0 15px 25px -8px rgba(0,0,0,0.5);
-            flex-shrink: 0;
         }
 
-        .manager-photo img 
-        {
+        .manager-photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .manager-info 
-        {
-            flex: 2;
-        }
-
-        .manager-name 
-        {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        /* ------------------------------------------------------------- */
-        /* БЛОК ДОКУМЕНТОВ */
-        /* ------------------------------------------------------------- */
-        .docs-grid 
-        {
+        .messenger-buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-            margin: 60px 0;
+            gap: 12px;
+            margin-top: 24px;
         }
 
-        .doc-card 
-        {
-            background: #0c0c0c;
-            padding: 28px 24px;
-            border-radius: 28px;
-            width: 260px;
-            text-align: center;
-            border: 1px solid #222222;
-            transition: all 0.3s ease;
-        }
-
-        .doc-card:hover 
-        {
-            transform: translateY(-5px);
-            border-color: #dbb86b40;
-        }
-
-        .doc-card i 
-        {
-            font-size: 2.5rem;
-            color: #dbb86b;
-            margin-bottom: 16px;
-            display: inline-block;
-        }
-
-        .doc-card h4 
-        {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-        }
-
-        .doc-card p 
-        {
-            font-size: 0.8rem;
-            color: #aaaaaa;
-        }
-
-        .doc-link 
-        {
-            display: inline-block;
-            margin-top: 12px;
-            color: #dbb86b;
+        .btn-messenger {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            border-radius: 50px;
+            background: #1a1a1a;
+            color: #fff;
             text-decoration: none;
-            font-size: 0.8rem;
+            border: 1px solid #333;
         }
 
-        .doc-link:hover 
-        {
-            text-decoration: underline;
-        }
-
-        /* ------------------------------------------------------------- */
-        /* БЛОК КОНТАКТОВ */
-        /* ------------------------------------------------------------- */
-        .contacts-grid 
-        {
+        .contacts-grid {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
@@ -478,426 +216,149 @@
             border-radius: 40px;
             padding: 48px;
             margin: 60px 0;
-            border: 1px solid #202020;
         }
 
-        .contact-item h3 
-        {
-            font-size: 1.1rem;
-            margin-bottom: 16px;
-        }
-
-        .contact-item p 
-        {
-            margin-bottom: 6px;
-            font-size: 0.9rem;
-            color: #cccccc;
-        }
-
-        .contact-phone 
-        {
-            font-size: 1.5rem;
-            color: #dbb86b;
-            font-weight: 500;
-        }
-
-        /* ------------------------------------------------------------- */
-        /* ПОДВАЛ САЙТА (ФУТЕР) */
-        /* ------------------------------------------------------------- */
-        footer 
-        {
+        footer {
             padding: 48px 0 32px;
             text-align: center;
             border-top: 1px solid #1a1a1a;
-            margin-top: 40px;
         }
 
-        .footer-links 
-        {
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-            flex-wrap: wrap;
-            margin-top: 24px;
+        @media (max-width: 900px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .swiper-gallery { height: 380px; }
+            .manager-card { flex-direction: column; text-align: center; }
+            .contacts-grid { flex-direction: column; text-align: center; }
         }
-
-        .footer-links a 
-        {
-            color: #888888;
-            text-decoration: none;
-            font-size: 0.75rem;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover 
-        {
-            color: #dbb86b;
-        }
-
-        /* ------------------------------------------------------------- */
-        /* АДАПТИВНАЯ ВЁРСТКА ДЛЯ ТЕЛЕФОНОВ И ПЛАНШЕТОВ */
-        /* ------------------------------------------------------------- */
-        @media (max-width: 900px) 
-        {
-            .stats-grid 
-            {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 24px;
-                padding: 36px 24px;
-            }
-            
-            .section-title 
-            {
-                font-size: 2rem;
-            }
-            
-            .two-columns 
-            {
-                gap: 30px;
-            }
-            
-            .swiper-gallery 
-            {
-                height: 380px;
-            }
-            
-            .manager-card 
-            {
-                flex-direction: column;
-                text-align: center;
-                padding: 32px;
-            }
-            
-            .messenger-buttons 
-            {
-                justify-content: center;
-            }
-            
-            .contacts-grid 
-            {
-                flex-direction: column;
-                text-align: center;
-                gap: 32px;
-            }
-        }
-
-        @media (max-width: 600px) 
-        {
-            .stats-grid 
-            {
-                grid-template-columns: 1fr;
-            }
-            
-            .btn-primary, .btn-outline 
-            {
-                padding: 12px 24px;
-                font-size: 0.85rem;
-            }
-            
-            .doc-card 
-            {
-                width: 100%;
-                max-width: 280px;
-            }
+        @media (max-width: 600px) {
+            .stats-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ============================================================= -->
-    <!-- HERO БЛОК — ПЕРВЫЙ ЭКРАН С ГЛАВНЫМ ФОТО -->
-    <!-- ФАЙЛ: Фасад_1_крупным планом.jpeg -->
-    <!-- ============================================================= -->
-    <div class="hero">
-        <img class="hero-bg" src="Фасад_1_крупным планом.jpeg" alt="Палашёвский 11 фасад">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="hero-label">КЛУБНЫЙ ДОМ ДЕЛЮКС-КЛАССА</div>
-            <h1>Палашёвский 11</h1>
-            <div class="hero-address">Большой Палашёвский переулок, 11 | Патриаршие пруды</div>
-            <a href="#contacts" class="btn-primary">Получить консультацию</a>
+<div class="hero">
+    <img class="hero-bg" src="Фасад_1_крупным планом.jpeg" alt="Палашёвский 11">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="hero-label">КЛУБНЫЙ ДОМ ДЕЛЮКС-КЛАССА</div>
+        <h1>Палашёвский 11</h1>
+        <div class="hero-address">Большой Палашёвский переулок, 11 | Патриаршие пруды</div>
+        <a href="#contacts" class="btn-primary">Получить консультацию</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="stats-grid">
+        <div><div class="stat-number">52</div><div>квартиры</div></div>
+        <div><div class="stat-number">2 км</div><div>до Кремля</div></div>
+        <div><div class="stat-number">до 40 м²</div><div>террасы</div></div>
+        <div><div class="stat-number">88</div><div>машиномест</div></div>
+    </div>
+
+    <div class="two-columns">
+        <div>
+            <div class="section-subtitle">Исключительная приватность</div>
+            <h2 class="section-title">Тишина в центре столицы</h2>
+            <p>Клубный дом в тихой части Патриарших прудов. Технология Perfect Silence, закрытый двор-сад и полная изоляция от внешнего шума.</p>
+            <div style="margin-top:28px"><i class="fas fa-microphone-slash gold"></i> Акустические окна класса RAL</div>
+            <div style="margin-top:14px"><i class="fas fa-tree gold"></i> Ландшафтный двор с оранжереей</div>
+        </div>
+        <div><img class="image-rounded" src="Вид из Сытинского переулка.jpeg" alt="Вид из переулка"></div>
+    </div>
+
+    <div class="two-columns" style="flex-direction:row-reverse">
+        <div>
+            <div class="section-subtitle">Вневременная эстетика</div>
+            <h2 class="section-title">Гранит и structural glass</h2>
+            <p>Три уникальных фасада: консольные террасы, волнообразный балкон и первый в Москве полностью стеклянный фасад.</p>
+        </div>
+        <div><img class="image-rounded" src="Гранитный и стеклянный фасады.jpeg" alt="Фасады"></div>
+    </div>
+
+    <div style="text-align:center; margin:60px 0 30px">
+        <div class="section-subtitle">Клубные интерьеры</div>
+        <h2 class="section-title">Пространства для жизни</h2>
+    </div>
+    <div class="swiper-gallery swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="Лобби (10).jpeg" alt="Лобби"></div>
+            <div class="swiper-slide"><img src="Общий вид флорариума.jpeg" alt="Флорариум"></div>
+            <div class="swiper-slide"><img src="Патио.jpeg" alt="Патио"></div>
+            <div class="swiper-slide"><img src="Терраса (4).jpeg" alt="Терраса"></div>
+            <div class="swiper-slide"><img src="Лобби (7).jpeg" alt="Лобби"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+    <div class="two-columns">
+        <div><img class="image-rounded" src="Паркинг (5).jpeg" alt="Паркинг"></div>
+        <div>
+            <div class="section-subtitle">Подземный паркинг</div>
+            <h2 class="section-title">88 машиномест</h2>
+            <p>Закрытый паркинг с финишной отделкой, видеонаблюдение, зарядные станции.</p>
+            <div style="margin-top:24px"><i class="fas fa-charging-station gold"></i> Готовность монолита 92%</div>
         </div>
     </div>
 
+    <div class="manager-card" id="manager">
+        <div class="manager-photo"><img src="1316400497.jpeg" alt="Титов Алексей"></div>
+        <div>
+            <h2 style="font-size:1.8rem">Титов Алексей</h2>
+            <div class="gold" style="margin:8px 0 16px">Персональный менеджер клубного дома</div>
+            <p>Индивидуальные презентации, закрытые показы в шоуруме. Прямой контакт 24/7.</p>
+            <a href="tel:+79605263016" class="btn-primary" style="margin-right:12px"><i class="fas fa-phone-alt"></i> +7 (960) 526-30-16</a>
+            <div class="messenger-buttons">
+                <a href="https://wa.me/79605263016" class="btn-messenger"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://t.me/+79605263016" class="btn-messenger"><i class="fab fa-telegram-plane"></i> Telegram</a>
+                <a href="mailto:a.titov@palashevskiy.ru" class="btn-messenger"><i class="fas fa-envelope"></i> Email</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="contacts" class="contacts-grid">
+        <div><h3><i class="fas fa-store gold"></i> Отдел продаж</h3><p>Новорязанская ул., 23, стр.2</p><p>Ежедневно 10:00–21:00</p></div>
+        <div><h3><i class="fas fa-chandelier gold"></i> Шоурум</h3><p>Кадашевская наб., 6/1/2с1</p><p>Предзапись через менеджера</p></div>
+        <div><h3><i class="fas fa-headset gold"></i> Титов Алексей</h3><p style="font-size:1.5rem; color:#dbb86b">+7 (960) 526-30-16</p></div>
+    </div>
+</div>
+
+<footer>
     <div class="container">
-        <!-- ============================================================= -->
-        <!-- БЛОК ИНФОГРАФИКИ — ЦИФРЫ И ФАКТЫ -->
-        <!-- ============================================================= -->
-        <div class="stats-grid">
-            <div class="stat-item">
-                <div class="stat-number">52</div>
-                <div class="stat-label">квартиры</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">2 км</div>
-                <div class="stat-label">до Кремля</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">до 40 м²</div>
-                <div class="stat-label">террасы</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">88</div>
-                <div class="stat-label">машиномест</div>
-            </div>
-        </div>
-
-        <!-- ============================================================= -->
-        <!-- БЛОК: ТИШИНА В ЦЕНТРЕ -->
-        <!-- ФАЙЛ: Вид из Сытинского переулка.jpeg -->
-        <!-- ============================================================= -->
-        <div class="two-columns">
-            <div>
-                <div class="section-subtitle">Исключительная приватность</div>
-                <h2 class="section-title">Тишина в центре столицы</h2>
-                <p style="color: #bcbcbc; line-height: 1.6;">Клубный дом в тихой части Патриарших прудов. Технология Perfect Silence, закрытый двор-сад и полная изоляция от внешнего шума. 52 резиденции для тех, кто ценит покой.</p>
-                <div style="margin-top: 28px;">
-                    <p><i class="fas fa-microphone-slash gold"></i> <span style="margin-left: 10px;">Акустические окна класса RAL</span></p>
-                    <p style="margin-top: 14px;"><i class="fas fa-tree gold"></i> <span style="margin-left: 10px;">Ландшафтный двор с оранжереей</span></p>
-                </div>
-            </div>
-            <div>
-                <img class="image-rounded" src="Вид из Сытинского переулка.jpeg" alt="Вид из Сытинского переулка">
-            </div>
-        </div>
-
-        <!-- ============================================================= -->
-        <!-- БЛОК: АРХИТЕКТУРА — ГРАНИТ И STRUCTURAL GLASS -->
-        <!-- ФАЙЛ: Гранитный и стеклянный фасады.jpeg -->
-        <!-- ============================================================= -->
-        <div class="two-columns" style="flex-direction: row-reverse;">
-            <div>
-                <div class="section-subtitle">Вневременная эстетика</div>
-                <h2 class="section-title">Гранит и structural glass</h2>
-                <p style="color: #bcbcbc;">Три уникальных фасада: консольные террасы с выносом до 4 м, волнообразный французский балкон и первый в Москве полностью стеклянный фасад с изумрудными колоннами из натурального камня.</p>
-            </div>
-            <div>
-                <img class="image-rounded" src="Гранитный и стеклянный фасады.jpeg" alt="Фасады из гранита и стекла">
-            </div>
-        </div>
-
-        <!-- ============================================================= -->
-        <!-- ГАЛЕРЕЯ (СЛАЙДЕР) — ИНТЕРЬЕРЫ -->
-        <!-- ФАЙЛЫ: Лобби (10).jpeg, Общий вид флорариума.jpeg, Патио.jpeg, Терраса (4).jpeg, Лобби (7).jpeg -->
-        <!-- ============================================================= -->
-        <div style="text-align: center; margin: 60px 0 30px;">
-            <div class="section-subtitle">Клубные интерьеры</div>
-            <h2 class="section-title">Пространства для жизни</h2>
-        </div>
-        
-        <div class="swiper-gallery swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="Лобби (10).jpeg" alt="Лобби">
-                </div>
-                <div class="swiper-slide">
-                    <img src="Общий вид флорариума.jpeg" alt="Флорариум">
-                </div>
-                <div class="swiper-slide">
-                    <img src="Патио.jpeg" alt="Патио">
-                </div>
-                <div class="swiper-slide">
-                    <img src="Терраса (4).jpeg" alt="Терраса">
-                </div>
-                <div class="swiper-slide">
-                    <img src="Лобби (7).jpeg" alt="Лобби деталь">
-                </div>
-            </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div>
-
-        <!-- ============================================================= -->
-        <!-- БЛОК: ПОДЗЕМНЫЙ ПАРКИНГ -->
-        <!-- ФАЙЛ: Паркинг (5).jpeg -->
-        <!-- ============================================================= -->
-        <div class="two-columns">
-            <div>
-                <img class="image-rounded" src="Паркинг (5).jpeg" alt="Подземный паркинг">
-            </div>
-            <div>
-                <div class="section-subtitle">Подземный паркинг</div>
-                <h2 class="section-title">88 машиномест</h2>
-                <p style="color: #bcbcbc;">Закрытый паркинг с финишной отделкой, видеонаблюдение, зарядные станции для электромобилей. Кладовые помещения входят в инфраструктуру.</p>
-                <div style="margin-top: 24px;">
-                    <p><i class="fas fa-charging-station gold"></i> <span style="margin-left: 10px;">Готовность монолита 92%</span></p>
-                </div>
-            </div>
-        </div>
-
-        <!-- ============================================================= -->
-        <!-- БЛОК: ТЕХНОЛОГИЯ PERFECT SILENCE -->
-        <!-- ============================================================= -->
-        <div style="background: radial-gradient(circle at 30% 20%, #151515, #030303); border-radius: 48px; padding: 60px 40px; text-align: center; margin: 60px 0;">
-            <i class="fas fa-ear-listen" style="font-size: 3rem; color: #dbb86b; margin-bottom: 20px; display: inline-block;"></i>
-            <h3 style="font-size: 1.8rem; margin-bottom: 16px;">Perfect Silence</h3>
-            <p style="max-width: 700px; margin: 0 auto; color: #b5b5b5;">Многослойные перекрытия, акустические стеклопакеты, бесшумные лифты и инженерные системы. Внутри — абсолютная тишина, даже в час пик.</p>
-        </div>
-
-        <!-- ============================================================= -->
-        <!-- БЛОК: ТИТОВ АЛЕКСЕЙ — ПЕРСОНАЛЬНЫЙ МЕНЕДЖЕР -->
-        <!-- ФАЙЛ: 1316400497.jpeg -->
-        <!-- ============================================================= -->
-        <div id="manager" class="manager-card">
-            <div class="manager-photo">
-                <img src="1316400497.jpeg" alt="Титов Алексей">
-            </div>
-            <div class="manager-info">
-                <div class="manager-name">Титов Алексей</div>
-                <div class="gold" style="margin-bottom: 16px;">Персональный менеджер клубного дома</div>
-                <p style="margin-bottom: 20px;">Индивидуальные презентации, закрытые показы в шоуруме на Кадашёвской набережной, эксклюзивные условия. Прямой контакт 24/7. Отвечаю в WhatsApp, Telegram.</p>
-                <a href="tel:+79605263016" class="btn-primary" style="margin-right: 12px;">
-                    <i class="fas fa-phone-alt"></i> +7 (960) 526-30-16
-                </a>
-                <div class="messenger-buttons">
-                    <a href="https://wa.me/79605263016" target="_blank" class="btn-messenger btn-wa" rel="noopener noreferrer">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </a>
-                    <a href="https://t.me/+79605263016" target="_blank" class="btn-messenger btn-tg" rel="noopener noreferrer">
-                        <i class="fab fa-telegram-plane"></i> Telegram
-                    </a>
-                    <a href="mailto:a.titov@palashevskiy.ru" class="btn-messenger btn-email">
-                        <i class="fas fa-envelope"></i> Email
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- ============================================================= -->
-        <!-- БЛОК ДОКУМЕНТОВ: РАЗРЕШЕНИЕ + ПРОЕКТНАЯ ДЕКЛАРАЦИЯ -->
-        <!-- ============================================================= -->
-        <div class="docs-grid">
-            <!-- Разрешение на строительство -->
-            <div class="doc-card">
-                <i class="fas fa-file-certificate"></i>
-                <h4>Разрешение на строительство</h4>
-                <p>№ RU 77102000-023-568</p>
-                <p style="font-size: 0.7rem;">Комитет по архитектуре Москвы</p>
-            </div>
-
-            <!-- Проектная декларация -->
-            <div class="doc-card">
-                <i class="fas fa-file-signature"></i>
-                <h4>Проектная декларация</h4>
-                <p>Зарегистрирована в установленном порядке</p>
-                <a href="https://наш.дом.рф/сервисы/каталог-новостроек/объект/68269" target="_blank" class="doc-link" rel="noopener noreferrer">
-                    <i class="fas fa-external-link-alt"></i> Смотреть на наш.дом.рф
-                </a>
-            </div>
-
-            <!-- Карточка с ссылкой на объект -->
-            <div class="doc-card">
-                <i class="fas fa-building"></i>
-                <h4>Реестр новостроек</h4>
-                <p>ID объекта: 68269</p>
-                <a href="https://наш.дом.рф/сервисы/каталог-новостроек/объект/68269" target="_blank" class="doc-link" rel="noopener noreferrer">
-                    <i class="fas fa-arrow-right"></i> Перейти в каталог
-                </a>
-            </div>
-        </div>
-
-        <!-- ============================================================= -->
-        <!-- БЛОК КОНТАКТОВ: ОТДЕЛ ПРОДАЖ, ШОУРУМ, МЕНЕДЖЕР -->
-        <!-- ============================================================= -->
-        <div id="contacts" class="contacts-grid">
-            <div class="contact-item">
-                <h3><i class="fas fa-store gold"></i> Отдел продаж</h3>
-                <p>Новорязанская улица, 23, стр.2</p>
-                <p>Ежедневно 10:00 – 21:00</p>
-            </div>
-            <div class="contact-item">
-                <h3><i class="fas fa-chandelier gold"></i> Шоурум</h3>
-                <p>Кадашевская набережная, 6/1/2с1</p>
-                <p>Предзапись через менеджера</p>
-            </div>
-            <div class="contact-item">
-                <h3><i class="fas fa-headset gold"></i> Титов Алексей</h3>
-                <p class="contact-phone">+7 (960) 526-30-16</p>
-                <p><i class="fab fa-whatsapp"></i> WhatsApp / Telegram</p>
-            </div>
+        <p>© 2026 Палашёвский 11 · Делюкс-класс</p>
+        <div style="margin-top:24px">
+            <a href="#" id="privacyLink" style="color:#888; text-decoration:none; margin:0 16px">Политика конфиденциальности</a>
+            <a href="#manager" style="color:#888; text-decoration:none; margin:0 16px">Связаться с менеджером</a>
+            <a href="#contacts" style="color:#888; text-decoration:none; margin:0 16px">Контакты</a>
         </div>
     </div>
+</footer>
 
-    <!-- ============================================================= -->
-    <!-- ПОДВАЛ САЙТА (ФУТЕР) -->
-    <!-- ============================================================= -->
-    <footer>
-        <div class="container">
-            <p>© 2026 Клубный дом «Палашёвский 11» · Делюкс-класс · Sminex — Fine Development</p>
-            <p style="margin-top: 12px; font-size: 0.7rem;">Проектная декларация на сайте наш.дом.рф · Разрешение на строительство имеется</p>
-            <div class="footer-links">
-                <a href="#" id="privacyLink">Политика конфиденциальности</a>
-                <a href="#manager">Связаться с менеджером</a>
-                <a href="#contacts">Контакты</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- ============================================================= -->
-    <!-- СКРИПТЫ -->
-    <!-- ============================================================= -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        // -------------------------------------------------------------
-        // ИНИЦИАЛИЗАЦИЯ СЛАЙДЕРА
-        // -------------------------------------------------------------
-        const swiper = new Swiper('.swiper-gallery', 
-        {
-            loop: true,
-            autoplay: 
-            {
-                delay: 4000,
-                disableOnInteraction: false
-            },
-            pagination: 
-            {
-                el: '.swiper-pagination',
-                clickable: true
-            },
-            navigation: 
-            {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev'
-            },
-            effect: 'slide'
-        });
-
-        // -------------------------------------------------------------
-        // ПЛАВНЫЙ СКРОЛЛ ПО ЯКОРНЫМ ССЫЛКАМ
-        // -------------------------------------------------------------
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => 
-        {
-            anchor.addEventListener('click', function(e) 
-            {
-                const href = this.getAttribute('href');
-                if (href === "#" || href === "") return;
-                const target = document.querySelector(href);
-                if (target) 
-                {
-                    e.preventDefault();
-                    target.scrollIntoView(
-                    {
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // -------------------------------------------------------------
-        // ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ (ЗАГЛУШКА, ПОТОМ ЗАМЕНИШЬ)
-        // -------------------------------------------------------------
-        const privacyLink = document.getElementById('privacyLink');
-        if (privacyLink) 
-        {
-            privacyLink.addEventListener('click', (e) => 
-            {
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    new Swiper('.swiper-gallery', {
+        loop: true,
+        autoplay: { delay: 4000 },
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+    });
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            let href = this.getAttribute('href');
+            if (href === "#") return;
+            let target = document.querySelector(href);
+            if (target) {
                 e.preventDefault();
-                alert('Файл "Политика конфиденциальности" будет добавлен позже.\n\nПодготовьте документ и замените ссылку в коде.');
-            });
-        }
-    </script>
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+    document.getElementById('privacyLink')?.addEventListener('click', e => {
+        e.preventDefault();
+        alert('Политика конфиденциальности будет добавлена позже');
+    });
+</script>
 </body>
 </html>
-```
