@@ -40,6 +40,7 @@
             padding: 0 24px;
         }
 
+        /* Кастомный скролл */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -50,10 +51,14 @@
             background: #C5A16E;
             border-radius: 4px;
         }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4B07C;
+        }
 
+        /* Анимация появления секций при скролле */
         .section {
             padding: 100px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             opacity: 0;
             transform: translateY(50px);
             transition: opacity 0.9s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.9s cubic-bezier(0.2, 0.9, 0.4, 1.1);
@@ -66,6 +71,7 @@
             border-bottom: none;
         }
 
+        /* Сетки */
         .grid-2 {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -78,6 +84,7 @@
             gap: 40px;
         }
 
+        /* Типографика */
         .section-title {
             font-family: 'Cormorant Garamond', serif;
             font-size: 56px;
@@ -103,6 +110,7 @@
             font-weight: 600;
         }
 
+        /* Hero блок с фоновым изображением */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -125,7 +133,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.3) 100%);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.3) 100%);
             z-index: 1;
             pointer-events: none;
         }
@@ -153,12 +161,13 @@
         }
         .hero-desc {
             font-size: 18px;
-            color: rgba(255,255,255,0.8);
+            color: rgba(255, 255, 255, 0.8);
             max-width: 550px;
             margin-bottom: 40px;
             line-height: 1.6;
         }
 
+        /* Блок статистики */
         .hero-stats {
             display: flex;
             flex-wrap: wrap;
@@ -171,7 +180,7 @@
         }
         .stat-item .label {
             font-size: 13px;
-            color: rgba(255,255,255,0.6);
+            color: rgba(255, 255, 255, 0.6);
             letter-spacing: 1px;
             text-transform: uppercase;
         }
@@ -182,18 +191,19 @@
             margin-top: 6px;
         }
 
+        /* Инфографика */
         .info-grid {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
             margin: 40px 0 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding-top: 40px;
         }
         .info-card {
-            background: rgba(255,255,255,0.03);
+            background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255,255,255,0.08);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 20px;
             padding: 14px 20px;
             text-align: center;
@@ -201,14 +211,14 @@
             transition: all 0.3s ease;
         }
         .info-card:hover {
-            background: rgba(255,255,255,0.08);
-            border-color: rgba(197,161,110,0.3);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(197, 161, 110, 0.3);
             transform: translateY(-3px);
         }
         .info-card .label {
             font-size: 11px;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.5);
+            color: rgba(255, 255, 255, 0.5);
             letter-spacing: 1px;
         }
         .info-card .value {
@@ -218,7 +228,7 @@
             margin-top: 6px;
         }
         .info-card.highlight {
-            background: rgba(197,161,110,0.12);
+            background: rgba(197, 161, 110, 0.12);
             border-color: #C5A16E;
         }
         .info-card.highlight .value {
@@ -226,6 +236,7 @@
             font-size: 18px;
         }
 
+        /* Кнопки */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -254,9 +265,10 @@
         .btn-primary:hover {
             background: #D4B07C;
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px -8px rgba(197,161,110,0.4);
+            box-shadow: 0 10px 25px -8px rgba(197, 161, 110, 0.4);
         }
 
+        /* Блоки с преимуществами (архитектура) */
         .feature-block {
             background: #111111;
             padding: 28px;
@@ -284,6 +296,7 @@
             color: #F0EDE6;
         }
 
+        /* Сервисы */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -317,6 +330,7 @@
             font-size: 14px;
         }
 
+        /* Таблица планировок */
         .table-wrapper {
             overflow-x: auto;
             background: #0F0F0F;
@@ -340,7 +354,7 @@
             letter-spacing: 1px;
         }
         tr:hover td {
-            background: rgba(197,161,110,0.05);
+            background: rgba(197, 161, 110, 0.05);
         }
         .price-rub {
             font-weight: 700;
@@ -353,6 +367,7 @@
             white-space: nowrap;
         }
 
+        /* Галерея */
         .gallery {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -370,6 +385,7 @@
             transform: scale(1.02);
         }
 
+        /* Слайдер */
         .slider-container {
             position: relative;
             border-radius: 24px;
@@ -391,7 +407,7 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(4px);
             color: white;
             border: none;
@@ -432,6 +448,7 @@
             border-radius: 4px;
         }
 
+        /* Карта */
         #map {
             height: 400px;
             border-radius: 24px;
@@ -439,6 +456,7 @@
             border: 1px solid #222;
         }
 
+        /* Форма обратной связи */
         .contact-card {
             background: #0F0F0F;
             border: 1px solid #222;
@@ -461,11 +479,12 @@
             background: #1F1F1F;
         }
 
+        /* Модальное окно для фото */
         .modal {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.95);
+            background: rgba(0, 0, 0, 0.95);
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -492,6 +511,7 @@
             cursor: pointer;
         }
 
+        /* Уведомления */
         .toast {
             position: fixed;
             bottom: 30px;
@@ -509,6 +529,7 @@
             transform: translateX(0);
         }
 
+        /* Плавающая кнопка */
         .floating-btn {
             position: fixed;
             bottom: 30px;
@@ -522,7 +543,7 @@
             justify-content: center;
             font-size: 24px;
             cursor: pointer;
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
             transition: all 0.3s;
             z-index: 999;
         }
@@ -531,12 +552,14 @@
             background: #D4B07C;
         }
 
+        /* Подвал */
         .footer {
             background: #050505;
             padding: 60px 0 40px;
             border-top: 1px solid #1A1A1A;
         }
 
+        /* Адаптив */
         @media (max-width: 900px) {
             .container {
                 padding: 0 20px;
@@ -634,12 +657,12 @@
             <p style="color: #B0B0B0; line-height: 1.7;">На территории дома беспрецедентный для Патриарших двор-сад с прудом, крытой галереей и зонами отдыха. Clubhouse с патио, фитнесом Kid's Lab, Lounge — только для жителей. Всего 52 квартиры, включая 7 пентхаусов с видовыми террасами до 40 м².</p>
         </div>
         <div style="border-radius: 24px; overflow: hidden;">
-            <img src="Фронтальный вид.jpeg" alt="Фасады" style="width:100%; height:100%; object-fit:cover;">
+            <img src="Вид спереди.jpeg" alt="Фасады" style="width:100%; height:100%; object-fit:cover;">
         </div>
     </div>
 </div>
 
-<!-- Сервисы с фото заказчика -->
+<!-- Блок сервисов -->
 <div class="container section">
     <div style="text-align: center; max-width: 700px; margin: 0 auto 48px;">
         <div class="section-badge">Эксклюзивные сервисы</div>
@@ -648,7 +671,7 @@
     </div>
     <div class="services-grid">
         <div class="service-card">
-            <img class="service-image" src="Флорариум общий вид.jpeg" alt="Двор-сад с прудом">
+            <img class="service-image" src="Общий вид флорариума.jpeg" alt="Двор-сад с прудом">
             <h3>Свой двор-сад с прудом</h3>
             <p>Оранжерея, цветники, зоны отдыха</p>
         </div>
@@ -680,7 +703,7 @@
     </div>
 </div>
 
-<!-- Архитектура с фото заказчика -->
+<!-- Архитектура -->
 <div class="container section">
     <div style="text-align: center; max-width: 700px; margin: 0 auto 64px;">
         <div class="section-badge">Архитектура</div>
@@ -689,7 +712,7 @@
     </div>
     <div class="grid-3">
         <div class="feature-block">
-            <img class="feature-img" src="Фасад_1_крупным планом.jpeg" alt="Консольные террасы">
+            <img class="feature-img" src="Фасад_1_крупный план.jpeg" alt="Консольные террасы">
             <div class="feature-title">Консольные террасы</div>
             <div>Выступ до 4 метров, панорамное остекление, приватные открытые пространства.</div>
         </div>
@@ -699,7 +722,7 @@
             <div>Французские балконы, динамичный ритм, игра света и тени.</div>
         </div>
         <div class="feature-block">
-            <img class="feature-img" src="Фасад_3_крупным планом.jpeg" alt="Стеклянный фасад">
+            <img class="feature-img" src="Фасад_3_крупный план.jpeg" alt="Стеклянный фасад">
             <div class="feature-title">Стеклянный фасад</div>
             <div>Первый в Москве — изумрудно-малахитовые полуколонны, максимум света.</div>
         </div>
@@ -828,7 +851,7 @@
     </div>
 </div>
 
-<!-- Разрешение и ход строительства -->
+<!-- Разрешение на строительство и ход строительства -->
 <div class="container section">
     <div class="grid-2">
         <div>
@@ -847,7 +870,7 @@
     </div>
 </div>
 
-<!-- Галерея слайдер -->
+<!-- Слайдер галерея -->
 <div class="container section">
     <div style="text-align: center; margin-bottom: 48px;">
         <div class="section-badge">Визуализации</div>
@@ -902,6 +925,7 @@
     </div>
 </div>
 
+<!-- Подвал -->
 <div class="footer">
     <div class="container">
         <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px;">
@@ -926,6 +950,7 @@
     </div>
 </div>
 
+<!-- Модальное окно -->
 <div class="modal" id="imageModal">
     <div class="modal-content">
         <span class="modal-close">&times;</span>
@@ -937,28 +962,32 @@
 <div class="floating-btn" id="floatingBtn"><i class="fas fa-phone-alt"></i></div>
 
 <script>
-    // Анимация секций
+    // Анимация появления секций при скролле
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('visible');
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
         });
     }, { threshold: 0.1 });
     sections.forEach(section => observer.observe(section));
-    
+
+    // Уведомления
     function showToast(message) {
         const toast = document.getElementById('toast');
         toast.textContent = message;
         toast.classList.add('show');
         setTimeout(() => toast.classList.remove('show'), 2500);
     }
-    
+
+    // Анимация кнопки при нажатии
     function animateButton(btn) {
         btn.style.transform = 'scale(0.98)';
         setTimeout(() => btn.style.transform = '', 200);
     }
-    
-    // Кнопки
+
+    // Обработчики кнопок
     document.getElementById('btnPlans')?.addEventListener('click', () => {
         document.getElementById('plans').scrollIntoView({ behavior: 'smooth' });
         showToast('📋 Планировки загружены');
@@ -984,8 +1013,8 @@
         document.getElementById('contacts').scrollIntoView({ behavior: 'smooth' });
         showToast('📞 Свяжитесь с нами');
     });
-    
-    // Форма
+
+    // Отправка формы обратной связи
     document.getElementById('contactForm')?.addEventListener('submit', (e) => {
         e.preventDefault();
         const name = document.getElementById('nameInput').value;
@@ -998,12 +1027,12 @@
             showToast('⚠️ Заполните имя и телефон');
         }
     });
-    
-    // Слайдер
+
+    // Слайдер галереи
     const galleryImages = [
-        'Фронтальный вид.jpeg',
-        'Фасад_1_крупным планом.jpeg',
-        'Фасад_3_крупным планом.jpeg',
+        'Вид спереди.jpeg',
+        'Фасад_1_крупный план.jpeg',
+        'Фасад_3_крупный план.jpeg',
         'Гранитный и стеклянный фасады.jpeg',
         'Терраса (4).jpeg',
         'Птичка_вечер.jpeg',
@@ -1017,13 +1046,13 @@
     ];
     let currentSlide = 0;
     const track = document.getElementById('sliderTrack');
-    
+
     function renderSlider() {
         if (!track) return;
         track.innerHTML = galleryImages.map(img => `<div class="slider-slide" style="background-image: url('${img}');" onclick="openImageModal('${img}')"></div>`).join('');
         updateSlider();
     }
-    
+
     function updateSlider() {
         if (!track) return;
         track.style.transform = `translateX(-${currentSlide * 100}%)`;
@@ -1038,7 +1067,7 @@
             });
         }
     }
-    
+
     document.getElementById('sliderPrev')?.addEventListener('click', () => {
         currentSlide = (currentSlide - 1 + galleryImages.length) % galleryImages.length;
         updateSlider();
@@ -1047,13 +1076,15 @@
         currentSlide = (currentSlide + 1) % galleryImages.length;
         updateSlider();
     });
-    
+
+    // Открытие модального окна с фото
     window.openImageModal = function(src) {
         const modal = document.getElementById('imageModal');
         document.getElementById('modalImage').src = src;
         modal.classList.add('active');
     };
-    
+
+    // Закрытие модального окна
     document.querySelectorAll('.modal-close').forEach(btn => {
         btn.addEventListener('click', () => {
             document.getElementById('imageModal').classList.remove('active');
@@ -1064,7 +1095,8 @@
             document.getElementById('imageModal').classList.remove('active');
         }
     });
-    
+
+    // Клик по миниатюрам галереи
     document.querySelectorAll('.gallery-item').forEach(item => {
         item.addEventListener('click', () => {
             const bgImage = window.getComputedStyle(item).backgroundImage;
@@ -1072,7 +1104,8 @@
             openImageModal(url);
         });
     });
-    
+
+    // Ссылки в футере
     document.getElementById('privacyLink')?.addEventListener('click', (e) => {
         e.preventDefault();
         showToast('📄 Политика конфиденциальности');
@@ -1081,8 +1114,8 @@
         e.preventDefault();
         showToast('📄 Проектная декларация');
     });
-    
-    // Карта
+
+    // Инициализация карты
     function initMap() {
         const map = L.map('map').setView([55.765, 37.603], 16);
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -1092,7 +1125,7 @@
             .bindPopup('<b>Палашёвский 11</b><br>Большой Палашёвский переулок, 11')
             .openPopup();
     }
-    
+
     renderSlider();
     initMap();
 </script>
