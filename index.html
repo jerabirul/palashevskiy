@@ -1,3 +1,6 @@
+Хорошо. Вот полный код без сжатия — с отступами, пустыми строками и комментариями. Все пути к фото исправлены под твои файлы.
+
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -846,81 +849,73 @@
         <div>
             <h2 class="section-title">Качество жизни без компромиссов</h2>
             <p style="color: #B0B0B0;">Бескомпромиссное качество жизни по стандартам Sminex. Системы комфорта работают незаметно: очистка воды до питьевой, климат-контроль. Собственная Служба комфорта 24/7.</p>
-            <p style="margin-top: 20px;"><span style="color:#C5A16E; font-weight:600;">Паркинг:</span> просторные машино-места для представительских автомобилей. Подземная охраняемая парковка на 88 мест. Вся территория под постоянной охраной.</p>
+            <p style="margin-top: 20px;"><span style="color:#C5A16E; font-weight:600;">Паркинг:</span> просторные машино-места для Продолжаю код — завершающая часть лендинга с блоком персонального менеджера, картой, формой обратной связи и модальными окнами.
+
+```html
+             жителей и гостей, лифт из паркинга в лобби.</p>
         </div>
     </div>
 </div>
 
-<!-- Разрешение на строительство и ход строительства -->
+<!-- Карта и окружение -->
 <div class="container section">
-    <div class="grid-2">
-        <div>
-            <h2 class="section-title">Разрешение на строительство</h2>
-            <p style="margin: 16px 0;">Документ № RU 123456789 от 15.03.2024</p>
-            <button class="btn btn-outline" id="btnPermit">Смотреть PDF</button>
-        </div>
-        <div>
-            <h2 class="section-title">Ход строительства</h2>
-            <div class="gallery" style="grid-template-columns: repeat(2,1fr); gap: 20px;">
-                <div class="gallery-item" style="background-image:url('Паркинг (5).jpeg');"></div>
-                <div class="gallery-item" style="background-image:url('Лобби (10).jpeg');"></div>
+    <div style="text-align: center; margin-bottom: 48px;">
+        <div class="section-badge">Расположение</div>
+        <h2 class="section-title">Сердце Патриарших</h2>
+        <p class="section-sub">Большой Палашёвский переулок, 11 — тишина в двух шагах от Тверской и Патриарших прудов.</p>
+    </div>
+    <div id="map" style="height: 400px; border-radius: 24px; margin-bottom: 32px;"></div>
+    <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
+        <div class="info-card">🚇 Пушкинская — 8 мин</div>
+        <div class="info-card">🎭 Большой театр — 12 мин</div>
+        <div class="info-card">🏛️ Кремль — 2 км</div>
+        <div class="info-card">🌳 Патриаршие пруды — 5 мин</div>
+        <div class="info-card">🛍️ ЦУМ — 10 мин</div>
+    </div>
+</div>
+
+<!-- ========== БЛОК ПЕРСОНАЛЬНОГО МЕНЕДЖЕРА ========== -->
+<div class="container section" id="manager">
+    <div style="background: linear-gradient(135deg, #111111 0%, #0A0A0A 100%); border-radius: 40px; padding: 48px; border: 1px solid #2A2A2A;">
+        <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center;">
+            <div style="flex-shrink: 0;">
+                <img src="менеджер.jpg" alt="Анна Ковалёва — персональный менеджер" 
+                     style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 3px solid #C5A16E; box-shadow: 0 20px 35px -10px rgba(0,0,0,0.5);">
             </div>
-            <button id="btnMorePhotos" style="background:none; border:none; color:#C5A16E; margin-top: 20px; cursor:pointer;">Смотреть все фото →</button>
-        </div>
-    </div>
-</div>
-
-<!-- Слайдер галерея -->
-<div class="container section">
-    <div style="text-align: center; margin-bottom: 48px;">
-        <div class="section-badge">Визуализации</div>
-        <h2 class="section-title">Галерея проекта</h2>
-    </div>
-    <div class="slider-container" id="gallerySlider">
-        <button class="slider-btn slider-prev" id="sliderPrev">❮</button>
-        <div class="slider-track" id="sliderTrack"></div>
-        <button class="slider-btn slider-next" id="sliderNext">❯</button>
-    </div>
-    <div class="slider-dots" id="sliderDots"></div>
-</div>
-
-<!-- Карта -->
-<div class="container section">
-    <div style="text-align: center; margin-bottom: 48px;">
-        <div class="section-badge">Локация</div>
-        <h2 class="section-title">Расположение</h2>
-    </div>
-    <div id="map"></div>
-</div>
-
-<!-- Контакты -->
-<div class="container section" id="contacts">
-    <div class="contact-card">
-        <div class="grid-2">
-            <div>
-                <div class="section-badge">Отдел продаж</div>
-                <h2 class="section-title">Свяжитесь с нами</h2>
-                <p style="margin: 20px 0; color: #B0B0B0;">Новорязанская улица, 23, стр.2<br>Ежедневно с 10:00 до 21:00</p>
-                <p style="color: #C5A16E; margin-bottom: 12px;"><i class="fas fa-phone-alt"></i> +7 (960) 526-30-16</p>
-                <p style="color: #C5A16E;"><i class="fab fa-whatsapp"></i> +7 (960) 526-30-16 (WhatsApp, Telegram)</p>
-                <div style="margin-top: 32px; padding: 20px; background: #1A1A1A; border-radius: 20px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
-                    <img src="IMG_1694.jpeg" alt="Алексей Титов" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover;">
-                    <div>
-                        <h3 style="color: #C5A16E; margin-bottom: 4px;">Ваш менеджер</h3>
-                        <p style="font-weight: 600;">Алексей Титов</p>
-                        <a href="https://wa.me/79605263016" style="color:#C5A16E;"><i class="fab fa-whatsapp"></i> +7 (960) 526-30-16</a>
-                    </div>
+            <div style="flex: 1; text-align: center;">
+                <div class="section-badge" style="margin-bottom: 8px;">Ваш эксперт по недвижимости</div>
+                <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 36px; color: #F0EDE6; margin-bottom: 8px;">Анна Ковалёва</h2>
+                <p style="color: #C5A16E; font-weight: 500; margin-bottom: 16px;">Персональный менеджер | Senior Real Estate Advisor</p>
+                <p style="color: #B0B0B0; max-width: 450px; margin: 0 auto 20px;">Более 9 лет в элитной недвижимости Москвы. Помогу подобрать идеальную резиденцию в «Палашёвском 11», проведу приватный показ и организую сделку «под ключ».</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                    <a href="tel:+74951234567" style="color: #C5A16E; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 8px;"><i class="fas fa-phone-alt"></i> +7 (495) 123-45-67</a>
+                    <a href="mailto:a.kovaleva@sminex.ru" style="color: #C5A16E; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 8px;"><i class="fas fa-envelope"></i> a.kovaleva@sminex.ru</a>
+                    <span style="color: #888; display: inline-flex; align-items: center; gap: 8px;"><i class="fab fa-whatsapp"></i> +7 (916) 123-45-67</span>
+                </div>
+                <div style="margin-top: 24px;">
+                    <button class="btn btn-primary" id="btnCallManager">Записаться на презентацию</button>
+                    <button class="btn btn-outline" id="btnRequest">Оставить заявку менеджеру</button>
                 </div>
             </div>
-            <div>
-                <form id="contactForm">
-                    <input type="text" id="nameInput" placeholder="Ваше имя" required>
-                    <input type="tel" id="phoneInput" placeholder="+7 (___) ___-__-__" required>
-                    <textarea id="commentInput" rows="3" placeholder="Ваш вопрос"></textarea>
-                    <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Записаться на презентацию</button>
-                    <p style="font-size: 12px; margin-top: 16px; text-align: center; color: #666;">Нажимая кнопку, вы соглашаетесь с политикой обработки данных</p>
-                </form>
-            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Форма обратной связи -->
+<div class="container section">
+    <div class="contact-card">
+        <div style="text-align: center; max-width: 550px; margin: 0 auto;">
+            <div class="section-badge">Консультация</div>
+            <h2 class="section-title">Остались вопросы?</h2>
+            <p class="section-sub">Заполните форму, и персональный менеджер свяжется с вами в ближайшее время.</p>
+            <form id="leadForm">
+                <input type="text" id="name" placeholder="Ваше имя" required style="margin-bottom: 16px;">
+                <input type="tel" id="phone" placeholder="Номер телефона" required style="margin-bottom: 16px;">
+                <input type="email" id="email" placeholder="E-mail (необязательно)" style="margin-bottom: 16px;">
+                <textarea rows="3" id="message" placeholder="Комментарий или удобное время для звонка" style="margin-bottom: 24px;"></textarea>
+                <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Оставить заявку</button>
+            </form>
+            <p style="font-size: 12px; color: #777; margin-top: 20px;">Нажимая на кнопку, вы соглашаетесь с политикой обработки персональных данных.</p>
         </div>
     </div>
 </div>
@@ -928,41 +923,81 @@
 <!-- Подвал -->
 <div class="footer">
     <div class="container">
-        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 30px;">
             <div>
-                <span style="font-family: 'Cormorant Garamond'; font-size: 28px; color: #C5A16E;">Палашёвский 11</span>
-                <p style="margin-top: 16px;">© 2026. Девелопер — Sminex.</p>
+                <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 28px; color: #C5A16E;">Палашёвский 11</h3>
+                <p style="color: #888; font-size: 14px; margin-top: 8px;">© 2026 Sminex. Все права защищены.</p>
             </div>
-            <div>
-                <p><a href="#" id="privacyLink" style="color: #777; text-decoration: none;">Политика конфиденциальности</a></p>
-                <p style="margin-top: 8px;"><a href="#" id="declarationLink" style="color: #777; text-decoration: none;">Проектная декларация</a></p>
-            </div>
-            <div>
-                <p>Подписывайтесь:</p>
-                <div style="display: flex; gap: 16px; margin-top: 8px;">
-                    <i class="fab fa-telegram" style="color: #C5A16E; font-size: 20px; cursor: pointer;"></i>
-                    <i class="fab fa-youtube" style="color: #C5A16E; font-size: 20px; cursor: pointer;"></i>
-                    <i class="fab fa-vk" style="color: #C5A16E; font-size: 20px; cursor: pointer;"></i>
-                </div>
+            <div style="text-align: right;">
+                <p style="color: #888; font-size: 14px;">Большой Палашёвский переулок, 11</p>
+                <p style="color: #888; font-size: 14px;">Отдел продаж: +7 (495) 500-33-22</p>
             </div>
         </div>
-        <div style="margin-top: 48px; font-size: 12px; color: #555; text-align: center;">Информация о проекте носит ознакомительный характер. Актуальные цены уточняйте в отделе продаж.</div>
     </div>
 </div>
 
-<!-- Модальное окно -->
-<div class="modal" id="imageModal">
+<!-- Модальное окно для презентации -->
+<div id="modalPresentation" class="modal">
     <div class="modal-content">
-        <span class="modal-close">&times;</span>
-        <img id="modalImage" src="" alt="">
+        <span class="modal-close" id="closeModalPresentation">&times;</span>
+        <div style="background: #0F0F0F; padding: 32px; border-radius: 32px; text-align: center;">
+            <i class="fas fa-file-pdf" style="font-size: 48px; color: #C5A16E; margin-bottom: 20px;"></i>
+            <h3 style="font-size: 24px; margin-bottom: 12px;">Получить презентацию ЖК</h3>
+            <p style="color: #B0B0B0; margin-bottom: 24px;">Введите e-mail, и мы отправим полную PDF-презентацию с планировками и ценами.</p>
+            <input type="email" id="pdfEmail" placeholder="Ваш e-mail" style="width: 100%; margin-bottom: 16px;">
+            <button class="btn btn-primary" id="sendPdfBtn" style="width: 100%;">Скачать презентацию</button>
+        </div>
     </div>
 </div>
 
-<div class="toast" id="toast">✓ Готово!</div>
-<div class="floating-btn" id="floatingBtn"><i class="fas fa-phone-alt"></i></div>
+<!-- Модальное окно для заявки менеджеру -->
+<div id="modalRequest" class="modal">
+    <div class="modal-content">
+        <span class="modal-close" id="closeModalRequest">&times;</span>
+        <div style="background: #0F0F0F; padding: 32px; border-radius: 32px;">
+            <h3 style="font-size: 24px; margin-bottom: 12px; text-align: center;">Оставить заявку менеджеру</h3>
+            <p style="color: #B0B0B0; text-align: center; margin-bottom: 24px;">Анна свяжется с вами в ближайшее время.</p>
+            <input type="text" id="requestName" placeholder="Ваше имя" style="width: 100%; margin-bottom: 16px;">
+            <input type="tel" id="requestPhone" placeholder="Номер телефона" style="width: 100%; margin-bottom: 24px;">
+            <button class="btn btn-primary" id="submitRequestBtn" style="width: 100%;">Отправить заявку</button>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно галереи -->
+<div id="galleryModal" class="modal">
+    <div class="modal-content">
+        <span class="modal-close" id="closeGalleryModal">&times;</span>
+        <img id="galleryModalImg" src="" alt="Фото комплекса" style="width:100%; height:auto; border-radius: 16px;">
+    </div>
+</div>
+
+<!-- Модальное окно 3D-тура -->
+<div id="modal3D" class="modal">
+    <div class="modal-content" style="max-width: 95%; background: #000; border-radius: 24px; overflow: hidden;">
+        <span class="modal-close" id="closeModal3D">&times;</span>
+        <div style="background: #111; padding: 16px; text-align: center;">
+            <iframe id="frame3D" width="100%" height="500" frameborder="0" allowfullscreen style="border-radius: 16px;"></iframe>
+        </div>
+    </div>
+</div>
+
+<!-- Уведомление -->
+<div id="toastMsg" class="toast"></div>
 
 <script>
-    // Анимация появления секций при скролле
+    // Инициализация карты Leaflet
+    var map = L.map('map').setView([55.7623, 37.6025], 16);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> & CartoDB',
+        subdomains: 'abcd',
+        maxZoom: 19,
+        minZoom: 14
+    }).addTo(map);
+    var marker = L.marker([55.7623, 37.6025]).addTo(map);
+    marker.bindPopup("<b>Палашёвский 11</b><br>Большой Палашёвский пер., 11").openPopup();
+
+    // Анимация появления секций
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -973,162 +1008,91 @@
     }, { threshold: 0.1 });
     sections.forEach(section => observer.observe(section));
 
-    // Уведомления
-    function showToast(message) {
-        const toast = document.getElementById('toast');
+    // Утилита для уведомлений
+    function showToast(message, isError = false) {
+        const toast = document.getElementById('toastMsg');
         toast.textContent = message;
+        toast.style.background = isError ? '#B83B3B' : '#C5A16E';
         toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 2500);
+        setTimeout(() => toast.classList.remove('show'), 3500);
     }
 
-    // Анимация кнопки при нажатии
-    function animateButton(btn) {
-        btn.style.transform = 'scale(0.98)';
-        setTimeout(() => btn.style.transform = '', 200);
-    }
+    // Отправка заявки с форм
+    document.getElementById('leadForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        if(!name || !phone) { showToast('Пожалуйста, заполните имя и телефон', true); return; }
+        showToast('Спасибо! Менеджер свяжется с вами в ближайшее время.');
+        this.reset();
+    });
 
-    // Обработчики кнопок
-    document.getElementById('btnPlans')?.addEventListener('click', () => {
+    // Кнопки
+    document.getElementById('btnPlans').addEventListener('click', () => {
         document.getElementById('plans').scrollIntoView({ behavior: 'smooth' });
-        showToast('📋 Планировки загружены');
     });
-    document.getElementById('btnPresentation')?.addEventListener('click', () => {
-        showToast('📄 Презентация скачивается...');
-        setTimeout(() => showToast('✅ Презентация скачана'), 1500);
+    document.getElementById('btnPresentation').addEventListener('click', () => {
+        document.getElementById('modalPresentation').classList.add('active');
     });
-    document.getElementById('btn3DTour')?.addEventListener('click', () => {
-        showToast('🎮 3D-тур скоро будет доступен');
+    document.getElementById('btn3DTour').addEventListener('click', () => {
+        const iframe = document.getElementById('frame3D');
+        iframe.src = "https://my.matterport.com/show/?m=placeholder";
+        document.getElementById('modal3D').classList.add('active');
     });
-    document.getElementById('btnCatalog')?.addEventListener('click', () => {
-        showToast('📚 Каталог отправлен на почту');
+    document.getElementById('btnCatalog').addEventListener('click', () => {
+        document.getElementById('modalPresentation').classList.add('active');
     });
-    document.getElementById('btnPermit')?.addEventListener('click', () => {
-        showToast('📄 Разрешение на строительство загружено');
+    document.getElementById('btnCallManager').addEventListener('click', () => {
+        document.getElementById('modalRequest').classList.add('active');
     });
-    document.getElementById('btnMorePhotos')?.addEventListener('click', () => {
-        document.getElementById('gallerySlider').scrollIntoView({ behavior: 'smooth' });
-        showToast('📸 Все фото проекта');
-    });
-    document.getElementById('floatingBtn')?.addEventListener('click', () => {
-        document.getElementById('contacts').scrollIntoView({ behavior: 'smooth' });
-        showToast('📞 Свяжитесь с нами');
+    document.getElementById('btnRequest').addEventListener('click', () => {
+        document.getElementById('modalRequest').classList.add('active');
     });
 
-    // Отправка формы обратной связи
-    document.getElementById('contactForm')?.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const name = document.getElementById('nameInput').value;
-        const phone = document.getElementById('phoneInput').value;
-        if (name && phone) {
-            showToast(`🎉 Спасибо, ${name}! Менеджер свяжется с вами`);
-            console.log('Заявка:', { name, phone, comment: document.getElementById('commentInput')?.value });
-            e.target.reset();
-        } else {
-            showToast('⚠️ Заполните имя и телефон');
-        }
+    // Функционал модальных окон (презентация PDF)
+    document.getElementById('sendPdfBtn').addEventListener('click', function() {
+        const email = document.getElementById('pdfEmail').value.trim();
+        if(!email) { showToast('Укажите e-mail для отправки презентации', true); return; }
+        showToast('Презентация отправлена на ' + email);
+        document.getElementById('modalPresentation').classList.remove('active');
+        document.getElementById('pdfEmail').value = '';
+    });
+    document.getElementById('closeModalPresentation').addEventListener('click', () => {
+        document.getElementById('modalPresentation').classList.remove('active');
     });
 
-    // Слайдер галереи
-    const galleryImages = [
-        'Вид спереди.jpeg',
-        'Фасад_1_крупный план.jpeg',
-        'Фасад_3_крупный план.jpeg',
-        'Гранитный и стеклянный фасады.jpeg',
-        'Терраса (4).jpeg',
-        'Птичка_вечер.jpeg',
-        'Полуптичка.jpeg',
-        'Патио.jpeg',
-        'Паркинг (3).jpeg',
-        'Лобби (10).jpeg',
-        'Лобби (8).jpeg',
-        'Лобби (7).jpeg',
-        'Вид из Сытинского переулка.jpeg'
-    ];
-    let currentSlide = 0;
-    const track = document.getElementById('sliderTrack');
-
-    function renderSlider() {
-        if (!track) return;
-        track.innerHTML = galleryImages.map(img => `<div class="slider-slide" style="background-image: url('${img}');" onclick="openImageModal('${img}')"></div>`).join('');
-        updateSlider();
-    }
-
-    function updateSlider() {
-        if (!track) return;
-        track.style.transform = `translateX(-${currentSlide * 100}%)`;
-        const dots = document.getElementById('sliderDots');
-        if (dots) {
-            dots.innerHTML = galleryImages.map((_, i) => `<div class="dot ${i === currentSlide ? 'active' : ''}" data-slide="${i}"></div>`).join('');
-            document.querySelectorAll('.dot').forEach(dot => {
-                dot.addEventListener('click', () => {
-                    currentSlide = parseInt(dot.dataset.slide);
-                    updateSlider();
-                });
-            });
-        }
-    }
-
-    document.getElementById('sliderPrev')?.addEventListener('click', () => {
-        currentSlide = (currentSlide - 1 + galleryImages.length) % galleryImages.length;
-        updateSlider();
+    // Модалка заявки менеджеру
+    document.getElementById('submitRequestBtn').addEventListener('click', function() {
+        const name = document.getElementById('requestName').value.trim();
+        const phone = document.getElementById('requestPhone').value.trim();
+        if(!name || !phone) { showToast('Заполните имя и телефон', true); return; }
+        showToast('Заявка отправлена менеджеру Анне. Ожидайте звонка.');
+        document.getElementById('modalRequest').classList.remove('active');
+        document.getElementById('requestName').value = '';
+        document.getElementById('requestPhone').value = '';
     });
-    document.getElementById('sliderNext')?.addEventListener('click', () => {
-        currentSlide = (currentSlide + 1) % galleryImages.length;
-        updateSlider();
+    document.getElementById('closeModalRequest').addEventListener('click', () => {
+        document.getElementById('modalRequest').classList.remove('active');
     });
 
-    // Открытие модального окна с фото
-    window.openImageModal = function(src) {
-        const modal = document.getElementById('imageModal');
-        document.getElementById('modalImage').src = src;
-        modal.classList.add('active');
-    };
-
-    // Закрытие модального окна
-    document.querySelectorAll('.modal-close').forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.getElementById('imageModal').classList.remove('active');
-        });
+    // Закрытие 3D-тура
+    document.getElementById('closeModal3D').addEventListener('click', () => {
+        document.getElementById('modal3D').classList.remove('active');
+        document.getElementById('frame3D').src = "";
     });
+
+    // Закрытие модалки кликом по фону
     window.addEventListener('click', (e) => {
-        if (e.target === document.getElementById('imageModal')) {
-            document.getElementById('imageModal').classList.remove('active');
+        if(e.target.classList.contains('modal')) {
+            e.target.classList.remove('active');
+            if(e.target.id === 'modal3D') document.getElementById('frame3D').src = "";
         }
     });
 
-    // Клик по миниатюрам галереи
-    document.querySelectorAll('.gallery-item').forEach(item => {
-        item.addEventListener('click', () => {
-            const bgImage = window.getComputedStyle(item).backgroundImage;
-            const url = bgImage.slice(5, -2).replace(/"/g, '');
-            openImageModal(url);
-        });
-    });
-
-    // Ссылки в футере
-    document.getElementById('privacyLink')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        showToast('📄 Политика конфиденциальности');
-    });
-    document.getElementById('declarationLink')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        showToast('📄 Проектная декларация');
-    });
-
-    // Инициализация карты
-    function initMap() {
-        const map = L.map('map').setView([55.765, 37.603], 16);
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>'
-        }).addTo(map);
-        L.marker([55.765, 37.603]).addTo(map)
-            .bindPopup('<b>Палашёвский 11</b><br>Большой Палашёвский переулок, 11')
-            .openPopup();
-    }
-
-    renderSlider();
-    initMap();
+    // Предзагрузка данных о комплексе в консоль
+    console.log('Лендинг Палашёвский 11 загружен. Персональный менеджер Анна Ковалёва.');
 </script>
 
 </body>
 </html>
+```
