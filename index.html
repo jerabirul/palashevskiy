@@ -16,10 +16,11 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #ffffff;
-            color: #1a1a1a;
+            background-color: #050505;
+            color: #ededed;
             line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         .container {
@@ -29,35 +30,63 @@
         }
 
         .gold {
-            color: #aa7c4a;
-        }
-        
-        .section-tag {
-            font-size: 12px;
-            letter-spacing: 3px;
-            color: #aa7c4a;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            display: block;
+            color: #dbb86b;
         }
 
         .section-title {
-            font-size: 32px;
-            font-weight: 600;
-            line-height: 1.2;
+            font-size: 28px;
+            font-weight: 500;
             margin-bottom: 20px;
         }
 
-        /* Hero */
+        .section-subtitle {
+            font-size: 11px;
+            letter-spacing: 4px;
+            color: #dbb86b;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #dbb86b;
+            color: #0a0a0a;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-primary:hover {
+            background: #f0cf8b;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1.5px solid #dbb86b;
+            color: #dbb86b;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
         .hero {
-            position: relative;
             min-height: 100vh;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white;
-            padding: 80px 20px;
+            overflow: hidden;
         }
 
         .hero-bg {
@@ -67,17 +96,15 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.4);
+            filter: brightness(0.45);
             z-index: 0;
         }
 
         .hero-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+            background: radial-gradient(ellipse at 30% 40%, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
             z-index: 1;
         }
 
@@ -85,72 +112,45 @@
             position: relative;
             z-index: 2;
             max-width: 100%;
+            padding: 0 20px;
+            animation: fadeUp 0.8s;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero-label {
             font-size: 12px;
-            letter-spacing: 4px;
-            color: #aa7c4a;
+            letter-spacing: 5px;
+            color: #dbb86b;
             margin-bottom: 16px;
         }
 
         .hero h1 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 12px;
+            font-size: 44px;
+            margin-bottom: 16px;
         }
 
         .hero-address {
-            font-size: 15px;
+            font-size: 16px;
             opacity: 0.9;
             margin-bottom: 32px;
         }
 
         .btn-group {
             display: flex;
-            flex-direction: column;
-            gap: 12px;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .btn-primary {
-            width: 100%;
-            padding: 16px;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 16px;
-            text-align: center;
-            cursor: pointer;
-            transition: 0.2s;
-            border: none;
-            background: #aa7c4a;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #8b6239;
-        }
-
-        .btn-secondary {
-            width: 100%;
-            padding: 16px;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 16px;
-            text-align: center;
-            cursor: pointer;
-            transition: 0.2s;
-            border: none;
-            background: transparent;
-            border: 1.5px solid white;
-            color: white;
-        }
-
-        /* Stats */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 24px;
-            background: #f8f8f8;
+            background: #0c0c0c;
             border-radius: 32px;
             padding: 32px 24px;
             margin: 48px 0;
@@ -159,47 +159,9 @@
         .stat-number {
             font-size: 34px;
             font-weight: 700;
-            color: #aa7c4a;
+            color: #dbb86b;
         }
 
-        /* Facade block */
-        .facade-showcase {
-            margin: 48px 0;
-        }
-        
-        .facade-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
-            margin-top: 24px;
-        }
-        
-        .facade-item {
-            background: #f8f8f8;
-            border-radius: 28px;
-            overflow: hidden;
-        }
-        
-        .facade-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .facade-item h3 {
-            font-size: 22px;
-            font-weight: 600;
-            margin: 20px 20px 8px;
-        }
-        
-        .facade-item p {
-            margin: 0 20px 24px;
-            font-size: 15px;
-            color: #555;
-            line-height: 1.4;
-        }
-
-        /* Two columns */
         .two-columns {
             display: flex;
             flex-direction: column;
@@ -219,7 +181,6 @@
             border-radius: 24px;
         }
 
-        /* Gallery */
         .swiper-gallery {
             width: 100%;
             height: 340px;
@@ -235,7 +196,7 @@
         }
 
         .swiper-pagination-bullet-active {
-            background: #aa7c4a !important;
+            background: #dbb86b !important;
         }
 
         .swiper-button-next,
@@ -252,9 +213,8 @@
             font-size: 18px;
         }
 
-        /* Manager */
         .manager-card {
-            background: #f8f8f8;
+            background: #0c0c0c;
             border-radius: 32px;
             padding: 40px 24px;
             text-align: center;
@@ -267,7 +227,7 @@
             border-radius: 50%;
             overflow: hidden;
             margin: 0 auto 20px;
-            border: 3px solid #aa7c4a;
+            border: 3px solid #dbb86b;
         }
 
         .manager-photo img {
@@ -289,7 +249,7 @@
 
         .manager-card p {
             font-size: 15px;
-            color: #555;
+            color: #aaa;
             margin-bottom: 20px;
         }
 
@@ -306,21 +266,20 @@
             align-items: center;
             gap: 8px;
             padding: 10px 20px;
-            background: #ffffff;
+            background: #1a1a1a;
             border-radius: 50px;
             text-decoration: none;
-            color: #1a1a1a;
-            border: 1px solid #e0e0e0;
+            color: #fff;
+            border: 1px solid #333;
             font-size: 14px;
             font-weight: 500;
             transition: 0.2s;
         }
 
         .btn-messenger:hover {
-            border-color: #aa7c4a;
+            border-color: #dbb86b;
         }
 
-        /* Docs */
         .docs-grid {
             display: flex;
             flex-direction: column;
@@ -329,16 +288,17 @@
         }
 
         .doc-card {
-            background: #f8f8f8;
+            background: #0c0c0c;
             padding: 24px;
             border-radius: 24px;
             text-align: center;
             transition: 0.2s;
+            border: 1px solid #1a1a1a;
         }
 
         .doc-card i {
             font-size: 36px;
-            color: #aa7c4a;
+            color: #dbb86b;
             margin-bottom: 12px;
         }
 
@@ -349,15 +309,14 @@
         }
 
         .doc-card a {
-            color: #aa7c4a;
+            color: #dbb86b;
             text-decoration: none;
             font-weight: 500;
             font-size: 14px;
         }
 
-        /* Contacts */
         .contacts-grid {
-            background: #f8f8f8;
+            background: #0c0c0c;
             border-radius: 32px;
             padding: 32px 24px;
             text-align: center;
@@ -370,11 +329,10 @@
         }
 
         .contacts-grid p {
-            color: #555;
+            color: #aaa;
             margin-bottom: 20px;
         }
 
-        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -382,19 +340,20 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.85);
+            background: rgba(0,0,0,0.95);
             z-index: 1000;
             justify-content: center;
             align-items: center;
         }
 
         .modal-content {
-            background: white;
+            background: #0c0c0c;
             padding: 32px 24px;
             border-radius: 32px;
             max-width: 400px;
             width: 90%;
             position: relative;
+            border: 1px solid #dbb86b;
         }
 
         .close-modal {
@@ -403,12 +362,13 @@
             right: 20px;
             font-size: 28px;
             cursor: pointer;
-            color: #999;
+            color: #dbb86b;
         }
 
         .modal-content h3 {
             font-size: 24px;
             margin-bottom: 24px;
+            color: #dbb86b;
         }
 
         .modal-content input,
@@ -416,10 +376,12 @@
             width: 100%;
             padding: 14px;
             margin: 12px 0;
-            border: 1px solid #ddd;
+            border: 1px solid #333;
             border-radius: 16px;
             font-family: inherit;
             font-size: 15px;
+            background: #1a1a1a;
+            color: white;
         }
 
         .modal-content button {
@@ -427,29 +389,53 @@
             margin-top: 12px;
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 40px 20px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid #1a1a1a;
             font-size: 13px;
-            color: #888;
+            color: #666;
         }
 
         footer a {
-            color: #888;
+            color: #666;
             text-decoration: none;
             margin: 0 12px;
         }
 
         footer a:hover {
-            color: #aa7c4a;
+            color: #dbb86b;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            .section-title {
+                font-size: 24px;
+            }
+            .stats-grid {
+                gap: 16px;
+                padding: 24px 16px;
+            }
+            .stat-number {
+                font-size: 28px;
+            }
+            .swiper-gallery {
+                height: 260px;
+            }
+            .btn-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .hero h1 {
+                font-size: 36px;
+            }
         }
     </style>
 </head>
 <body>
 
-<!-- Hero блок -->
 <div class="hero">
     <img class="hero-bg" src="Фасад_1_closeup.jpeg" alt="Палашёвский 11">
     <div class="hero-overlay"></div>
@@ -465,7 +451,6 @@
 </div>
 
 <div class="container">
-    <!-- Статистика -->
     <div class="stats-grid">
         <div>
             <div class="stat-number">52</div>
@@ -485,47 +470,33 @@
         </div>
     </div>
 
-    <!-- Блок ФАСАДЫ -->
-    <div class="facade-showcase">
-        <span class="section-tag">АРХИТЕКТУРА</span>
-        <h2 class="section-title">Три уникальных фасада</h2>
-        <div class="facade-grid">
-            <div class="facade-item">
-                <img src="Фасад_1_closeup.jpeg" alt="Фасад с консольными террасами">
-                <h3>Консольные террасы</h3>
-                <p>Первый фасад украшен консольными террасами, выступающими до 4 метров. Панорамное остекление создаёт эффект лёгкости и открывает потрясающие виды.</p>
-            </div>
-            <div class="facade-item">
-                <img src="Фронтальный вид.jpeg" alt="Волнообразный фасад">
-                <h3>Волнообразный балкон</h3>
-                <p>Второй фасад с волнообразными французскими балконами. Плавные линии создают динамичный, текучий силуэт здания.</p>
-            </div>
-            <div class="facade-item">
-                <img src="Гранитный и стеклянный фасады.jpeg" alt="Стеклянный фасад">
-                <h3>Полностью стеклянный фасад</h3>
-                <p>Третий фасад — первый в Москве полностью стеклянный с изумрудно-малахитовыми полуколоннами. Использован натуральный гранит и structural glass.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Приватность -->
     <div class="two-columns">
         <div>
-            <span class="section-tag">ПРИВАТНОСТЬ</span>
+            <div class="section-subtitle">Исключительная приватность</div>
             <h2 class="section-title">Тишина в центре столицы</h2>
-            <p>Клубный дом расположен в тихой части Патриарших прудов, вдали от шумных магистралей. Комплексная технология тишины Perfect Silence включает акустические окна класса RAL и многослойную шумоизоляцию.</p>
+            <p>Клубный дом в тихой части Патриарших прудов. Технология Perfect Silence, закрытый двор-сад и полная изоляция от внешнего шума.</p>
             <div style="margin-top: 20px;"><i class="fas fa-microphone-slash gold"></i> Акустические окна класса RAL</div>
-            <div style="margin-top: 10px;"><i class="fas fa-tree gold"></i> Закрытый двор-сад с оранжереей</div>
+            <div style="margin-top: 10px;"><i class="fas fa-tree gold"></i> Ландшафтный двор с оранжереей</div>
         </div>
         <div>
-            <img class="image-rounded" src="Вид из Сытинского переулка.jpeg" alt="Вид из Сытинского переулка">
+            <img class="image-rounded" src="Вид из Сытинского переулка.jpeg" alt="Вид из переулка">
         </div>
     </div>
 
-    <!-- Интерьеры - галерея -->
+    <div class="two-columns" style="flex-direction: row-reverse;">
+        <div>
+            <div class="section-subtitle">Вневременная эстетика</div>
+            <h2 class="section-title">Гранит и structural glass</h2>
+            <p>Три уникальных фасада: консольные террасы, волнообразный балкон и первый в Москве полностью стеклянный фасад.</p>
+        </div>
+        <div>
+            <img class="image-rounded" src="Гранитный и стеклянный фасады.jpeg" alt="Фасады">
+        </div>
+    </div>
+
     <div style="text-align: center; margin: 40px 0 20px;">
-        <span class="section-tag">ИНТЕРЬЕРЫ</span>
-        <h2 class="section-title">Клубные пространства</h2>
+        <div class="section-subtitle">Клубные интерьеры</div>
+        <h2 class="section-title">Пространства для жизни</h2>
     </div>
 
     <div class="swiper-gallery swiper">
@@ -546,23 +517,21 @@
         <div class="swiper-button-prev"></div>
     </div>
 
-    <!-- Паркинг -->
     <div class="two-columns">
         <div>
             <img class="image-rounded" src="Паркинг (3).jpeg" alt="Паркинг">
         </div>
         <div>
-            <span class="section-tag">ПАРКИНГ</span>
+            <div class="section-subtitle">Подземный паркинг</div>
             <h2 class="section-title">88 машиномест</h2>
-            <p>Закрытый подземный паркинг с финишной отделкой, видеонаблюдением и зарядными станциями для электромобилей. Готовность монолита — 92%.</p>
+            <p>Закрытый паркинг с финишной отделкой, видеонаблюдение, зарядные станции. Готовность монолита — 92%.</p>
             <div style="margin-top: 16px;"><i class="fas fa-charging-station gold"></i> Зарядные станции</div>
             <div style="margin-top: 10px;"><i class="fas fa-video gold"></i> Круглосуточное видеонаблюдение</div>
         </div>
     </div>
 
-    <!-- Документы -->
     <div style="text-align: center; margin: 40px 0 20px;">
-        <span class="section-tag">ДОКУМЕНТЫ</span>
+        <div class="section-subtitle">Документы</div>
         <h2 class="section-title">Официальная информация</h2>
     </div>
 
@@ -584,7 +553,6 @@
         </div>
     </div>
 
-    <!-- Персональный менеджер -->
     <div class="manager-card" id="manager">
         <div class="manager-photo">
             <img src="165A0448.jpeg" alt="Титов Алексей">
@@ -600,7 +568,6 @@
         </div>
     </div>
 
-    <!-- Контакты отдела продаж -->
     <div id="contacts" class="contacts-grid">
         <div>
             <h3><i class="fas fa-store gold"></i> Отдел продаж</h3>
@@ -615,7 +582,6 @@
     </div>
 </div>
 
-<!-- Footer -->
 <footer>
     <p>© 2026 Палашёвский 11 · Делюкс-класс</p>
     <div style="margin-top: 16px;">
@@ -625,7 +591,6 @@
     </div>
 </footer>
 
-<!-- Modal -->
 <div id="modal" class="modal">
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal()">&times;</span>
