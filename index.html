@@ -854,27 +854,24 @@
         });
     });
 
-    // Улучшенная обработка кнопки Email: открывает почту И показывает окно с копированием
     const emailBtn = document.getElementById('emailBtn');
     if (emailBtn) {
         emailBtn.addEventListener('click', function(e) {
             e.preventDefault();
             const email = 'a.titov@palashevskiy.ru';
             
-            // Пытаемся открыть почтовый клиент
             window.location.href = 'mailto:' + email;
             
-            // Через 0.7 секунд показываем подсказку для копирования
             setTimeout(function() {
-                const userChoice = confirm('📧 Не открывается почта?\n\nСкопируйте адрес вручную:\n' + email + '\n\nНажмите OK, чтобы скопировать');
+                const userChoice = confirm('Не открывается почта?\n\nСкопируйте адрес вручную:\n' + email + '\n\nНажмите OK, чтобы скопировать');
                 if (userChoice) {
                     navigator.clipboard.writeText(email).then(function() {
-                        alert('✅ Email скопирован в буфер обмена:\n' + email);
+                        alert('Email скопирован в буфер обмена: ' + email);
                     }).catch(function() {
-                        alert('❌ Не удалось скопировать. Скопируйте вручную:\n' + email);
+                        alert('Скопируйте вручную: ' + email);
                     });
                 }
-            }, 700);
+            }, 500);
         });
     }
 </script>
