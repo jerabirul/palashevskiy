@@ -120,8 +120,14 @@
         }
 
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero-label {
@@ -499,8 +505,12 @@
             <div class="section-subtitle">Исключительная приватность</div>
             <h2 class="section-title">Тишина в центре столицы</h2>
             <p>Клубный дом в тихой части Патриарших прудов. Технология Perfect Silence, закрытый двор-сад и полная изоляция от внешнего шума.</p>
-            <div style="margin-top: 20px;"><i class="fas fa-microphone-slash gold"></i> Акустические окна класса RAL</div>
-            <div style="margin-top: 10px;"><i class="fas fa-tree gold"></i> Ландшафтный двор с оранжереей</div>
+            <div style="margin-top: 20px;">
+                <i class="fas fa-microphone-slash gold"></i> Акустические окна класса RAL
+            </div>
+            <div style="margin-top: 10px;">
+                <i class="fas fa-tree gold"></i> Ландшафтный двор с оранжереей
+            </div>
         </div>
         <div>
             <img class="image-rounded" src="Вид из Сытинского переулка.jpeg" alt="Вид из переулка">
@@ -529,7 +539,6 @@
             <div class="swiper-slide"><img src="Лобби (3).jpeg" alt="Лобби"></div>
             <div class="swiper-slide"><img src="Лобби (7).jpeg" alt="Лобби"></div>
             <div class="swiper-slide"><img src="Лобби (8).jpeg" alt="Лобби"></div>
-            <div class="swiper-slide"><img src="IMG_1729.jpeg" alt="Флорариум"></div>
             <div class="swiper-slide"><img src="Патио.jpeg" alt="Патио"></div>
             <div class="swiper-slide"><img src="Терраса (3).jpeg" alt="Терраса"></div>
             <div class="swiper-slide"><img src="Терраса (4).jpeg" alt="Терраса"></div>
@@ -549,8 +558,12 @@
             <div class="section-subtitle">Подземный паркинг</div>
             <h2 class="section-title">88 машиномест</h2>
             <p>Закрытый паркинг с финишной отделкой, видеонаблюдение, зарядные станции. Готовность монолита — 92%.</p>
-            <div style="margin-top: 16px;"><i class="fas fa-charging-station gold"></i> Зарядные станции</div>
-            <div style="margin-top: 10px;"><i class="fas fa-video gold"></i> Круглосуточное видеонаблюдение</div>
+            <div style="margin-top: 16px;">
+                <i class="fas fa-charging-station gold"></i> Зарядные станции
+            </div>
+            <div style="margin-top: 10px;">
+                <i class="fas fa-video gold"></i> Круглосуточное видеонаблюдение
+            </div>
         </div>
     </div>
 
@@ -563,12 +576,12 @@
         <div class="doc-card">
             <i class="fas fa-file-alt"></i>
             <h3>Разрешение на строительство</h3>
-            <a href="https://xn--80azf3ag.xn--80adxhks/files/726E732E646F63756D656E74733A5417CDB95B694BDEB0B415F5D7622B64?filename=obj68269_rns77-01-022352-2025.pdf.pdf" target="_blank">Скачать PDF →</a>
+            <a href="https://xn--80azf3ag.xn--80adxhks/%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D1%8B/%D0%BA%D0%B0%D1%82%D0%B0%D0%BB%D0%BE%D0%B3-%D0%BD%D0%BE%D0%B2%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BA/%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82/68269" target="_blank">Смотреть на наш.дом.рф →</a>
         </div>
         <div class="doc-card">
             <i class="fas fa-folder-open"></i>
             <h3>Проектная декларация</h3>
-            <a href="https://xn--80azf3ag.xn--80adxhks/api/ext/file/70726F6A6465636C2E646F63732E697A643AA76BE58640E0401EA86956B1F06005FA?filename=obj68269_pd77-003253.pdf" target="_blank">Скачать PDF →</a>
+            <a href="https://xn--80azf3ag.xn--80adxhks/%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D1%8B/%D0%BA%D0%B0%D1%82%D0%B0%D0%BB%D0%BE%D0%B3-%D0%BD%D0%BE%D0%B2%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BA/%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82/68269" target="_blank">Смотреть на наш.дом.рф →</a>
         </div>
         <div class="doc-card">
             <i class="fas fa-hard-hat"></i>
@@ -674,7 +687,7 @@
         
         window.location.href = `mailto:titov.alex.work@yandex.ru?subject=${subject}&body=${body}`;
         
-        alert(`Спасибо, ${name}! Заявка отправлена. Я свяжусь с вами в ближайшее время.`);
+        alert(`Спасибо, ${name}!\nВаша заявка принята. Менеджер свяжется с вами в ближайшее время.`);
         closeModal();
     });
 
