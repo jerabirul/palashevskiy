@@ -342,6 +342,7 @@
             margin-bottom: 20px;
         }
 
+        /* Основное модальное окно для форм */
         .modal {
             display: none;
             position: fixed;
@@ -398,6 +399,71 @@
             margin-top: 12px;
         }
 
+        /* Модальное окно для политики конфиденциальности */
+        .privacy-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1100;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .privacy-content {
+            background: #0c0c0c;
+            padding: 32px 28px;
+            border-radius: 32px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            border: 1px solid #dbb86b;
+        }
+
+        .close-privacy {
+            position: absolute;
+            top: 16px;
+            right: 24px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #dbb86b;
+        }
+
+        .privacy-content h3 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            color: #dbb86b;
+            padding-right: 30px;
+        }
+
+        .privacy-content h4 {
+            font-size: 18px;
+            margin: 20px 0 10px 0;
+            color: #dbb86b;
+        }
+
+        .privacy-content p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #ccc;
+            margin-bottom: 12px;
+        }
+
+        .privacy-content ul {
+            margin: 12px 0 12px 20px;
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .privacy-content li {
+            margin-bottom: 8px;
+        }
+
         .lightbox {
             display: none;
             position: fixed;
@@ -430,6 +496,7 @@
             color: #666;
             text-decoration: none;
             margin: 0 12px;
+            cursor: pointer;
         }
 
         footer a:hover {
@@ -459,6 +526,9 @@
             }
             .hero h1 {
                 font-size: 36px;
+            }
+            .privacy-content {
+                padding: 24px 20px;
             }
         }
     </style>
@@ -621,12 +691,13 @@
 <footer>
     <p>© 2026 Палашёвский 11 · Делюкс-класс</p>
     <div style="margin-top: 16px;">
-        <a href="#" onclick="openPrivacy(); return false;">Политика конфиденциальности</a>
+        <a href="#" onclick="openPrivacyModal(); return false;">Политика конфиденциальности</a>
         <a href="#manager">Связаться с менеджером</a>
         <a href="#contacts">Контакты</a>
     </div>
 </footer>
 
+<!-- Модальное окно для формы заявки -->
 <div id="modal" class="modal">
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal()">&times;</span>
@@ -637,7 +708,42 @@
             <textarea id="userComment" placeholder="Комментарий (необязательно)" rows="3"></textarea>
             <button type="submit" class="btn-primary">Отправить</button>
         </form>
-        <p style="font-size: 12px; color: #888; margin-top: 16px; text-align: center;">Нажимая «Отправить», вы соглашаетесь с политикой конфиденциальности</p>
+        <p style="font-size: 12px; color: #888; margin-top: 16px; text-align: center;">Нажимая «Отправить», вы соглашаетесь с <a href="#" onclick="openPrivacyModal(); return false;" style="color:#dbb86b;">политикой конфиденциальности</a></p>
+    </div>
+</div>
+
+<!-- Модальное окно с текстом политики конфиденциальности -->
+<div id="privacyModal" class="privacy-modal">
+    <div class="privacy-content">
+        <span class="close-privacy" onclick="closePrivacyModal()">&times;</span>
+        <h3>Политика конфиденциальности</h3>
+        <p>Настоящий документ определяет правила обработки персональных данных в рамках работы сайта palashevskiy11.ru (далее — «Сайт»).</p>
+        
+        <h4>1. Какие данные собираются</h4>
+        <p>При заполнении формы обратной связи (имя, телефон, комментарий) вы добровольно предоставляете нам свои контактные данные. Также автоматически могут собираться технические данные (IP-адрес, тип браузера, Cookies) для корректной работы сайта.</p>
+        
+        <h4>2. Цель сбора данных</h4>
+        <p>Ваши данные используются исключительно для:</p>
+        <ul>
+            <li>Связи с вами по вопросам, связанным с объектом «Палашёвский 11»;</li>
+            <li>Предоставления запрошенной презентации или консультации;</li>
+            <li>Улучшения работы сайта и анализа пользовательского опыта.</li>
+        </ul>
+        
+        <h4>3. Передача данных третьим лицам</h4>
+        <p>Мы не передаём ваши персональные данные третьим лицам, за исключением случаев, предусмотренных законодательством РФ. Вся информация хранится на защищённых серверах и доступна только уполномоченным сотрудникам.</p>
+        
+        <h4>4. Хранение и удаление</h4>
+        <p>Ваши данные хранятся до момента достижения цели обработки либо до вашего запроса на удаление. Вы можете в любой момент запросить удаление ваших данных, написав нам на почту <a href="mailto:titov.alex.work@yandex.ru" style="color:#dbb86b;">titov.alex.work@yandex.ru</a>.</p>
+        
+        <h4>5. Cookies</h4>
+        <p>Сайт использует файлы cookie для обеспечения корректной работы и сбора статистики. Продолжая использовать сайт, вы соглашаетесь на обработку cookie-файлов.</p>
+        
+        <h4>6. Изменения политики</h4>
+        <p>Администрация оставляет за собой право вносить изменения в настоящую политику. Актуальная версия всегда доступна по данной ссылке.</p>
+        
+        <p style="margin-top: 24px;"><strong>Контакты ответственного лица:</strong> Титов Алексей, <a href="mailto:titov.alex.work@yandex.ru" style="color:#dbb86b;">titov.alex.work@yandex.ru</a></p>
+        <p>Актуально с 10 июня 2026 года.</p>
     </div>
 </div>
 
@@ -666,14 +772,18 @@
         document.getElementById('modalForm').reset();
     }
 
-    function openPrivacy() {
-        alert('Политика конфиденциальности будет добавлена позже.');
+    function openPrivacyModal() {
+        document.getElementById('privacyModal').style.display = 'flex';
+    }
+
+    function closePrivacyModal() {
+        document.getElementById('privacyModal').style.display = 'none';
     }
 
     document.getElementById('modalForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        const name = document.getElementById('userName').value;
-        const phone = document.getElementById('userPhone').value;
+        const name = document.getElementById('userName').value.trim();
+        const phone = document.getElementById('userPhone').value.trim();
         const comment = document.getElementById('userComment').value;
         
         if (!name || !phone) {
@@ -684,16 +794,22 @@
         const subject = encodeURIComponent('Заявка с сайта Палашёвский 11');
         const body = encodeURIComponent(`Имя: ${name}\nТелефон: ${phone}\nКомментарий: ${comment}\n\nТип заявки: ${currentModalType === 'presentation' ? 'Получить презентацию' : 'Заявка менеджеру'}`);
         
+        // Ваш актуальный email
         window.location.href = `mailto:titov.alex.work@yandex.ru?subject=${subject}&body=${body}`;
         
         alert(`Спасибо, ${name}!\nВаша заявка принята. Менеджер свяжется с вами в ближайшее время.`);
         closeModal();
     });
 
+    // Закрытие модалок по клику вне контента
     window.onclick = function(event) {
         const modal = document.getElementById('modal');
+        const privacy = document.getElementById('privacyModal');
         if (event.target === modal) {
             closeModal();
+        }
+        if (event.target === privacy) {
+            closePrivacyModal();
         }
     }
 
@@ -733,11 +849,12 @@
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
-            if (href === "#") return;
-            const target = document.querySelector(href);
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth' });
+            if (href === "#" || href === "#manager" || href === "#contacts") {
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             }
         });
     });
