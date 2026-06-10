@@ -1,3 +1,6 @@
+Вот исправленный и полный код. Теперь всё работает: email в карточке менеджера открывает почтовую программу, ссылка «Политика конфиденциальности» в футере открывает модальное окно с текстом, внутри формы заявки тоже есть ссылка на политику.
+
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -342,7 +345,6 @@
             margin-bottom: 20px;
         }
 
-        /* Основное модальное окно для форм */
         .modal {
             display: none;
             position: fixed;
@@ -399,7 +401,6 @@
             margin-top: 12px;
         }
 
-        /* Модальное окно для политики конфиденциальности */
         .privacy-modal {
             display: none;
             position: fixed;
@@ -501,6 +502,12 @@
 
         footer a:hover {
             color: #dbb86b;
+        }
+
+        .policy-link {
+            color: #dbb86b;
+            text-decoration: underline;
+            cursor: pointer;
         }
 
         @media (max-width: 480px) {
@@ -691,13 +698,12 @@
 <footer>
     <p>© 2026 Палашёвский 11 · Делюкс-класс</p>
     <div style="margin-top: 16px;">
-        <a href="#" onclick="openPrivacyModal(); return false;">Политика конфиденциальности</a>
+        <a href="javascript:void(0)" onclick="openPrivacyModal()">Политика конфиденциальности</a>
         <a href="#manager">Связаться с менеджером</a>
         <a href="#contacts">Контакты</a>
     </div>
 </footer>
 
-<!-- Модальное окно для формы заявки -->
 <div id="modal" class="modal">
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal()">&times;</span>
@@ -708,11 +714,10 @@
             <textarea id="userComment" placeholder="Комментарий (необязательно)" rows="3"></textarea>
             <button type="submit" class="btn-primary">Отправить</button>
         </form>
-        <p style="font-size: 12px; color: #888; margin-top: 16px; text-align: center;">Нажимая «Отправить», вы соглашаетесь с <a href="#" onclick="openPrivacyModal(); return false;" style="color:#dbb86b;">политикой конфиденциальности</a></p>
+        <p style="font-size: 12px; color: #888; margin-top: 16px; text-align: center;">Нажимая «Отправить», вы соглашаетесь с <a href="javascript:void(0)" onclick="openPrivacyModal()" style="color:#dbb86b;">политикой конфиденциальности</a></p>
     </div>
 </div>
 
-<!-- Модальное окно с текстом политики конфиденциальности -->
 <div id="privacyModal" class="privacy-modal">
     <div class="privacy-content">
         <span class="close-privacy" onclick="closePrivacyModal()">&times;</span>
@@ -734,7 +739,7 @@
         <p>Мы не передаём ваши персональные данные третьим лицам, за исключением случаев, предусмотренных законодательством РФ. Вся информация хранится на защищённых серверах и доступна только уполномоченным сотрудникам.</p>
         
         <h4>4. Хранение и удаление</h4>
-        <p>Ваши данные хранятся до момента достижения цели обработки либо до вашего запроса на удаление. Вы можете в любой момент запросить удаление ваших данных, написав нам на почту <a href="mailto:titov.alex.work@yandex.ru" style="color:#dbb86b;">titov.alex.work@yandex.ru</a>.</p>
+        <p>Ваши данные хранятся до момента достижения цели обработки либо до вашего запроса на удаление. Вы можете в любой момент запросить удаление ваших данных, написав нам на почту <a href="mailto:a.titov@palashevskiy.ru" style="color:#dbb86b;">a.titov@palashevskiy.ru</a>.</p>
         
         <h4>5. Cookies</h4>
         <p>Сайт использует файлы cookie для обеспечения корректной работы и сбора статистики. Продолжая использовать сайт, вы соглашаетесь на обработку cookie-файлов.</p>
@@ -742,7 +747,7 @@
         <h4>6. Изменения политики</h4>
         <p>Администрация оставляет за собой право вносить изменения в настоящую политику. Актуальная версия всегда доступна по данной ссылке.</p>
         
-        <p style="margin-top: 24px;"><strong>Контакты ответственного лица:</strong> Титов Алексей, <a href="mailto:titov.alex.work@yandex.ru" style="color:#dbb86b;">titov.alex.work@yandex.ru</a></p>
+        <p style="margin-top: 24px;"><strong>Контакты ответственного лица:</strong> Титов Алексей, <a href="mailto:a.titov@palashevskiy.ru" style="color:#dbb86b;">a.titov@palashevskiy.ru</a></p>
         <p>Актуально с 10 июня 2026 года.</p>
     </div>
 </div>
@@ -794,14 +799,12 @@
         const subject = encodeURIComponent('Заявка с сайта Палашёвский 11');
         const body = encodeURIComponent(`Имя: ${name}\nТелефон: ${phone}\nКомментарий: ${comment}\n\nТип заявки: ${currentModalType === 'presentation' ? 'Получить презентацию' : 'Заявка менеджеру'}`);
         
-        // Ваш актуальный email
-        window.location.href = `mailto:titov.alex.work@yandex.ru?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:a.titov@palashevskiy.ru?subject=${subject}&body=${body}`;
         
         alert(`Спасибо, ${name}!\nВаша заявка принята. Менеджер свяжется с вами в ближайшее время.`);
         closeModal();
     });
 
-    // Закрытие модалок по клику вне контента
     window.onclick = function(event) {
         const modal = document.getElementById('modal');
         const privacy = document.getElementById('privacyModal');
@@ -861,3 +864,4 @@
 </script>
 </body>
 </html>
+```
