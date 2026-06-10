@@ -321,6 +321,7 @@
             text-decoration: none;
             font-weight: 500;
             font-size: 14px;
+            word-break: break-all;
         }
 
         .contacts-grid {
@@ -666,7 +667,7 @@
     }
 
     function openPrivacy() {
-        alert('Политика конфиденциальности будет добавлена позже. Вы сможете загрузить свой файл и заменить ссылку.');
+        alert('Политика конфиденциальности будет добавлена позже.');
     }
 
     document.getElementById('modalForm').addEventListener('submit', function(e) {
@@ -732,7 +733,7 @@
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
-            if (href === "#" || href === "#") return;
+            if (href === "#") return;
             const target = document.querySelector(href);
             if (target) {
                 e.preventDefault();
